@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Lumina Vault - Markup Dashboard</title>
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;family=Noto+Serif:wght@300;400;700&amp;family=Inter:wght@300;400;600&amp;display=swap"
+    rel="stylesheet" />
+  <!-- Icons -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+    rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script src="tailwind-config.js"></script>
+  <link rel="stylesheet" href="app.css" />
+</head>
+
+<body class="bg-background text-on-background font-body selection:bg-secondary-container">
+  <!-- SideNavBar Integration -->
+  <aside
+    class="hidden md:flex flex-col py-8 px-4 h-screen w-64 left-0 top-0 fixed bg-[#f3f3f3] dark:bg-slate-900 no-border space-y-2 flat no shadows z-40">
+
+    <nav class="space-y-1">
+      <a class="flex items-center gap-3 py-3 px-4 rounded-xl text-blue-800 dark:text-blue-300 font-bold border-r-2 border-blue-800 dark:border-blue-400 scale-95 transition-transform bg-white/50"
+        href="dashboard.html">
+        <span class="material-symbols-outlined">dashboard</span>
+        <span class="font-sans text-sm tracking-wide">Dashboard</span>
+      </a>
+      <a class="flex items-center gap-3 py-3 px-4 rounded-xl text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 transition-all duration-200"
+        href="metal.html">
+        <span class="material-symbols-outlined">payments</span>
+        <span class="font-sans text-sm tracking-wide">Metal Rates</span>
+      </a>
+      <a class="flex items-center gap-3 py-3 px-4 rounded-xl text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 transition-all duration-200"
+        href="margin.html">
+        <span class="material-symbols-outlined">percent</span>
+        <span class="font-sans text-sm tracking-wide">Margin Rates</span>
+      </a>
+      <a class="flex items-center gap-3 py-3 px-4 rounded-xl text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 transition-all duration-200"
+        href="stone.html">
+        <span class="material-symbols-outlined">diamond</span>
+        <span class="font-sans text-sm tracking-wide">Stone Prices</span>
+      </a>
+      <a class="flex items-center gap-3 py-3 px-4 rounded-xl text-slate-500 dark:text-slate-400 hover:text-blue-600 hover:bg-white/50 transition-all duration-200"
+        href="#">
+        <span class="material-symbols-outlined">history</span>
+        <span class="font-sans text-sm tracking-wide">Activity Log</span>
+      </a>
+    </nav>
+    <div class="mt-auto px-4 pb-4">
+      <div class="p-4 rounded-xl bg-primary-container/10 border border-primary/5">
+        <p class="text-[10px] uppercase tracking-widest text-primary mb-2">Vault Security</p>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-emerald-500"></div>
+          <span class="text-xs font-medium text-on-surface">System Encrypted</span>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <!-- Main Content Area -->
+  <main class="md:ml-64 min-h-screen">
+    <!-- TopAppBar Integration -->
+    <header
+      class="flex justify-between items-center w-full px-8 h-16 bg-[#f9f9f9] dark:bg-slate-950 docked full-width top-0 z-50 sticky">
+      <div class="flex items-center gap-8">
+        <div class="text-2xl font-serif tracking-tighter text-blue-800 dark:text-blue-400">Lumina Vault</div>
+        <div class="hidden lg:flex items-center bg-surface-container-low px-4 py-1.5 rounded-full">
+          <span class="material-symbols-outlined text-outline text-sm mr-2">search</span>
+          <input class="bg-transparent border-none focus:ring-0 text-sm w-48 font-body" placeholder="Search archive..."
+            type="text" />
+        </div>
+      </div>
+      <div class="flex items-center gap-6">
+        <button class="text-slate-500 dark:text-slate-400 hover:text-blue-700 transition-colors">
+          <span class="material-symbols-outlined">settings</span>
+        </button>
+        <div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant/30">
+          <img alt="User Profile Avatar" class="w-full h-full object-cover"
+            data-alt="professional headshot of a curator in a well-lit studio setting with soft bokeh background"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Ric8vl62n_qzDXGYDDtojaUAmAsv3eGqRXAfDUNAOirk0ezFwFzEnw84A_ET83IL12Axk0Pt_XREX49_5hy43h5eU2Wqhltk3518R8P4gLpZmwnWKhWXuk1P1qwzeQWxqxmtR7HKUhUkOwdr4Uz_FcdJqMzcfUWQXUdWZcM3oG-SAfpqicsTbfRu8Lrx6QoUIK3i3az3utVSiFOfsEsqUH9GTSoN7Yym1vnz7dlo7ZDw12snfNoJzM5MLUi3CSO4eD8-zb7Ajc8" />
+        </div>
+      </div>
+    </header>
+    <!-- Dashboard Canvas -->
+    <div class="p-8 lg:p-12 max-w-7xl mx-auto space-y-12">
+      <!-- Hero Title Section -->
+      <section class="space-y-2">
+        <h2 class="text-5xl font-headline font-light tracking-tight text-on-surface italic">Lumina Vault - Markup
+          Dashboard</h2>
+        <p class="text-tertiary font-body tracking-wide text-sm max-w-xl opacity-80 uppercase">A refined overview of
+          your current market valuations and global metal performance.</p>
+      </section>
+      <!-- Metal Rates Bento Grid -->
+      <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Gold Card -->
+        <div
+          class="group relative overflow-hidden p-8 rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:shadow-2xl transition-all duration-500">
+          <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">payments</span>
+          </div>
+          <p class="text-xs font-label uppercase tracking-[0.2em] text-tertiary mb-6">Current Gold Spot</p>
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-headline font-semibold text-primary">$2,342.15</span>
+            <span class="text-emerald-600 text-xs font-body font-bold">+1.2%</span>
+          </div>
+          <div class="mt-8 flex items-center justify-between">
+            <span class="text-[10px] text-outline font-label uppercase">Last Updated: 2m ago</span>
+            <div class="h-px flex-grow mx-4 bg-outline-variant/20"></div>
+            <span class="material-symbols-outlined text-primary text-sm">trending_up</span>
+          </div>
+        </div>
+        <!-- Silver Card -->
+        <div
+          class="group relative overflow-hidden p-8 rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:shadow-2xl transition-all duration-500">
+          <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <span class="material-symbols-outlined text-8xl"
+              style="font-variation-settings: 'FILL' 1;">monetization_on</span>
+          </div>
+          <p class="text-xs font-label uppercase tracking-[0.2em] text-tertiary mb-6">Current Silver Spot</p>
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-headline font-semibold text-primary">$28.42</span>
+            <span class="text-error text-xs font-body font-bold">-0.4%</span>
+          </div>
+          <div class="mt-8 flex items-center justify-between">
+            <span class="text-[10px] text-outline font-label uppercase">Last Updated: 2m ago</span>
+            <div class="h-px flex-grow mx-4 bg-outline-variant/20"></div>
+            <span class="material-symbols-outlined text-primary text-sm">trending_down</span>
+          </div>
+        </div>
+        <!-- Platinum Card -->
+        <div
+          class="group relative overflow-hidden p-8 rounded-xl bg-surface-container-lowest border border-outline-variant/10 hover:shadow-2xl transition-all duration-500">
+          <div class="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity">
+            <span class="material-symbols-outlined text-8xl"
+              style="font-variation-settings: 'FILL' 1;">brightness_high</span>
+          </div>
+          <p class="text-xs font-label uppercase tracking-[0.2em] text-tertiary mb-6">Platinum Valuation</p>
+          <div class="flex items-baseline gap-2">
+            <span class="text-4xl font-headline font-semibold text-primary">$984.10</span>
+            <span class="text-primary text-xs font-body font-bold">Stable</span>
+          </div>
+          <div class="mt-8 flex items-center justify-between">
+            <span class="text-[10px] text-outline font-label uppercase">Last Updated: 2m ago</span>
+            <div class="h-px flex-grow mx-4 bg-outline-variant/20"></div>
+            <span class="material-symbols-outlined text-primary text-sm">remove</span>
+          </div>
+        </div>
+      </section>
+      <!-- Multi-Section Layout (Asymmetric) -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <!-- Margin Multiplier Table (Editorial Style) -->
+        <section class="lg:col-span-2 space-y-8">
+          <div class="flex items-end justify-between border-b border-outline-variant/20 pb-4">
+            <h3 class="text-2xl font-headline text-on-surface">Main Margin Multipliers</h3>
+            <a class="text-xs font-label uppercase tracking-widest text-primary hover:opacity-70 transition-opacity"
+              href="#">Edit Constants</a>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr class="text-[10px] uppercase tracking-[0.2em] text-outline">
+                  <th class="py-4 font-medium">Category</th>
+                  <th class="py-4 font-medium text-center">Base Cost</th>
+                  <th class="py-4 font-medium text-center">Multiplier</th>
+                  <th class="py-4 font-medium text-right">Retail Target</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-outline-variant/10 font-body">
+                <tr class="group hover:bg-surface-container-low transition-colors">
+                  <td class="py-6">
+                    <div class="flex items-center gap-4">
+                      <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-lg">auto_awesome</span>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold">Bridal Fine Jewelry</p>
+                        <p class="text-[10px] text-outline">High-tier engagement collection</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-6 text-center text-sm">$4,500.00</td>
+                  <td class="py-6 text-center">
+                    <span
+                      class="px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">2.45x</span>
+                  </td>
+                  <td class="py-6 text-right font-headline text-lg">$11,025.00</td>
+                </tr>
+                <tr class="group hover:bg-surface-container-low transition-colors">
+                  <td class="py-6">
+                    <div class="flex items-center gap-4">
+                      <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-lg">workspace_premium</span>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold">Artisan Collection</p>
+                        <p class="text-[10px] text-outline">Limited run handcrafted pieces</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-6 text-center text-sm">$1,200.00</td>
+                  <td class="py-6 text-center">
+                    <span
+                      class="px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">3.10x</span>
+                  </td>
+                  <td class="py-6 text-right font-headline text-lg">$3,720.00</td>
+                </tr>
+                <tr class="group hover:bg-surface-container-low transition-colors">
+                  <td class="py-6">
+                    <div class="flex items-center gap-4">
+                      <div class="w-10 h-10 rounded bg-surface-container flex items-center justify-center">
+                        <span class="material-symbols-outlined text-primary text-lg">watch</span>
+                      </div>
+                      <div>
+                        <p class="text-sm font-semibold">Timepiece Archive</p>
+                        <p class="text-[10px] text-outline">Curated vintage watches</p>
+                      </div>
+                    </div>
+                  </td>
+                  <td class="py-6 text-center text-sm">$8,900.00</td>
+                  <td class="py-6 text-center">
+                    <span
+                      class="px-3 py-1 bg-secondary-container/30 text-secondary text-xs font-bold rounded-full">1.85x</span>
+                  </td>
+                  <td class="py-6 text-right font-headline text-lg">$16,465.00</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <!-- Recent Activity / Sidebar Content -->
+        <section class="space-y-8">
+          <div class="flex items-end justify-between border-b border-outline-variant/20 pb-4">
+            <h3 class="text-2xl font-headline text-on-surface">Recent Logs</h3>
+            <span class="material-symbols-outlined text-outline">history</span>
+          </div>
+          <div class="space-y-6">
+            <div class="flex gap-4 group">
+              <div class="flex flex-col items-center">
+                <div class="w-2 h-2 rounded-full bg-primary mt-1.5"></div>
+                <div class="w-px flex-grow bg-outline-variant/30 my-1"></div>
+              </div>
+              <div class="pb-6">
+                <p class="text-[10px] uppercase tracking-widest text-outline mb-1">Today, 09:42 AM</p>
+                <p class="text-sm text-on-surface font-medium">Markup Adjusted: <span
+                    class="text-primary italic">"Bridal Fine"</span></p>
+                <p class="text-xs text-tertiary mt-1">Multipler increased from 2.35x to 2.45x based on Q3 projections.
+                </p>
+              </div>
+            </div>
+            <div class="flex gap-4 group">
+              <div class="flex flex-col items-center">
+                <div class="w-2 h-2 rounded-full bg-outline-variant mt-1.5"></div>
+                <div class="w-px flex-grow bg-outline-variant/30 my-1"></div>
+              </div>
+              <div class="pb-6">
+                <p class="text-[10px] uppercase tracking-widest text-outline mb-1">Yesterday, 04:15 PM</p>
+                <p class="text-sm text-on-surface font-medium">Gold Spot Price Synced</p>
+                <p class="text-xs text-tertiary mt-1">API integration successful with London Bullion Market.</p>
+              </div>
+            </div>
+            <div class="flex gap-4 group">
+              <div class="flex flex-col items-center">
+                <div class="w-2 h-2 rounded-full bg-outline-variant mt-1.5"></div>
+              </div>
+              <div>
+                <p class="text-[10px] uppercase tracking-widest text-outline mb-1">Oct 24, 11:20 AM</p>
+                <p class="text-sm text-on-surface font-medium">New Archive Entry</p>
+                <p class="text-xs text-tertiary mt-1">"Blue Sapphire Pendant" added to Stone Prices list.</p>
+              </div>
+            </div>
+          </div>
+          <!-- Decorative CTA Card -->
+          <div class="relative mt-12 p-8 rounded-xl bg-primary text-on-primary overflow-hidden shadow-xl">
+            <div class="absolute -right-8 -bottom-8 opacity-20">
+              <span class="material-symbols-outlined text-9xl">inventory_2</span>
+            </div>
+            <h4 class="text-xl font-headline mb-4">Inventory Intelligence</h4>
+            <p class="text-sm opacity-80 mb-6 font-body leading-relaxed">Detailed analytics for each gemstone cut and
+              clarity rating are now available in the vault.</p>
+            <button
+              class="bg-surface-container-lowest text-primary px-6 py-2.5 rounded-full text-[10px] font-label uppercase tracking-widest hover:bg-white transition-colors">
+              View Detailed Rates
+            </button>
+          </div>
+        </section>
+      </div>
+      <!-- Featured Inventory Quick Grid (Editorial Component) -->
+      <section class="pt-12">
+        <div class="flex items-center justify-between mb-8">
+          <h3 class="text-3xl font-headline italic">Archive Highlights</h3>
+          <div class="flex gap-4">
+            <button
+              class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors">
+              <span class="material-symbols-outlined text-sm">arrow_back</span>
+            </button>
+            <button
+              class="w-10 h-10 rounded-full border border-outline-variant/30 flex items-center justify-center hover:bg-surface-container transition-colors">
+              <span class="material-symbols-outlined text-sm">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          <div class="md:col-span-2 aspect-[16/10] bg-surface-container rounded-xl overflow-hidden relative group">
+            <img alt="Luxury Diamond Ring"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              data-alt="high-end diamond engagement ring on a velvet pedestal with soft studio lighting and deep blue background shadows"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCtKrM1T2q1GadpnHt8NbfwwoIQwhD_RuENO5il6sAJo6btSRHPKDwRhiNBHiXy4EHZrAhvwqIXBQPkc4uq9dz0JPRHPs5inmwzFGY92Wyyvcc3kcQCLKwAhOliySi6MqW7aArQvt506xJWQdVggJAvYIw2DCE3s6cKiXYvlXC2AslYBIdcnQU7ZgGowiAXlDHrDZ9XuRgOiH2_PXVKC9MveT9prtim--kxU8oBAUVup6uy0Cw4MUC7xUyAOSvTlQamDxG5DfJ8ZsA" />
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-8">
+              <span class="text-[10px] text-white/70 uppercase tracking-widest mb-1">Featured Asset</span>
+              <h4 class="text-white text-2xl font-headline italic">The Cerulean Solitaire</h4>
+            </div>
+          </div>
+          <div class="aspect-square bg-surface-container rounded-xl overflow-hidden group">
+            <img alt="Gold Bracelet"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              data-alt="handcrafted 18k gold braided bracelet close-up shot with warm light reflecting off metal surfaces"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuASxkpY_PTOhyhKHwlIj8aX5BIAeQEFBWIdODdVe7ZcqF9K3EQrb4xzmfPdVLdUPCtOFp7yz7QK0NT7kXEDeo_ddmF2ICYeDiLF07AVvXPyy04OBM37EGa3N4HfRQcY4wfurnWQoGZX8x2m6uE8lyk5QMjRKZP3fNbHQgx_mJM5L1VgnVlfYShtWxR0tbLhqOMres45mjP7gvlMWZzGJeOHiQ3MModXLX19Pl_bs1nsU5Zha78SyATytpJwX91igc_ZNC3BSRiMSvQ" />
+          </div>
+          <div class="aspect-square bg-surface-container rounded-xl overflow-hidden group">
+            <img alt="Luxury Watch"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              data-alt="classic stainless steel luxury chronograph watch on a dark gray minimalist background with moody lighting"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCivvxewaSYhExLVVLzURiJBJRw0k9Kfu6zUB0DhmN_Evtf0LTYefmQI_mhTizd0HcIIkTaDuPuzklE_fvfQjphoASRH66lORGjLSW1f9CjKqBFadFuraqTrFuQRkMvgRY4Q12_dh7jBmo1DdeIaGI2NylO5jgIKuhtNWWb9jVkxJX_plzUmus_gtJY0CByxmVDz1_z2dvwhAcMbLd-TtE2JKNTzrgdZ_muc4Jf351bIzheU-2pSiFRH5udS_LwV2o4Pt9IhWTCGoI" />
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <!-- Navigation Shell Support (Mobile Only) -->
+  <nav
+    class="md:hidden fixed bottom-0 left-0 right-0 h-16 bg-[#f9f9f9] border-t border-outline-variant/10 flex items-center justify-around px-4 z-50">
+    <a class="flex flex-col items-center gap-1 text-primary" href="dashboard.html">
+      <span class="material-symbols-outlined">dashboard</span>
+      <span class="text-[10px] uppercase tracking-tighter">Dash</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-outline" href="metal.html">
+      <span class="material-symbols-outlined">payments</span>
+      <span class="text-[10px] uppercase tracking-tighter">Rates</span>
+    </a>
+    <div
+      class="relative -top-6 w-14 h-14 bg-primary text-on-primary rounded-full flex items-center justify-center shadow-lg cursor-pointer">
+      <span class="material-symbols-outlined">add</span>
+    </div>
+    <a class="flex flex-col items-center gap-1 text-outline" href="stone.html">
+      <span class="material-symbols-outlined">diamond</span>
+      <span class="text-[10px] uppercase tracking-tighter">Stone</span>
+    </a>
+    <a class="flex flex-col items-center gap-1 text-outline" href="#">
+      <span class="material-symbols-outlined">history</span>
+      <span class="text-[10px] uppercase tracking-tighter">Logs</span>
+    </a>
+  </nav>
+</body>
+
+</html>

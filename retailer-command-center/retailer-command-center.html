@@ -1,0 +1,1013 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retailer Command Center | StarGems B2B</title>
+    <meta name="description"
+        content="Manage your jewelry retail business with ease. Track orders, manage retailers, and handle custom CAD requests.">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="retailer-command-center.css">
+    <link rel="stylesheet" href="global-header.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Checkbox (Checkbox Hack for Mobile) -->
+    <input type="checkbox" id="sidebar-toggle">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-menu">
+            <div class="sidebar-divider">COMMAND CENTER</div>
+            <div class="nav-item">
+                <a href="retailer-command-center.html" class="nav-link active">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="retailers.html" class="nav-link">
+                    <i class="bi bi-shop"></i>
+                    <span>Retailers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="tmc-cs-app-details.html" class="nav-link">
+                    <i class="bi bi-phone"></i>
+                    <span>TMC / CS App Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-orders.html" class="nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Custom CAD Order Module</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="gemart-ai-details.html" class="nav-link">
+                    <i class="bi bi-robot"></i>
+                    <span>GemArtAI Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="websites.html" class="nav-link">
+                    <i class="bi bi-globe"></i>
+                    <span>PIT / CWS Customers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="member-lists.html" class="nav-link">
+                    <i class="bi bi-tags"></i>
+                    <span>Specific Retailer List</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="request-manager.html" class="nav-link">
+                    <i class="bi bi-clipboard-pulse"></i>
+                    <span>Request Manager</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-iframe.html" class="nav-link">
+                    <i class="bi bi-code-square"></i>
+                    <span>Custom CAD IFrame</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="coupons.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Coupons</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="forms-demo.html" class="nav-link">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Order Form / Demo Request</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="emails-tools.html" class="nav-link">
+                    <i class="bi bi-envelope-at"></i>
+                    <span>Emails / Website</span>
+                </a>
+            </div>
+        </div>
+        <div class="p-3 mt-auto">
+            <div class="sidebar-card p-3 rounded bg-primary-light" style="border: 1px dashed var(--primary);">
+                <span class="d-block small fw-bold text-primary">Need Help?</span>
+                <span class="d-block smaller text-sub mt-1">Contact Support Center</span>
+            </div>
+        </div>
+    </nav>
+    <label for="sidebar-toggle" class="sidebar-backdrop d-lg-none"></label>
+
+    <div class="main-wrapper">
+        <!-- Global Header -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+            <div class="container-fluid h-100">
+                <a class="navbar-brand d-flex align-items-center" href="retailer-command-center.html">
+                    <h1 class="m-0">STARGEMS</h1>
+                </a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                    <ul class="navbar-nav gap-4 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                                <li><a class="dropdown-item" href="view-orders.html">All Orders</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Technology
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                                <li><a class="dropdown-item" href="https://stargems.com/gemart-ai.aspx">GemArt AI</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/textmechat.aspx">TextMeChat</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                Diamonds</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/cad-gallery.aspx">CAD
+                                        Gallery</a></li>
+                                <li><a class="dropdown-item" href="#">Archive</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Partner Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Paid Services</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/website-design-and-seo.aspx">Website
+                                                Design</a></li>
+                                        <li><a class="dropdown-item" href="https://stargems.com/Google-Ads.aspx">Google
+                                                Ads</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/social-media.aspx">Social
+                                                Media</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Support</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://stargems.com/faqs.aspx">FAQ</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/video-tutorials.aspx">Video
+                                                Tutorials</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/contact-us.aspx">Contact Us</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/book-a-demo.aspx">Book a
+                                        Demo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-heart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">3</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">1</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn profile-btn d-flex align-items-center gap-2 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-circle">AD</div>
+                            <span class="small fw-normal">Anish D.</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-gear"></i> Account Settings</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <label for="sidebar-toggle" class="btn btn-outline-secondary mobile-menu-btn d-lg-none ms-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+        <!-- Breadcrumb & Page Info bar (Instead of old header) -->
+        <div class="page-info-bar px-4 py-3 d-flex align-items-center justify-content-between">
+            <div class="breadcrumb-area">
+                <span class="text-muted small">Welcome back,</span><br>
+                <strong class="font-serif">Mahek Gopani </strong>
+            </div>
+        </div>
+
+        <main class="content-padding">
+            <!-- Summary Stats -->
+            <div class="stats-row">
+                <div class="stat-card">
+                    <div class="stat-icon icon-red">
+                        <i class="bi bi-exclamation-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h2>7</h2>
+                        <span>Pending Requests</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-blue">
+                        <i class="bi bi-people"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h2>248</h2>
+                        <span>Active Retailers</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-green">
+                        <i class="bi bi-cart-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h2>12</h2>
+                        <span>Orders Today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon icon-purple">
+                        <i class="bi bi-lightning-charge"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h2>98%</h2>
+                        <span>System Health</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Command Center Grid -->
+            <div class="dashboard-section mt-4">
+                <div class="section-label">
+                    <h3 class="font-serif">Command Center Board</h3>
+                </div>
+
+                <div class="masonry-grid">
+
+                    <!-- 1. RETAILERS -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">Retailers</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-shop"></i>
+                                <h3>Retailers</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="registered-retailers-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-people text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Retailer List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="retailer-activation-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-person-check text-success"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Retailer Activation List
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="retailer-logo-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-card-image text-purple"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Retailer Logo List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="complete-retailer-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-list-stars text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Complete Retailer List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="liability-letters.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-file-earmark-lock text-warning"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Liability Letters</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. TMC / CS App Details -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">TMC / CS App Details</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-phone"></i>
+                                <h3>TMC / CS App Details</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="tmc-retailer-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-key text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Login Details - TMC Retailers
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="unverified-retailers.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-person-exclamation text-danger"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Unverified Retailer List
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="verified-retailers.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-person-check text-success"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Verified Retailer List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="twilio-compliance-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-chat-dots text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">TMC / CS Retailers List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="product-details.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-gem text-purple"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Product Details</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="category-master.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-collection text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Category Master</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="sub-category-master.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-folder-plus text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Sub Category Master</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="product-details.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-pencil-square text-warning"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Product Editing</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. CUSTOM CAD ORDER MODULE -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">CAD Module</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-box-seam"></i>
+                                <h3>Custom CAD Order Module</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="view-orders.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-view-list text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">View Orders</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="flagged-items.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-flag text-danger"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Flagged Items</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="orders-no-attributes.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-exclamation-triangle text-warning"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Orders With No Attributes
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. GEMART AI DETAILS MODULE -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">GemArtAI Details</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-robot"></i>
+                                <h3>GemArtAI Details</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="gemart-retailer-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-list-ul text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Retailer List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="gemart-ai-details.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-currency-dollar text-success"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Retailer Markup</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="gemart-ai-details.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-palette text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">All Designs</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="gemart-ai-details.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-trash text-danger"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Discarded Designs</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="gemart-ai-details.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-chat-left-dots text-warning"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Unfulfilled Prompts</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="gemart-ai-details.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-bug text-danger"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Image Details Error Logs
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. PIT / CWS Customers -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">Websites</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-globe"></i>
+                                <h3>PIT / CWS Customers</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="website-plans-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-layout-text-window text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Website Plans</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 6. SPECIFIC RETAILER LIST -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">Groups</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-tags"></i>
+                                <h3>Specific Retailer List</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="rjo-member-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-award text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">RJO Member List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="ags-member-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-gem text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">AGS Member List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="cbg-member-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-award text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">CBG Member List</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 7. REQUEST MANAGER -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">Requests</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-clipboard-pulse"></i>
+                                <h3>Request Manager</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="demo-requests.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-display text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">TMC / CS / PJS Demo Requests
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="trade-show-appointments.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-calendar-event text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Trade Show Appointments</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- CUSTOM CAD IFRAME -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">IFrame</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-code-square"></i>
+                                <h3>Custom CAD IFrame</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="iframe-requests.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-window-sidebar text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">IFrame Requests</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- COUPONS -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">Marketing</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-ticket-perforated"></i>
+                                <h3>Coupons</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="discount-signup-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-percent text-success"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">$50 Off Discount Signup List
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="offer-redeemed-list.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-gift text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Offer Redeemed Members List
+                                            </div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ORDER FORM / DEMO REQUEST -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">Forms</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-ui-checks"></i>
+                                <h3>Order Form / Demo Request</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="text-me-chat-orders.html" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-chat-text text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Text Me Chat Order Form</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EMAILS / WEBSITE -->
+                    <div class="masonry-item">
+                        <div class="dashboard-card pt-0 h-100">
+                            <div class="section-badge">System</div>
+                            <div class="card-header-custom">
+                                <i class="bi bi-envelope-at"></i>
+                                <h3>Emails / Website</h3>
+                            </div>
+                            <div class="card-body-custom">
+                                <div class="col-12">
+                                    <a href="http://mail.stargems.com/" target="_blank" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-envelope text-primary"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Check Email</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-12">
+                                    <a href="https://www.google.com/analytics" target="_blank" class="action-card-item">
+                                        <div class="icon-box">
+                                            <i class="bi bi-graph-up text-success"></i>
+                                        </div>
+                                        <div class="content">
+                                            <div class="title">Google Analytics</div>
+                                        </div>
+                                        <div class="arrow">
+                                            <i class="bi bi-chevron-right"></i>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Section: EXPORT ORDERS MENU MODAL -->
+    <div class="modal-overlay" id="export-orders-menu">
+        <div class="modal-content-custom">
+            <div class="modal-header-custom">
+                <div>
+                    <h3 class="font-serif mb-0">Export All Orders</h3>
+                    <p class="text-sub small mb-0">Select criteria to view or export order
+                        data</p>
+                </div>
+                <a href="#" class="close-modal"><i class="bi bi-x-lg"></i></a>
+            </div>
+            <div class="modal-body-custom">
+                <div class="export-grid">
+                    <div class="export-card">
+                        <div class="export-card-header">
+                            <h4>Current Month Orders</h4>
+                            <span class="export-count">9</span>
+                        </div>
+                        <a href="export-orders-current-month.html" class="export-card-foot">
+                            <span>View All Orders</span>
+                            <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<!-- Masonry Layout Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const grid = document.querySelector('.masonry-grid');
+        const items = document.querySelectorAll('.masonry-item');
+        const gap = 24; // 1.5rem = 24px
+
+        function resizeMasonryItem(item) {
+            // Ensure item content is loaded/rendered to get height
+        }
+
+        function layoutMasonry() {
+            if (!grid || items.length === 0) return;
+
+            const containerWidth = grid.offsetWidth;
+            let colCount = 3;
+
+            // Match CSS breakpoints logic
+            if (window.innerWidth <= 992) {
+                colCount = 1;
+            } else if (window.innerWidth <= 1200) {
+                colCount = 2;
+            }
+
+            // If 1 column, reset to stacking
+            if (colCount === 1) {
+                grid.style.height = 'auto';
+                items.forEach(item => {
+                    item.style.position = 'static';
+                    item.style.width = '100%';
+                    item.style.top = 'auto';
+                    item.style.left = 'auto';
+                });
+                return;
+            }
+
+            // Calculate column width
+            // Container width includes gaps: (width - (gaps * (cols - 1))) / cols
+            const colWidth = (containerWidth - (gap * (colCount - 1))) / colCount;
+
+            // Track height of each column
+            let colHeights = new Array(colCount).fill(0);
+
+            items.forEach((item, index) => {
+                item.style.position = 'absolute';
+                item.style.width = `${colWidth}px`;
+
+                // Strict Order Placement (Row by Row)
+                let colIndex = index % colCount;
+
+                // Place item
+                item.style.left = `${colIndex * (colWidth + gap)}px`;
+                item.style.top = `${colHeights[colIndex]}px`;
+
+                // Update column height
+                colHeights[colIndex] += item.offsetHeight + gap;
+            });
+
+            // Set grid height to max column height
+            grid.style.height = `${Math.max(...colHeights)}px`;
+        }
+
+        // Run on load and resize
+        // Using ResizeObserver for better responsiveness
+        const ro = new ResizeObserver(entries => {
+            layoutMasonry();
+        });
+
+        if (grid) ro.observe(grid);
+
+        // Also run initially and on window resize as backup
+        window.addEventListener('resize', layoutMasonry);
+        // Wait for images or content reflow
+        window.addEventListener('load', layoutMasonry);
+        setTimeout(layoutMasonry, 100);
+        setTimeout(layoutMasonry, 500);
+    });
+</script>
+</body>
+
+</html>

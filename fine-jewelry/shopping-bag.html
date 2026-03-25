@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag | Star Gems</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../fine-jewelry/fine-jewelry.css">
+    <link rel="stylesheet" href="shopping-bag.css">
+</head>
+
+<body>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <h1 class="text-center mb-5 display-5" style="font-family: var(--font-serif);">Shopping Bag</h1>
+
+        <div class="row g-5">
+            <!-- Left Column: Cart Items -->
+            <div class="col-lg-8">
+                <!-- Cart Item 1 -->
+                <div class="cart-item-card mb-5 pb-5">
+                    <div class="row g-4">
+                        <div class="col-md-3 col-12">
+                            <div class="cart-item-image rounded-3 d-flex align-items-center justify-content-center">
+                                <img src="https://dummyimage.com/400x400/f8f9fa/000.png" alt="Ring"
+                                    class="img-fluid mix-blend-multiply p-2">
+                            </div>
+                        </div>
+                        <div class="col-md-9 col-12">
+                            <div class="mb-2">
+                                <h3 class="h4 mb-1" style="font-family: var(--font-serif);">Signature Engagement Ring
+                                </h3>
+                                <div class="item-price fw-bold fs-5 text-dark" style="font-family: var(--font-serif);">
+                                    <span class="text-muted fs-6 fw-normal me-1"
+                                        style="font-family: var(--font-sans);">Price:</span>$2,800.00
+                                </div>
+                            </div>
+                            <p class="text-muted mb-4" style="font-size: 0.95rem;">Oval Diamond in Yellow Gold
+                            </p>
+
+                            <div class="item-specs mb-4">
+                                <div class="spec-row d-flex">
+                                    <span class="spec-label">Stone</span>
+                                    <span class="spec-value">Oval, 2ct, I-J color, VS+ clarity</span>
+                                </div>
+                                <div class="spec-row d-flex">
+                                    <span class="spec-label">Metal</span>
+                                    <span class="spec-value">18k Gold</span>
+                                </div>
+                                <div class="spec-row d-flex align-items-center">
+                                    <span class="spec-label">Qty</span>
+                                    <div class="qty-selector">
+                                        <span class="qty-btn">-</span>
+                                        <span class="spec-value">1</span>
+                                        <span class="qty-btn">+</span>
+                                    </div>
+                                </div>
+                                <div class="spec-row d-flex">
+                                    <span class="spec-label">Ring Size</span>
+                                    <span class="spec-value">6</span>
+                                </div>
+                            </div>
+
+                            <div class="item-actions d-flex flex-wrap gap-2">
+                                <a href="#">Edit</a>
+                                <a href="#">Save for later</a>
+                                <a href="#">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Saved Items Section -->
+                <div class="saved-items">
+                    <h2 style="font-family: var(--font-serif);">Saved Items<span class="text-muted fs-5 fw-normal ms-2"
+                            style="vertical-align: middle;">(1)</span></h2>
+
+                    <div class="cart-item-card mb-4 pb-4">
+                        <div class="row g-4">
+                            <div class="col-md-3 col-12">
+                                <div class="cart-item-image rounded-3 d-flex align-items-center justify-content-center">
+                                    <img src="https://dummyimage.com/400x400/f8f9fa/000.png" alt="Ring"
+                                        class="img-fluid mix-blend-multiply p-2">
+                                </div>
+                            </div>
+                            <div class="col-md-9 col-12">
+                                <div class="mb-2">
+                                    <h3 class="h4 mb-1" style="font-family: var(--font-serif);">Signature Engagement
+                                        Ring</h3>
+                                    <div class="item-price fw-bold fs-5 text-dark"
+                                        style="font-family: var(--font-serif);">
+                                        <span class="text-muted fs-6 fw-normal me-1"
+                                            style="font-family: var(--font-sans);">Price:</span>$2,800.00
+                                    </div>
+                                </div>
+                                <p class="text-muted mb-4" style="font-size: 0.95rem;">Oval Diamond in Yellow
+                                    Gold</p>
+
+                                <div class="item-specs mb-4">
+                                    <div class="spec-row d-flex">
+                                        <span class="spec-label">Stone</span>
+                                        <span class="spec-value">Oval, 2ct, I-J color, VS+ clarity</span>
+                                    </div>
+                                    <div class="spec-row d-flex">
+                                        <span class="spec-label">Metal</span>
+                                        <span class="spec-value">18k Gold</span>
+                                    </div>
+                                    <div class="spec-row d-flex align-items-center">
+                                        <span class="spec-label">Qty</span>
+                                        <div class="qty-selector">
+                                            <span class="qty-btn">-</span>
+                                            <span class="spec-value">1</span>
+                                            <span class="qty-btn">+</span>
+                                        </div>
+                                    </div>
+                                    <div class="spec-row d-flex">
+                                        <span class="spec-label">Ring Size</span>
+                                        <span class="spec-value">6</span>
+                                    </div>
+                                </div>
+
+                                <div class="item-actions d-flex gap-3 mb-4">
+                                    <a href="#">Delete</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column: Order Summary -->
+            <div class="col-lg-4">
+                <div class="order-summary">
+                    <div class="order-summary-row">
+                        <span class="fw-bold">Subtotal</span>
+                        <span class="fw-bold">$2,800.00</span>
+                    </div>
+                    <div class="order-summary-row">
+                        <span class="fw-bold">Shipping</span>
+                        <span class="fw-bold">$50.00</span>
+                    </div>
+                    <div class="order-summary-row">
+                        <span class="fw-bold">Estimated Tax</span>
+                        <span class="fw-bold">$120.00</span>
+                    </div>
+
+                    <div class="order-summary-row total">
+                        <span class="fw-bold">Estimated Total</span>
+                        <span class="fw-bold">$2,970.00</span>
+                    </div>
+
+                    <button class="btn-checkout">CHECKOUT</button>
+
+                    <div class="contact-link">
+                        Need help with your order? <a href="#">Contact us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- You May Also Like -->
+    <section class="suggestions-section py-5">
+        <div class="container">
+            <h2 class="text-center mb-5 display-6" style="font-family: var(--font-serif);">You May Also Like</h2>
+            <div class="row g-4 row-cols-2 row-cols-md-3 row-cols-lg-5 justify-content-center">
+                <!-- Suggestion 1 -->
+                <div class="col">
+                    <div class="product-card text-center border-0">
+                        <div class="product-image-wrapper bg-light mb-3 position-relative" style="aspect-ratio: 1/1;">
+                            <img src="https://dummyimage.com/400x400/f8f9fa/000.png" alt="Ring"
+                                class="img-fluid mix-blend-multiply w-100 h-100 object-fit-contain p-3">
+                        </div>
+                        <h4 class="product-title h6 mb-1" style="font-family: var(--font-serif);">Signature Engagement
+                            Ring</h4>
+                        <p class="text-muted small">Starting from $899</p>
+                    </div>
+                </div>
+                <!-- Suggestion 2 -->
+                <div class="col">
+                    <div class="product-card text-center border-0">
+                        <div class="product-image-wrapper bg-light mb-3 position-relative" style="aspect-ratio: 1/1;">
+                            <img src="https://dummyimage.com/400x400/f8f9fa/000.png" alt="Ring"
+                                class="img-fluid mix-blend-multiply w-100 h-100 object-fit-contain p-3">
+                        </div>
+                        <h4 class="product-title h6 mb-1" style="font-family: var(--font-serif);">Signature Engagement
+                            Ring</h4>
+                        <p class="text-muted small">Starting from $899</p>
+                    </div>
+                </div>
+                <!-- Suggestion 3 -->
+                <div class="col">
+                    <div class="product-card text-center border-0">
+                        <div class="product-image-wrapper bg-light mb-3 position-relative" style="aspect-ratio: 1/1;">
+                            <img src="https://dummyimage.com/400x400/f8f9fa/000.png" alt="Ring"
+                                class="img-fluid mix-blend-multiply w-100 h-100 object-fit-contain p-3">
+                        </div>
+                        <h4 class="product-title h6 mb-1" style="font-family: var(--font-serif);">Signature Engagement
+                            Ring</h4>
+                        <p class="text-muted small">Starting from $899</p>
+                    </div>
+                </div>
+                <!-- Suggestion 4 -->
+                <div class="col">
+                    <div class="product-card text-center border-0">
+                        <div class="product-image-wrapper bg-light mb-3 position-relative" style="aspect-ratio: 1/1;">
+                            <img src="https://dummyimage.com/400x400/f8f9fa/000.png" alt="Ring"
+                                class="img-fluid mix-blend-multiply w-100 h-100 object-fit-contain p-3">
+                        </div>
+                        <h4 class="product-title h6 mb-1" style="font-family: var(--font-serif);">Signature Engagement
+                            Ring</h4>
+                        <p class="text-muted small">Starting from $899</p>
+                    </div>
+                </div>
+                <!-- Suggestion 5 -->
+                <div class="col">
+                    <div class="product-card text-center border-0">
+                        <div class="product-image-wrapper bg-light mb-3 position-relative" style="aspect-ratio: 1/1;">
+                            <img src="https://dummyimage.com/400x400/f8f9fa/000.png" alt="Ring"
+                                class="img-fluid mix-blend-multiply w-100 h-100 object-fit-contain p-3">
+                        </div>
+                        <h4 class="product-title h6 mb-1" style="font-family: var(--font-serif);">Signature Engagement
+                            Ring</h4>
+                        <p class="text-muted small">Starting from $899</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Answers / FAQ -->
+    <section class="quick-answers-section">
+        <div class="container">
+            <div class="quick-answers-box">
+                <div class="quick-answers-header text-center text-lg-start">Quick Answers</div>
+                <div class="row g-4">
+                    <!-- Col 1 -->
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <div class="faq-question">
+                                What materials do you work with?
+                                <i data-feather="chevron-down"></i>
+                            </div>
+                            <div class="faq-answer-container">
+                                <div class="faq-answer">
+                                    Gold (all karats and colors), platinum, silver, lab-grown gemstones, and natural
+                                    diamonds—plus our wide selection of loose stones, including certified (GIA, AGS,
+                                    EGL)
+                                    diamonds.
+                                </div>
+                                <a href="#" class="faq-link">Loose diamonds: Shop now <i data-feather="arrow-up-right"
+                                        style="width: 14px;"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="faq-card">
+                            <div class="faq-question">
+                                Can I order a single piece?
+                                <i data-feather="chevron-down"></i>
+                            </div>
+                            <div class="faq-answer-container">
+                                <div class="faq-answer">
+                                    Yes. We specialize in low-volume or single-piece orders without compromising quality
+                                    or
+                                    price.
+                                </div>
+                                <a href="#" class="faq-link">Start here: New Custom Order <i
+                                        data-feather="arrow-up-right" style="width: 14px;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Col 2 -->
+                    <div class="col-lg-6">
+                        <div class="faq-card">
+                            <div class="faq-question">
+                                What types of jewelry can you produce?
+                                <i data-feather="chevron-down"></i>
+                            </div>
+                            <div class="faq-answer-container">
+                                <div class="faq-answer">
+                                    Everything—engagement rings, wedding bands, pendants, earrings, and fully bespoke
+                                    pieces. If
+                                    you can imagine it, we can create it.
+                                </div>
+                                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                                    <a href="#" class="faq-link">Fine Jewelry <i data-feather="arrow-up-right"
+                                            style="width: 14px;"></i></a>
+                                    <a href="#" class="faq-link">CAD Gallery <i data-feather="arrow-up-right"
+                                            style="width: 14px;"></i></a>
+                                    <a href="#" class="faq-link">Archive <i data-feather="arrow-up-right"
+                                            style="width: 14px;"></i></a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="faq-card">
+                            <div class="faq-question">
+                                How long does production take?
+                                <i data-feather="chevron-down"></i>
+                            </div>
+                            <div class="faq-answer-container">
+                                <div class="faq-answer">
+                                    No, Star Gems specializes in flexibility. You can order a single piece or thousands
+                                    with
+                                    consistent quality and pricing.
+                                </div>
+                                <a href="#" class="faq-link">Related info: Our Process <i data-feather="arrow-up-right"
+                                        style="width: 14px;"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        // Icons
+        feather.replace();
+
+        // Suggestions Carousel - Mobile/Tablet Only
+        // Suggestions Carousel - Mobile/Tablet Only
+        $(document).ready(function () {
+            var $suggestionsRow = $('.suggestions-section .row');
+            var owlInitialized = false;
+            var originalClasses = $suggestionsRow.attr('class'); // Store original classes
+
+            function checkCarousel() {
+                var windowWidth = $(window).width();
+
+                // Enable on Mobile (< 768px) and Tablet (< 992px)
+                if (windowWidth < 992) {
+                    if (!owlInitialized) {
+                        // Remove Bootstrap grid classes to prevent conflicts
+                        $suggestionsRow.removeClass('row g-4 row-cols-2 row-cols-md-3 row-cols-lg-5 justify-content-center');
+
+                        $suggestionsRow.addClass('owl-carousel owl-theme');
+                        $suggestionsRow.owlCarousel({
+                            loop: false,
+                            margin: 15,
+                            nav: false,
+                            dots: true,
+
+                            // "Apple-style" peek effect using stagePadding
+                            stagePadding: 50,
+                            items: 1,
+                            center: true,
+
+                            responsive: {
+                                0: {
+                                    items: 1,
+                                    stagePadding: 40,
+                                    margin: 15
+                                },
+                                576: {
+                                    items: 2,
+                                    stagePadding: 40,
+                                    center: false
+                                },
+                                768: {
+                                    items: 3,
+                                    stagePadding: 0,
+                                    center: false
+                                }
+                            }
+                        });
+                        owlInitialized = true;
+                    }
+                } else {
+                    if (owlInitialized) {
+                        $suggestionsRow.trigger('destroy.owl.carousel');
+                        $suggestionsRow.removeClass('owl-carousel owl-theme');
+
+                        // Restore original Bootstrap classes
+                        $suggestionsRow.attr('class', originalClasses);
+
+                        owlInitialized = false;
+                    }
+                }
+            }
+
+            // Check on load
+            checkCarousel();
+
+            // Check on resize
+            $(window).resize(function () {
+                checkCarousel();
+            });
+        });
+
+        // FAQ Sidebar Logic (Simulating simple toggle for now if needed, or just re-using the class logic)
+        // FAQ Accordion
+        document.querySelectorAll('.faq-card').forEach(card => {
+            card.addEventListener('click', () => {
+                const isActive = card.classList.contains('active');
+                if (isActive) {
+                    card.classList.remove('active');
+                } else {
+                    card.classList.add('active');
+                }
+            });
+        });
+
+        // Quantity Selector Logic
+        $('.qty-selector').on('click', '.qty-btn', function () {
+            var $button = $(this);
+            var $value = $button.siblings('.spec-value');
+            var currentVal = parseInt($value.text());
+
+            if ($button.text() === '+') {
+                $value.text(currentVal + 1);
+            } else if ($button.text() === '-') {
+                if (currentVal > 1) {
+                    $value.text(currentVal - 1);
+                }
+            }
+        });
+
+        // Product Card Navigation
+        // Note: Owl carousel might duplicate items for looping. Delegation is safe.
+        $(document).on('click', '.suggestions-section .product-card', function () {
+            window.location.href = '../fine-jewelry/product-details.html';
+        });
+    </script>
+</body>
+
+</html>

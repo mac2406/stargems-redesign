@@ -1,0 +1,474 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liability Letters | StarGems B2B</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="retailer-command-center.css">
+    <style>
+        .table-premium-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-custom thead th {
+            background: var(--bg-neutral);
+            border-bottom: 2px solid var(--border-color);
+            padding: 1.25rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .table-custom tbody td {
+            padding: 1.25rem 1rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #f8f8f8;
+            font-size: 0.85rem;
+        }
+
+        .btn-view-letter {
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: all 0.2s;
+        }
+
+        .btn-view-letter:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .pdf-icon-btn {
+            width: 36px;
+            height: 36px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff5f5;
+            color: #d32f2f;
+            border-radius: 8px;
+            border: 1px solid #ffebeb;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .pdf-icon-btn:hover {
+            background: #d32f2f;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(211, 47, 47, 0.2);
+        }
+
+        .cust-code-badge {
+            background: #f0f4f8;
+            color: var(--primary-dark);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .date-text {
+            color: var(--text-sub);
+            font-size: 0.75rem;
+            display: block;
+        }
+
+        .address-box {
+            max-width: 250px;
+            white-space: normal;
+            font-size: 0.8rem;
+            line-height: 1.4;
+            color: var(--text-sub);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="global-header.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="sidebar-toggle">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-menu">
+            <div class="sidebar-divider">COMMAND CENTER</div>
+            <div class="nav-item">
+                <a href="retailer-command-center.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="retailers.html" class="nav-link">
+                    <i class="bi bi-shop"></i>
+                    <span>Retailers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="tmc-cs-app-details.html" class="nav-link">
+                    <i class="bi bi-phone"></i>
+                    <span>TMC / CS App Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-orders.html" class="nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Custom CAD Order Module</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="gemart-ai-details.html" class="nav-link">
+                    <i class="bi bi-robot"></i>
+                    <span>GemArtAI Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="websites.html" class="nav-link">
+                    <i class="bi bi-globe"></i>
+                    <span>PIT / CWS Customers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="member-lists.html" class="nav-link">
+                    <i class="bi bi-tags"></i>
+                    <span>Specific Retailer List</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="request-manager.html" class="nav-link">
+                    <i class="bi bi-clipboard-pulse"></i>
+                    <span>Request Manager</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-iframe.html" class="nav-link">
+                    <i class="bi bi-code-square"></i>
+                    <span>Custom CAD IFrame</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="coupons.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Coupons</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="forms-demo.html" class="nav-link">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Order Form / Demo Request</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="emails-tools.html" class="nav-link">
+                    <i class="bi bi-envelope-at"></i>
+                    <span>Emails / Website</span>
+                </a>
+            </div>
+        </div>
+        <div class="p-3 mt-auto">
+            <div class="sidebar-card p-3 rounded bg-primary-light" style="border: 1px dashed var(--primary);">
+                <span class="d-block small fw-bold text-primary">Need Help?</span>
+                <span class="d-block smaller text-sub mt-1">Contact Support Center</span>
+            </div>
+        </div>
+    </nav>
+    <label for="sidebar-toggle" class="sidebar-backdrop d-lg-none"></label>
+
+        <!-- Global Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+            <div class="container-fluid h-100">
+                <a class="navbar-brand d-flex align-items-center" href="retailer-command-center.html">
+                    <h1 class="m-0">STARGEMS</h1>
+                </a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                    <ul class="navbar-nav gap-4 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                                <li><a class="dropdown-item" href="view-orders.html">All Orders</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Technology
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                                <li><a class="dropdown-item" href="https://stargems.com/gemart-ai.aspx">GemArt AI</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/textmechat.aspx">TextMeChat</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                Diamonds</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/cad-gallery.aspx">CAD
+                                        Gallery</a></li>
+                                <li><a class="dropdown-item" href="#">Archive</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Partner Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Paid Services</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/website-design-and-seo.aspx">Website
+                                                Design</a></li>
+                                        <li><a class="dropdown-item" href="https://stargems.com/Google-Ads.aspx">Google
+                                                Ads</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/social-media.aspx">Social
+                                                Media</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Support</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://stargems.com/faqs.aspx">FAQ</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/video-tutorials.aspx">Video
+                                                Tutorials</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/contact-us.aspx">Contact Us</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/book-a-demo.aspx">Book a
+                                        Demo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-heart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">3</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">1</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn profile-btn d-flex align-items-center gap-2 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-circle">AD</div>
+                            <span class="small fw-normal">Anish D.</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-gear"></i> Account Settings</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <label for="sidebar-toggle" class="btn btn-outline-secondary mobile-menu-btn d-lg-none ms-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+    <div class="main-wrapper">
+        <main class="content-padding">
+            <div class="mb-4">
+                <h2 class="font-serif mb-1"
+                    style="font-size: 2.5rem; letter-spacing: -0.5px; color: var(--primary-dark);">Liability Letters
+                </h2>
+                <div class="d-flex flex-column flex-md-row align-items-md-center gap-1 gap-md-3">
+                    <p class="text-sub mb-0">List of Retailers who signed Liability Letters.</p>
+                    <div class="text-secondary fw-bold border-md-start ps-md-3">
+                        Total Records: 1,561
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-premium-card">
+                <div class="table-responsive">
+                    <table class="table-custom text-nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th class="ps-4">Sr No.</th>
+                                <th>Code</th>
+                                <th>Client Details</th>
+                                <th>Store Info</th>
+                                <th>Contact No.</th>
+                                <th>Address</th>
+                                <th>Date Signed</th>
+                                <th class="text-center">Letter</th>
+                                <th class="pe-4 text-center">PDF</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item 1 -->
+                            <tr>
+                                <td class="ps-4">1</td>
+                                <td><span class="cust-code-badge">4810</span></td>
+                                <td>
+                                    <div class="fw-bold text-dark">karen lyda</div>
+                                    <div class="text-sub small">karenalyda@gmail.com</div>
+                                </td>
+                                <td>
+                                    <div class="fw-bold">Lyda</div>
+                                </td>
+                                <td>(804) 439-4514</td>
+                                <td>
+                                    <div class="address-box">94 hazelwood rd, lillington, nc - 27546, United States
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="date-text">Monday, 02 Feb 2026</span>
+                                    <span class="small text-muted">09:23:53</span>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" class="btn-view-letter">View</a>
+                                </td>
+                                <td class="pe-4 text-center">
+                                    <a href="#" class="pdf-icon-btn" title="Download PDF">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- Item 2 -->
+                            <tr>
+                                <td class="ps-4">2</td>
+                                <td><span class="cust-code-badge">4809</span></td>
+                                <td>
+                                    <div class="fw-bold text-dark">Clarissa Paz</div>
+                                    <div class="text-sub small">clarissapaz777@gmail.com</div>
+                                </td>
+                                <td>
+                                    <div class="fw-bold">CP & Co</div>
+                                </td>
+                                <td>(806) 766-3617</td>
+                                <td>
+                                    <div class="address-box">212 Tuolomne Ave,, Ventura, CA - 93004, United States</div>
+                                </td>
+                                <td>
+                                    <span class="date-text">Sunday, 01 Feb 2026</span>
+                                    <span class="small text-muted">23:38:54</span>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" class="btn-view-letter">View</a>
+                                </td>
+                                <td class="pe-4 text-center">
+                                    <a href="#" class="pdf-icon-btn" title="Download PDF">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                            <!-- Item 3 -->
+                            <tr>
+                                <td class="ps-4">3</td>
+                                <td><span class="cust-code-badge">4808</span></td>
+                                <td>
+                                    <div class="fw-bold text-dark">Ava Chatelain</div>
+                                    <div class="text-sub small">chatelainava@gmail.com</div>
+                                </td>
+                                <td>
+                                    <div class="fw-bold">Ava Chatelain</div>
+                                </td>
+                                <td>(337) 317-0992</td>
+                                <td>
+                                    <div class="address-box">woodworth, la 71485</div>
+                                </td>
+                                <td>
+                                    <span class="date-text">Sunday, 01 Feb 2026</span>
+                                    <span class="small text-muted">22:55:59</span>
+                                </td>
+                                <td class="text-center">
+                                    <a href="#" class="btn-view-letter">View</a>
+                                </td>
+                                <td class="pe-4 text-center">
+                                    <a href="#" class="pdf-icon-btn" title="Download PDF">
+                                        <i class="bi bi-file-earmark-pdf"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-custom border-top flex-column flex-md-row gap-3 text-center text-md-start">
+                    <span class="text-sub small">Showing 1 to 3 of 1,561 entries</span>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <a href="#" class="page-link-custom active">1</a>
+                        <a href="#" class="page-link-custom">2</a>
+                        <a href="#" class="page-link-custom">3</a>
+                        <a href="#" class="page-link-custom">...</a>
+                        <a href="#" class="page-link-custom">83</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 text-end">
+                <a href="retailers.html" class="btn-premium-back">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </a>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
+
+
+
+

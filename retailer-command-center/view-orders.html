@@ -1,0 +1,1132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Custom CAD Orders | StarGems B2B</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="retailer-command-center.css">
+    <link rel="stylesheet" href="global-header.css">
+    <style>
+        .color-legend-wrapper {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 1.25rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .color-legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .legend-box {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Order Filter Tabs/Pills */
+        .order-filter-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            justify-content: center;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .filter-btn:hover {
+            background: var(--bg-neutral);
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
+
+        .filter-btn.active {
+            background: var(--primary-dark);
+            color: white;
+            border-color: var(--primary-dark);
+            box-shadow: 0 4px 10px rgba(58, 87, 120, 0.2);
+        }
+
+        .factory-login-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.45rem 1.1rem;
+            background: #fff;
+            border-radius: 50px;
+            border: 1.2px dashed var(--primary);
+            color: var(--primary-dark);
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            line-height: 1;
+        }
+
+        .factory-login-link i {
+            font-size: 1rem;
+        }
+
+        .factory-login-link:hover {
+            background: var(--primary-light);
+            border-style: solid;
+        }
+
+        .stats-action-area {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
+            flex-wrap: nowrap;
+        }
+
+        .stats-group-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .total-records-display {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+        }
+
+        .total-records-display .label {
+            font-size: 0.65rem;
+            font-weight: 800;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .total-records-display .count {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1;
+        }
+
+        /* Status Dropdown Styling */
+        .status-dropdown .btn-status {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 700;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            transition: all 0.3s;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            min-width: 180px;
+        }
+
+        .status-dropdown .btn-status:hover {
+            border-color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-1px);
+        }
+
+        .status-dropdown .dropdown-menu {
+            border-radius: 15px;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            padding: 0.5rem;
+            min-width: 200px;
+            margin-top: 10px !important;
+        }
+
+        .status-dropdown .dropdown-item {
+            border-radius: 10px;
+            padding: 0.7rem 1rem;
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.85rem;
+            transition: all 0.2s;
+        }
+
+        .status-dropdown .dropdown-item:hover {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            transform: translateX(5px);
+        }
+
+        .status-dropdown .dropdown-item.active {
+            background: var(--primary-dark);
+            color: white;
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 768px) {
+            .content-padding {
+                padding: 1.5rem 1rem;
+            }
+
+            .stats-action-area {
+                flex-direction: row;
+                flex-wrap: nowrap;
+                align-items: center;
+                justify-content: space-between;
+                gap: 0.4rem;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            .stats-group-right {
+                display: flex;
+                align-items: center;
+                width: auto;
+                gap: 0.5rem;
+            }
+
+            .total-records-display {
+                display: flex;
+                align-items: center;
+                gap: 0.3rem;
+            }
+
+            .total-records-display .label {
+                display: none;
+            }
+
+            .total-records-display .count {
+                font-size: 1.15rem;
+                margin: 0;
+                line-height: normal;
+            }
+
+            .status-dropdown .btn-status {
+                padding: 0.4rem 0.65rem;
+                min-width: unset;
+                font-size: 0.65rem;
+                gap: 0.3rem;
+                white-space: nowrap;
+            }
+
+            .factory-login-link {
+                width: 32px;
+                height: 32px;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 0;
+                flex-shrink: 0;
+            }
+
+            .factory-login-link i {
+                font-size: 1rem;
+                margin: 0;
+            }
+
+            .custom-policy-btn {
+                padding: 0.4rem 0.6rem !important;
+                font-size: 0.6rem;
+                white-space: nowrap;
+                flex-shrink: 0;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+
+        /* Table Styling Overrides */
+        .order-table-container {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-custom thead th {
+            background: var(--bg-neutral);
+            border-bottom: 2px solid var(--border-color);
+            padding: 1.25rem 1rem;
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--text-sub);
+        }
+
+        .table-custom tbody td {
+            padding: 1.25rem 1rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #f8f8f8;
+        }
+
+        .order-id-badge {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 1rem;
+        }
+
+        .info-label {
+            font-size: 0.65rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            margin-right: 4px;
+        }
+
+        .info-value {
+            font-size: 0.85rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .retailer-info-card {
+            max-width: 200px;
+        }
+
+        .retailer-name {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .retailer-contact {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            display: block;
+            line-height: 1.4;
+        }
+
+        .product-preview {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            background: #f8f9fa;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .product-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-desc {
+            font-size: 0.8rem;
+            color: var(--text-sub);
+            max-width: 250px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            line-height: 1.5;
+        }
+
+        .quote-value {
+            font-weight: 700;
+            color: var(--primary-dark);
+            font-size: 0.9rem;
+        }
+
+        .status-pill-custom {
+            padding: 0.4rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .status-open {
+            background: #e0f2f1;
+            color: #00897b;
+        }
+
+        .status-pending {
+            background: #fff3e0;
+            color: #fb8c00;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 8px;
+        }
+
+        .action-circle-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border-color);
+            background: white;
+            color: var(--text-sub);
+            transition: all 0.2s;
+        }
+
+        .action-circle-btn:hover {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .action-circle-btn.btn-delete:hover {
+            background: #ffebee;
+            color: #d32f2f;
+            border-color: #ffcdd2;
+        }
+
+        /* Breadcrumb Alignment */
+        .breadcrumb-area br {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .breadcrumb-area br {
+                display: block;
+            }
+        }
+
+        /* Policy Button Alignment */
+        .custom-policy-btn {
+            background: var(--primary-dark);
+            color: white;
+            padding: 0.5rem 1.25rem;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .custom-policy-btn:hover {
+            background: #2c3e50;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            color: white;
+        }
+
+        .bg-ret-web {
+            background-color: #FAFAC8;
+        }
+
+        .bg-ret-sub {
+            background-color: #DDEEFF;
+        }
+
+        .bg-sgi {
+            background-color: #FFFFFF;
+        }
+
+        .bg-meenakshi {
+            background-color: #FFDAB9;
+        }
+
+        .bg-indika {
+            background-color: #FFF0F5;
+        }
+
+        .bg-iframe {
+            background-color: #E6E6FA;
+        }
+
+        .bg-top100 {
+            background-color: #E0FFFF;
+        }
+
+        .bg-online {
+            background-color: #F0F0F0;
+        }
+
+        .row-ret-web {
+            background-color: rgba(250, 250, 200, 0.3) !important;
+        }
+
+        .row-ret-sub {
+            background-color: rgba(221, 238, 255, 0.3) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="sidebar-toggle">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-menu">
+            <div class="sidebar-divider">COMMAND CENTER</div>
+            <div class="nav-item">
+                <a href="retailer-command-center.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="retailers.html" class="nav-link">
+                    <i class="bi bi-shop"></i>
+                    <span>Retailers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="tmc-cs-app-details.html" class="nav-link">
+                    <i class="bi bi-phone"></i>
+                    <span>TMC / CS App Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-orders.html" class="nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Custom CAD Order Module</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="gemart-ai-details.html" class="nav-link">
+                    <i class="bi bi-robot"></i>
+                    <span>GemArtAI Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="websites.html" class="nav-link">
+                    <i class="bi bi-globe"></i>
+                    <span>PIT / CWS Customers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="member-lists.html" class="nav-link">
+                    <i class="bi bi-tags"></i>
+                    <span>Specific Retailer List</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="request-manager.html" class="nav-link">
+                    <i class="bi bi-clipboard-pulse"></i>
+                    <span>Request Manager</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-iframe.html" class="nav-link">
+                    <i class="bi bi-code-square"></i>
+                    <span>Custom CAD IFrame</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="coupons.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Coupons</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="forms-demo.html" class="nav-link">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Order Form / Demo Request</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="emails-tools.html" class="nav-link">
+                    <i class="bi bi-envelope-at"></i>
+                    <span>Emails / Website</span>
+                </a>
+            </div>
+        </div>
+        <div class="p-3 mt-auto">
+            <div class="sidebar-card p-3 rounded bg-primary-light" style="border: 1px dashed var(--primary);">
+                <span class="d-block small fw-bold text-primary">Need Help?</span>
+                <span class="d-block smaller text-sub mt-1">Contact Support Center</span>
+            </div>
+        </div>
+    </nav>
+    <label for="sidebar-toggle" class="sidebar-backdrop d-lg-none"></label>
+
+        <!-- Global Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+            <div class="container-fluid h-100">
+                <a class="navbar-brand d-flex align-items-center" href="retailer-command-center.html">
+                    <h1 class="m-0">STARGEMS</h1>
+                </a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                    <ul class="navbar-nav gap-4 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                                <li><a class="dropdown-item" href="view-orders.html">All Orders</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Technology
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                                <li><a class="dropdown-item" href="https://stargems.com/gemart-ai.aspx">GemArt AI</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/textmechat.aspx">TextMeChat</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                Diamonds</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/cad-gallery.aspx">CAD
+                                        Gallery</a></li>
+                                <li><a class="dropdown-item" href="#">Archive</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Partner Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Paid Services</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/website-design-and-seo.aspx">Website
+                                                Design</a></li>
+                                        <li><a class="dropdown-item" href="https://stargems.com/Google-Ads.aspx">Google
+                                                Ads</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/social-media.aspx">Social
+                                                Media</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Support</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://stargems.com/faqs.aspx">FAQ</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/video-tutorials.aspx">Video
+                                                Tutorials</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/contact-us.aspx">Contact Us</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/book-a-demo.aspx">Book a
+                                        Demo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-heart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">3</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">1</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn profile-btn d-flex align-items-center gap-2 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-circle">AD</div>
+                            <span class="small fw-normal">Anish D.</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-gear"></i> Account Settings</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <label for="sidebar-toggle" class="btn btn-outline-secondary mobile-menu-btn d-lg-none ms-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+    <div class="main-wrapper">
+        <main class="content-padding">
+            <div class="mb-5">
+                <h2 class="font-serif mb-1" style="font-size: 2.5rem; letter-spacing: -0.5px;">View Orders</h2>
+                <p class="text-sub mb-0">List of Orders Received.</p>
+            </div>
+
+            <!-- Color Legend -->
+            <div class="color-legend-wrapper">
+                <div class="color-legend">
+                    <div class="legend-item">
+                        <div class="legend-box bg-ret-web"></div> Website
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bg-ret-sub"></div> Retailer
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bg-sgi"></div> SGI Group
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bg-meenakshi"></div> Meenakshi
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bg-indika"></div> Indika
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bg-iframe"></div> IFrame
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bg-top100"></div> Top 100
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-box bg-online"></div> Online
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <div class="stats-action-area">
+                    <!-- Left Side: Dropdown -->
+                    <div class="status-dropdown dropdown">
+                        <button class="btn btn-status dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-funnel-fill text-primary"></i>
+                            <span>Status: Open Orders</span>
+                        </button>
+                        <ul class="dropdown-menu border-0 shadow-lg">
+                            <li><a class="dropdown-item active" href="#">Open Orders</a></li>
+                            <li><a class="dropdown-item" href="#">Online Orders</a></li>
+                            <li><a class="dropdown-item" href="#">Sketch Orders</a></li>
+                            <li><a class="dropdown-item" href="#">CAD Approval</a></li>
+                            <li><a class="dropdown-item" href="#">Repair</a></li>
+                            <li><a class="dropdown-item" href="#">Confirmed</a></li>
+                            <li><a class="dropdown-item" href="#">Completed</a></li>
+                            <li><a class="dropdown-item" href="#">Rush</a></li>
+                            <li>
+                                <hr class="dropdown-divider opacity-50">
+                            </li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-search me-2"></i> Search
+                                    Orders</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Right Side: Stats + Actions -->
+                    <div class="stats-group-right">
+                        <div class="total-records-display">
+                            <span class="label">Total Records</span>
+                            <span class="count">182</span>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-2">
+                            <a href="http://custom.stargems.com/Login.aspx" target="_blank" class="factory-login-link">
+                                <i class="bi bi-box-arrow-in-right"></i>
+                                <span>Factory Login</span>
+                            </a>
+                            <a href="#" class="custom-policy-btn">ORDER POLICY</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="order-table-container">
+                <div class="table-responsive">
+                    <table class="table-custom text-nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th class="ps-4">Order #</th>
+                                <th>Order Info</th>
+                                <th>Item Details</th>
+                                <th>Retailer Details</th>
+                                <th>Image</th>
+                                <th>Description</th>
+                                <th>Quote</th>
+                                <th>Assigned</th>
+                                <th>Status</th>
+                                <th class="pe-4">Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item 1 (Retailer Subscribed Row Style) -->
+                            <tr class="row-ret-sub" data-status="Open Orders">
+                                <td class="ps-4">
+                                    <span class="order-id-badge">34848</span>
+                                    <a href="#" class="d-block small text-primary fw-bold mt-1">VIEW</a>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">IO:</span> <span class="info-value">-</span></div>
+                                    <div><span class="info-label">CO:</span> <span class="info-value">R46772</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">Sku:</span> <span class="info-value">-</span></div>
+                                    <div><span class="info-label">Cat:</span> <span class="info-value">Ring</span></div>
+                                </td>
+                                <td>
+                                    <div class="retailer-info-card">
+                                        <span class="retailer-name">Diamonds Direct</span>
+                                        <span class="retailer-contact">David Santos</span>
+                                        <span class="retailer-contact small mt-1 opacity-75">1/30/2026 8:27 PM</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-preview" style="background: #000;">
+                                        <span class="text-white small fw-bold">RING</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="product-desc">Customer wants a custom halo setting for 2ct round diamond.
+                                    </p>
+                                </td>
+                                <td><span class="quote-value">$1,250.00</span></td>
+                                <td><span class="info-value">Unassigned</span></td>
+                                <td><span class="status-pill-custom status-open">Open Order</span></td>
+                                <td class="pe-4">
+                                    <div class="action-row">
+                                        <a href="#" class="action-circle-btn" title="Edit"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <a href="#" class="action-circle-btn btn-delete" title="Delete"><i
+                                                class="bi bi-trash"></i></a>
+                                        <a href="#" class="action-circle-btn text-danger" title="Cancel"><i
+                                                class="bi bi-x-circle"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Item 2 -->
+                            <tr class="row-ret-web" data-status="Open Orders">
+                                <td class="ps-4">
+                                    <span class="order-id-badge">34839</span>
+                                    <a href="#" class="d-block small text-primary fw-bold mt-1">VIEW</a>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">IO:</span> <span class="info-value">-</span></div>
+                                    <div><span class="info-label">CO:</span> <span class="info-value">Guyton
+                                            R46770</span></div>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">Sku:</span> <span class="info-value">-</span></div>
+                                    <div><span class="info-label">Cat:</span> <span class="info-value">Bracelets</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="retailer-info-card">
+                                        <span class="retailer-name">Gregorys Jewelers</span>
+                                        <span class="retailer-contact">Kathy Sutter</span>
+                                        <span class="retailer-contact small mt-1 opacity-75">1/30/2026 7:37 PM</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-preview">
+                                        <img src="https://placehold.co/80x80/FFF/gold?text=Bracelet" alt="Bracelet">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="product-desc">HINGED BANGLE WITH SAFETY CHAIN - customer supplies stones -
+                                        CONFIRM 10KY OR SILVER.</p>
+                                </td>
+                                <td><span class="quote-value">$690.00</span></td>
+                                <td><span class="info-value">Tyler</span></td>
+                                <td><span class="status-pill-custom status-open">Open Order</span></td>
+                                <td class="pe-4">
+                                    <div class="action-row">
+                                        <a href="#" class="action-circle-btn" title="Edit"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <a href="#" class="action-circle-btn btn-delete" title="Delete"><i
+                                                class="bi bi-trash"></i></a>
+                                        <a href="#" class="action-circle-btn text-danger" title="Cancel"><i
+                                                class="bi bi-x-circle"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Item 3: Online Status -->
+                            <tr class="row-ret-sub" data-status="Online Orders">
+                                <td class="ps-4">
+                                    <span class="order-id-badge">34830</span>
+                                    <a href="#" class="d-block small text-primary fw-bold mt-1">VIEW</a>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">IO:</span> <span class="info-value">W-9921</span>
+                                    </div>
+                                    <div><span class="info-label">CO:</span> <span class="info-value">-</span></div>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">Cat:</span> <span class="info-value">Necklace</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="retailer-info-card">
+                                        <span class="retailer-name">Star Gems Web</span>
+                                        <span class="retailer-contact">Online Portal</span>
+                                        <span class="retailer-contact small mt-1 opacity-75">1/29/2026 11:20 AM</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-preview">
+                                        <img src="https://placehold.co/80x80/000/FFF?text=Necklace" alt="Necklace">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="product-desc">Diamond Solitaire Pendant with 18k White Gold Chain.</p>
+                                </td>
+                                <td><span class="quote-value">$850.00</span></td>
+                                <td><span class="info-value">Unassigned</span></td>
+                                <td><span class="status-pill-custom bg-info-subtle text-info-emphasis">Online
+                                        Order</span></td>
+                                <td class="pe-4">
+                                    <div class="action-row">
+                                        <a href="#" class="action-circle-btn" title="Edit"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <a href="#" class="action-circle-btn text-danger" title="Cancel"><i
+                                                class="bi bi-x-circle"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Item 4: Sketch Status -->
+                            <tr class="bg-light" data-status="Sketch Orders">
+                                <td class="ps-4">
+                                    <span class="order-id-badge">34825</span>
+                                    <a href="#" class="d-block small text-primary fw-bold mt-1">VIEW</a>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">IO:</span> <span class="info-value">-</span></div>
+                                    <div><span class="info-label">CO:</span> <span class="info-value">SK-901</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">Cat:</span> <span class="info-value">Earrings</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="retailer-info-card">
+                                        <span class="retailer-name">Tiffany's Outlet</span>
+                                        <span class="retailer-contact">Mark Wilson</span>
+                                        <span class="retailer-contact small mt-1 opacity-75">1/28/2026 3:45 PM</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-preview" style="background: #eee;">
+                                        <i class="bi bi-brush h3 text-muted"></i>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="product-desc">Custom sketch design for emerald drop earrings.</p>
+                                </td>
+                                <td><span class="quote-value">TBD</span></td>
+                                <td><span class="info-value">Designer A</span></td>
+                                <td><span
+                                        class="status-pill-custom bg-warning-subtle text-warning-emphasis">Sketch</span>
+                                </td>
+                                <td class="pe-4">
+                                    <div class="action-row">
+                                        <a href="#" class="action-circle-btn" title="Edit"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Item 5: CAD Approval Status -->
+                            <tr class="row-ret-web" data-status="CAD Approval">
+                                <td class="ps-4">
+                                    <span class="order-id-badge">34810</span>
+                                    <a href="#" class="d-block small text-primary fw-bold mt-1">VIEW</a>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">IO:</span> <span class="info-value">-</span></div>
+                                    <div><span class="info-label">CO:</span> <span class="info-value">C-8822</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div><span class="info-label">Cat:</span> <span class="info-value">Engagement
+                                            Ring</span></div>
+                                </td>
+                                <td>
+                                    <div class="retailer-info-card">
+                                        <span class="retailer-name">Zales Luxury</span>
+                                        <span class="retailer-contact">Sarah Parker</span>
+                                        <span class="retailer-contact small mt-1 opacity-75">1/27/2026 10:00 AM</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="product-preview">
+                                        <img src="https://placehold.co/80x80/f0f0f0/333?text=CAD" alt="CAD">
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="product-desc">Final CAD renderings sent to customer for approval.</p>
+                                </td>
+                                <td><span class="quote-value">$2,100.00</span></td>
+                                <td><span class="info-value">Mike</span></td>
+                                <td><span class="status-pill-custom bg-primary-subtle text-primary">CAD Approval</span>
+                                </td>
+                                <td class="pe-4">
+                                    <div class="action-row">
+                                        <a href="#" class="action-circle-btn" title="Edit"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <a href="#" class="action-circle-btn text-success" title="Approve"><i
+                                                class="bi bi-check-circle"></i></a>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <!-- Repeat items as needed for demo -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-custom border-top">
+                    <span class="text-sub small">Showing 1 to 2 of 182 entries</span>
+                    <div class="d-flex gap-2">
+                        <a href="#" class="page-link-custom active">1</a>
+                        <a href="#" class="page-link-custom">2</a>
+                        <a href="#" class="page-link-custom">3</a>
+                        <a href="#" class="page-link-custom">...</a>
+                        <a href="#" class="page-link-custom">10</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 text-end">
+                <a href="cad-orders.html" class="btn-premium-back">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownItems = document.querySelectorAll('.status-dropdown .dropdown-item');
+            const dropdownBtn = document.querySelector('.status-dropdown .btn-status span');
+            const tableRows = document.querySelectorAll('.table-custom tbody tr');
+            const totalRecordsCount = document.querySelector('.total-records-display .count');
+            const paginationText = document.querySelector('.pagination-custom .text-sub');
+
+            dropdownItems.forEach(item => {
+                item.addEventListener('click', function (e) {
+                    if (this.textContent.trim().toLowerCase().includes('search')) return;
+
+                    e.preventDefault();
+
+                    // Update Button Text
+                    const selectedText = this.textContent.trim();
+                    dropdownBtn.textContent = `Status: ${selectedText}`;
+
+                    // Update Active State
+                    dropdownItems.forEach(i => i.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // --- Real-time Table Filtering ---
+                    let visibleCount = 0;
+                    tableRows.forEach(row => {
+                        const rowStatus = row.getAttribute('data-status');
+                        if (rowStatus === selectedText) {
+                            row.style.display = '';
+                            visibleCount++;
+                        } else {
+                            row.style.display = 'none';
+                        }
+                    });
+
+                    // Update dynamic counts and labels
+                    if (totalRecordsCount) totalRecordsCount.textContent = visibleCount;
+                    if (paginationText) paginationText.textContent = `Showing 1 to ${visibleCount} of ${visibleCount} entries`;
+                });
+            });
+
+            // Initialize: Filter by starting active status (Open Orders)
+            const activeItem = document.querySelector('.status-dropdown .dropdown-item.active');
+            if (activeItem) {
+                const initialStatus = activeItem.textContent.trim();
+                let initialCount = 0;
+                tableRows.forEach(row => {
+                    if (row.getAttribute('data-status') === initialStatus) {
+                        row.style.display = '';
+                        initialCount++;
+                    } else {
+                        row.style.display = 'none';
+                    }
+                });
+                if (totalRecordsCount) totalRecordsCount.textContent = initialCount;
+                if (paginationText) paginationText.textContent = `Showing 1 to ${initialCount} of ${initialCount} entries`;
+            }
+        });
+    </script>
+</body>
+
+</html>
+
+
+
+

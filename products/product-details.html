@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Garden Ring | Collection</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="product-details.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+
+    <style>
+        .navbar.nav-scrolled {
+            padding-top: 12px !important;
+            padding-bottom: 12px !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            background: rgba(255, 255, 255, 0.95) !important;
+        }
+
+        /* ── Carousel layout overrides for product-details context ── */
+        /* Neutralise the body: flex centering from style.css */
+        body {
+            min-block-size: unset;
+            display: block;
+            justify-content: unset;
+            align-items: unset;
+            background: unset;
+        }
+
+        /* Make the carousel fill its parent col instead of a fixed clamp width */
+        .image-thumbnail-carousel {
+            width: 100%;
+            padding: 0;
+        }
+
+        /* Main image panel: square aspect ratio, rounded, no 16/9 */
+        .image-display {
+            aspect-ratio: 1 / 1;
+            border-radius: var(--radius-card, 16px);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Screen fills the whole display panel */
+        .screen {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #f8f6f3;
+            display: block !important;
+        }
+
+        /* Make the main product image fill its panel */
+        .screen>#productMainImg {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Carousel strip height */
+        .thumbnail-carousel {
+            height: 115px;
+        }
+
+        /* Each thumbnail: square */
+        .carousel__slide {
+            aspect-ratio: 1;
+            height: 80px;
+            flex: 0 0 calc((100% / 6) - 8px);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        /* Active slide highlight uses brand silver tone */
+        .active.carousel__slide {
+            outline: 2px solid #c0c0c0;
+            outline-offset: 2px;
+        }
+
+        /* Try-on icon button on last thumbnail */
+        .try-on-btn-thumb {
+            position: absolute;
+            bottom: 4px;
+            right: 4px;
+            background: rgba(255, 255, 255, 0.88);
+            border: none;
+            border-radius: 50%;
+            width: 26px;
+            height: 26px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            color: #555;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+            z-index: 3;
+        }
+
+        .try-on-btn-thumb:hover {
+            background: #fff;
+            color: var(--primary, #70012B);
+        }
+    </style>
+</head>
+
+<body class="bg-white">
+    <!-- Promo Bar (Inspired by Brilliant Earth) -->
+    <div class="promo-bar-be text-center py-2 fw-bold"
+        style="background: #fdfaf3; border-bottom: 1px solid #eee; letter-spacing: 0.05em; font-size: 11px; position: sticky; top: 0; z-index: 2000;">
+        ENDS SOON! Receive a Complimentary Diamond Necklace With Purchase Over $1,000. Use Code <span
+            class="text-primary">GIFT26</span> in Cart. <a href="#"
+            class="text-primary text-decoration-underline ms-2">See Details</a>
+    </div>
+
+    <!-- Breadcrumb -->
+    <div class="container py-3">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb mb-0 tiny border-0 bg-transparent p-0">
+                <li class="breadcrumb-item"><a href="#" class="text-muted">Home</a></li>
+                <li class="breadcrumb-item"><a href="products.html" class="text-muted text-decoration-none">Engagement
+                        Rings</a></li>
+                <li class="breadcrumb-item active" aria-current="page" style="color: var(--primary);">Secret Garden
+                    Diamond Ring</li>
+            </ol>
+        </nav>
+    </div>
+
+    <!-- Main Product Section -->
+    <main class="container mb-5">
+
+        <div class="row g-5">
+            <!-- Left: Gallery (Story Version) -->
+            <div class="col-lg-7 position-relative">
+                <div class="gallery-story">
+                    <!-- Layer 1: The Hero (Interactive) -->
+                    <div class="gallery-story-item gallery-story-hero reveal-on-scroll" id="storyHero">
+                        <div class="story-badge">Signature Selection</div>
+
+                        <div class="screen" id="mainImageContainer" onmousemove="moveLens(event)"
+                            onmouseleave="hideLens()" style="height: 100%; width: 100%;">
+                            <img src="assets/img/ring.png" id="productMainImg" alt="Main View"
+                                style="max-height: 80vh;">
+                            <div id="zoomLens" class="zoom-lens"></div>
+
+                            <!-- Advanced Three.js 3D Viewer -->
+                            <div id="ring3DViewer" class="ring-3d-viewer" style="display:none;">
+                                <canvas id="threeCanvas" style="width: 100%; height: 100%; cursor: grab;"></canvas>
+                                <div id="ringImgScene" style="display:none;">
+                                    <img src="assets/img/ring.png" id="ring3d" alt="Ring Reference">
+                                </div>
+                                <p class="ring-drag-hint">Drag to rotate &nbsp;·&nbsp; or use Rotate button</p>
+                            </div>
+
+                            <!-- Zoom Hint (appears on hover) -->
+                            <div class="story-zoom-hint">Roll over to Explore</div>
+                        </div>
+
+                        <!-- 3D / Rotate Toggle -->
+                        <div
+                            class="gallery-controls-overlay position-absolute top-0 end-0 m-3 d-flex flex-column gap-2">
+                            <button class="gallery-action-btn view-3d-btn" onclick="toggle3D()" id="btn3d">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
+                                    <path d="M3.27 6.96L12 12.01l8.73-5.05" />
+                                    <path d="M12 22.08V12" />
+                                </svg>
+                                <span class="ms-2">3D View</span>
+                            </button>
+                            <button class="gallery-action-btn rotate-ring-btn" onclick="toggleRotate()" id="btnRotate"
+                                style="display:none;">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
+                                    <path d="M3 3v5h5" />
+                                </svg>
+                                <span class="ms-2">Rotate</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Layer 2: Dual Details -->
+                    <div class="gallery-dual-feed">
+                        <div class="gallery-story-item reveal-on-scroll">
+                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 1">
+                        </div>
+                        <div class="gallery-story-item reveal-on-scroll">
+                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 2">
+                        </div>
+                    </div>
+
+                    <!-- Layer 3: Dual Details -->
+                    <div class="gallery-dual-feed">
+                        <div class="gallery-story-item reveal-on-scroll">
+                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 1">
+                        </div>
+                        <div class="gallery-story-item reveal-on-scroll">
+                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 2">
+                        </div>
+                    </div>
+
+                    <!-- Layer 4: Dual Details -->
+                    <div class="gallery-dual-feed">
+                        <div class="gallery-story-item reveal-on-scroll">
+                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 1">
+                        </div>
+                        <div class="gallery-story-item reveal-on-scroll">
+                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 2">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Zoom Result Container (Floating result) -->
+                <div id="zoomResult" class="zoom-result-container"></div>
+            </div>
+
+
+            <!-- Right: Product Info -->
+            <div class="col-lg-5">
+                <div class="sticky-top" style="top: 100px;">
+                    <div class="product-header-be mb-4">
+                        <div class="tiny text-primary fw-bold mb-1" style="letter-spacing: 0.1em;">SIGNATURE COLLECTIONS
+                        </div>
+                        <h1 class="font-serif mb-2" style="font-size: 1.8rem; color: #222; line-height: 1.2;">
+                            <span class="fw-bold">Secret Garden Diamond Ring</span>
+                            <span class="fw-light d-block mt-1" style="font-size: 1.4rem; opacity: 0.8;">in 18K Yellow
+                                Gold</span>
+                        </h1>
+                        <div class="price-be mt-3 mb-1">
+                            <span class="h3 fw-bold m-0" style="color: #222;">$1,550</span>
+                        </div>
+                        <div class="rating-box d-flex align-items-center gap-1 small mb-4">
+                            <div class="stars" style="color: #c9a84c;">★★★★★</div>
+                            <span class="text-muted"
+                                style="font-size: 0.85rem; text-decoration: underline; cursor: pointer;">(11
+                                Reviews)</span>
+                        </div>
+                    </div>
+
+                    <!-- Gift Promo Box (Brilliant Earth Style) -->
+                    <div class="promo-box-be">
+                        <img src="https://dummyimage.com/120x120/FFF5EC/70012B&text=Gift" class="promo-img"
+                            alt="Special Offer">
+                        <div class="promo-content">
+                            <span class="promo-tag">LIMITED TIME OFFER</span>
+                            Receive a <strong>Complimentary Diamond Necklace</strong> with purchase of this setting over
+                            $1,000. Use Code <strong class="text-primary">GIFT26</strong>
+                        </div>
+                    </div>
+
+                    <!-- Shape Selector (Collapsible) -->
+                    <div class="mb-4 pb-4 border-bottom border-light">
+                        <button
+                            class="shape-collapse-toggle d-flex justify-content-between align-items-center w-100 mb-0"
+                            type="button" data-bs-toggle="collapse" data-bs-target="#shapeGrid" aria-expanded="true"
+                            aria-controls="shapeGrid">
+                            <span class="fw-bold"
+                                style="font-size: 0.85rem; color: #222; text-transform: uppercase; letter-spacing: 0.05em;">DIAMOND
+                                SHAPE:
+                                <span class="fw-normal text-muted ms-1" id="shapeLbl"
+                                    style="text-transform: none; letter-spacing: normal;">Oval</span>
+                            </span>
+                            <svg class="shape-chevron" width="14" height="14" fill="none" stroke="#888"
+                                stroke-width="2.5" viewBox="0 0 24 24">
+                                <path d="M18 15l-6-6-6 6"></path>
+                            </svg>
+                        </button>
+                        <div class="collapse show mt-3" id="shapeGrid">
+                            <div class="shape-selector-grid-premium">
+                                <button class="shape-box" onclick="pickShape(this,'Round')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Round.webp"
+                                        alt="Round"></button>
+                                <button class="shape-box active" onclick="pickShape(this,'Oval')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Oval.webp"
+                                        alt="Oval"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Emerald')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Emerald%20Cut.webp"
+                                        alt="Emerald"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Radiant')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Radiant.webp"
+                                        alt="Radiant"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Cushion')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Cushion.webp"
+                                        alt="Cushion"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Pear')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Pear.webp"
+                                        alt="Pear"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Marquise')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Marquise.webp"
+                                        alt="Marquise"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Princess')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Princess%20Cut.webp"
+                                        alt="Princess"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Asscher')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Asscher.webp"
+                                        alt="Asscher"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metal Swatches -->
+                    <div class="mb-4">
+                        <div class="d-flex gap-3">
+                            <div class="metal-swatch" onclick="pickMetal(this, '18k Yellow Gold')">
+                                <div class="swatch-inner sw-yg"></div>
+                            </div>
+                            <div class="metal-swatch on" onclick="pickMetal(this, '18k White Gold')">
+                                <div class="swatch-inner sw-wg"></div>
+                            </div>
+                            <div class="metal-swatch" onclick="pickMetal(this, '14k Rose Gold')">
+                                <div class="swatch-inner sw-rg"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Metal Selector -->
+                    <div class="mb-4">
+                        <label class="fw-bold mb-3 d-block"
+                            style="font-size: 0.85rem; color: #222; text-transform: uppercase; letter-spacing: 0.05em;">METAL:
+                            <span class="fw-normal text-muted ms-1"
+                                style="text-transform: none; letter-spacing: normal;">18K Yellow Gold</span>
+                        </label>
+                        <div class="d-flex gap-3">
+                            <div class="metal-circle sw-wg"></div>
+                            <div class="metal-circle sw-yg active"></div>
+                            <div class="metal-circle sw-rg"></div>
+                        </div>
+                    </div>
+
+                    <!-- Sidestone Weight -->
+                    <div class="mb-5 px-1">
+                        <label class="fw-medium mb-3 d-block" style="font-size: 0.95rem; color: #444;">Sidestone Carat
+                            Weight: <span class="fw-normal text-muted ms-1">1/4 ct. tw.</span></label>
+                        <div class="sidestone-grid d-flex gap-2 flex-wrap">
+                            <button class="sidestone-btn">1/10</button>
+                            <button class="sidestone-btn active">1/4</button>
+                            <button class="sidestone-btn">3/8</button>
+                            <button class="sidestone-btn">3/4</button>
+                            <button class="sidestone-btn">1 1/3</button>
+                        </div>
+                    </div>
+
+                    <div class="mb-5 py-3 border-top border-bottom border-light">
+                        <div class="d-flex align-items-start gap-3 mb-2">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4" />
+                            </svg>
+                            <div class="small">
+                                <strong>Ships by tomorrow, Thursday, Mar 12.</strong><br>
+                                <span class="text-muted">Order in the next 3 hrs 24 mins to receive this ship
+                                    date.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-3">
+                        <button class="btn-primary w-100 py-3 fw-bold text-uppercase tracking-widest shadow-lg"
+                            style="height: auto; background-color: var(--primary) !important;">Choose this
+                            Setting</button>
+                        <div class="row g-2 action-buttons-row">
+                            <div class="col-6"><button
+                                    class="btn-primary-outline w-100 py-3 text-uppercase small fw-bold">Add to
+                                    Bag</button></div>
+                            <div class="col-6"><button
+                                    class="btn-primary-outline w-100 py-3 text-uppercase small fw-bold"><svg width="18"
+                                        height="18" fill="none" stroke="currentColor" stroke-width="2"
+                                        viewBox="0 0 24 24" class="me-1">
+                                        <path
+                                            d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
+                                    </svg> Wishlist</button></div>
+                        </div>
+                        <button class="btn-primary w-100 py-3 fw-bold text-uppercase tracking-widest shadow-lg"
+                            data-bs-toggle="modal" data-bs-target="#tryOnModal" onclick="startVirtualTry()"
+                            style="height: auto; background-color: var(--primary) !important;">Virtual Try On</button>
+                    </div>
+
+                    <!-- Trust Grid (Brilliant Earth Style) -->
+                    <div class="trust-grid">
+                        <div class="trust-item">
+                            <div class="trust-icon">🚚</div>
+                            <div class="trust-text"><strong>Free Shipping</strong><span>Overnight Delivery</span></div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon">🛡️</div>
+                            <div class="trust-text"><strong>Lifetime Warranty</strong><span>Free resizing & care</span>
+                            </div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon">💎</div>
+                            <div class="trust-text"><strong>Conflict Free</strong><span>Sustainably Sourced</span></div>
+                        </div>
+                        <div class="trust-item">
+                            <div class="trust-icon">💰</div>
+                            <div class="trust-text"><strong>Free Returns</strong><span>No-hassle 30-day window</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Accordions -->
+                    <div class="accordion accordion-flush mt-5 custom-details" id="productAccordions">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header"><button class="accordion-button px-0 fw-bold" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#accDetails">PRODUCT
+                                    DETAILS</button></h2>
+                            <div id="accDetails" class="accordion-collapse collapse show">
+                                <div class="accordion-body px-0 small text-muted lh-lg">
+                                    The Signature Collection engagement rings feature a classic diamond-accented
+                                    setting, handcrafted to highlight your center diamond. With its slim band and
+                                    delicate look, this setting offers a timeless aesthetic that showcases elegance and
+                                    sparkle in every angle.
+                                    <ul class="mt-3">
+                                        <li>Metal: 18k White Gold</li>
+                                        <li>Average Width: 1.8mm</li>
+                                        <li>Conflict-Free Diamonds</li>
+                                        <li>Hand-Finished in the USA</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Real Reviews Photo Gallery (Inspired by Brilliant Earth) -->
+    <section class="container">
+        <div class="row align-items-end mb-4">
+            <div class="col-md-8">
+                <h2 class="font-serif display-6 mb-2">Verified <span class="italic">Customer Reviews</span></h2>
+                <div class="d-flex align-items-center gap-2 mb-3">
+                    <span class="stars h5 m-0" style="color: #c9a84c;">★★★★★</span>
+                    <span class="fw-bold">4.9/5</span>
+                    <span class="text-muted small">Based on 128 verified buyers</span>
+                </div>
+            </div>
+            <div class="col-md-4 text-md-end">
+                <button class="btn-primary" style="padding: 12px 30px;">Read All Reviews</button>
+            </div>
+        </div>
+        <div class="review-teaser-photos">
+            <img src="https://dummyimage.com/200x200/ddd/333&text=Review+1" class="review-photo" alt="Customer Photo">
+            <img src="https://dummyimage.com/200x200/eee/444&text=Review+2" class="review-photo" alt="Customer Photo">
+            <img src="https://dummyimage.com/200x200/ccc/555&text=Review+3" class="review-photo" alt="Customer Photo">
+            <img src="https://dummyimage.com/200x200/aaa/777&text=Review+4" class="review-photo" alt="Customer Photo">
+            <img src="https://dummyimage.com/200x200/aaa/777&text=Review+5" class="review-photo" alt="Customer Photo">
+            <img src="https://dummyimage.com/200x200/999/888&text=Review+6" class="review-photo" alt="Customer Photo">
+            <img src="https://dummyimage.com/200x200/888/999&text=Review+7" class="review-photo" alt="Customer Photo">
+        </div>
+    </section>
+
+    <!-- Other Products You'll Love -->
+    <section class="container mb-5 py-5">
+        <div class="text-center mb-5">
+            <h2 class="font-serif display-6">Other Engagement Rings <span class="italic">You'll Love</span></h2>
+        </div>
+        <div class="row g-4 mt-4">
+            <!-- Product 1 -->
+            <div class="col-md-6 col-xl-3 reveal-on-scroll">
+                <div class="product-card border-0 h-100 position-relative">
+                    <div class="card-img-wrap position-relative">
+                        <a href="product-details.html" class="d-block w-100 h-100">
+                            <img src="https://dummyimage.com/360x360/000/fff"
+                                class="w-100 h-100 object-fit-cover main-ring-img" alt="Ring">
+                            <img src="https://dummyimage.com/360x360/fff/000"
+                                class="w-100 h-100 object-fit-cover hover-img" alt="Ring View 2">
+                        </a>
+                        <button class="wish-btn position-absolute top-0 end-0 m-2 z-3"
+                            onclick="wish(this); event.preventDefault();">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-details text-center">
+                        <div class="swatch-dots d-flex justify-content-center">
+                            <span class="dot sw-white"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/fff/000');"></span>
+                            <span class="dot sw-gold active"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+                            <span class="dot sw-rose"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+
+                        </div>
+                        <h6 class="mt-3 mb-1 fw-medium" style="font-size: 0.95rem; letter-spacing: 0.02em;">
+                            <a href="product-details.html" class="text-decoration-none text-dark">Adabelle
+                                Diamond Ring</a>
+                        </h6>
+                        <div class="text-muted small mt-1">1/2 ct. tw.</div>
+                        <div class="fw-bold text-dark mt-3">$1,290</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="col-md-6 col-xl-3 reveal-on-scroll">
+                <div class="product-card border-0 h-100 position-relative">
+                    <div class="card-img-wrap position-relative">
+                        <a href="product-details.html" class="d-block w-100 h-100">
+                            <img src="https://dummyimage.com/360x360/000/fff"
+                                class="w-100 h-100 object-fit-cover main-ring-img" alt="Ring">
+                            <img src="https://dummyimage.com/360x360/000/fff"
+                                class="w-100 h-100 object-fit-cover hover-img" alt="Ring View 2">
+                        </a>
+                        <button class="wish-btn position-absolute top-0 end-0 m-2 z-3"
+                            onclick="wish(this); event.preventDefault();">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-details text-center">
+                        <div class="swatch-dots d-flex justify-content-center">
+                            <span class="dot sw-white active"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/fff/000');"></span>
+                            <span class="dot sw-gold"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+                            <span class="dot sw-rose"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+
+                        </div>
+                        <h6 class="mt-3 mb-1 fw-medium" style="font-size: 0.95rem; letter-spacing: 0.02em;">
+                            <a href="product-details.html" class="text-decoration-none text-dark">The One
+                                Diamond Ring</a>
+                        </h6>
+                        <div class="text-muted small mt-1">1/2 ct. tw.</div>
+                        <div class="fw-bold text-dark mt-3">$2,890</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="col-md-6 col-xl-3 reveal-on-scroll">
+                <div class="product-card border-0 h-100 position-relative">
+                    <div class="card-img-wrap position-relative">
+                        <a href="product-details.html" class="d-block w-100 h-100">
+                            <img src="https://dummyimage.com/360x360/000/fff"
+                                class="w-100 h-100 object-fit-cover main-ring-img" alt="Ring">
+                            <img src="https://dummyimage.com/360x360/fff/000"
+                                class="w-100 h-100 object-fit-cover hover-img" alt="Ring View 2">
+                        </a>
+                        <button class="wish-btn position-absolute top-0 end-0 m-2 z-3"
+                            onclick="wish(this); event.preventDefault();">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-details text-center">
+                        <div class="swatch-dots d-flex justify-content-center">
+                            <span class="dot sw-white"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/fff/000');"></span>
+                            <span class="dot sw-gold"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+                            <span class="dot sw-rose active"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+
+                        </div>
+                        <h6 class="mt-3 mb-1 fw-medium" style="font-size: 0.95rem; letter-spacing: 0.02em;">
+                            <a href="product-details.html" class="text-decoration-none text-dark">Eternal
+                                Band</a>
+                        </h6>
+                        <div class="text-muted small mt-1">Diamond Eternity</div>
+                        <div class="fw-bold text-dark mt-3">$950</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="col-md-6 col-xl-3 reveal-on-scroll">
+                <div class="product-card border-0 h-100 position-relative">
+                    <div class="card-img-wrap position-relative">
+                        <a href="product-details.html" class="d-block w-100 h-100">
+                            <img src="https://dummyimage.com/360x360/000/fff"
+                                class="w-100 h-100 object-fit-cover main-ring-img" alt="Ring">
+                            <img src="https://dummyimage.com/360x360/fff/000"
+                                class="w-100 h-100 object-fit-cover hover-img" alt="Ring View 2">
+                        </a>
+                        <button class="wish-btn position-absolute top-0 end-0 m-2 z-3"
+                            onclick="wish(this); event.preventDefault();">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5"
+                                viewBox="0 0 24 24">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="card-details text-center">
+                        <div class="swatch-dots d-flex justify-content-center">
+                            <span class="dot sw-white"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/fff/000');"></span>
+                            <span class="dot sw-gold"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+                            <span class="dot sw-rose active"
+                                onclick="changeMetal(this, 'https://dummyimage.com/360x360/000/fff');"></span>
+
+                        </div>
+                        <h6 class="mt-3 mb-1 fw-medium" style="font-size: 0.95rem; letter-spacing: 0.02em;">
+                            <a href="product-details.html" class="text-decoration-none text-dark">Starlight
+                                Solitaire</a>
+                        </h6>
+                        <div class="text-muted small mt-1">Classic Collection</div>
+                        <div class="fw-bold text-dark mt-3">$2,150</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Virtual Try On Modal -->
+    <div class="modal fade" id="tryOnModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content border-0 rounded-4 overflow-hidden">
+                <div class="modal-header border-0 bg-white px-4 pt-4">
+                    <h5 class="modal-title font-serif h3 mb-0">Virtual Try On</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 text-center">
+                    <p class="text-muted small mb-4">Upload a photo of your hand to see how this piece looks on you.</p>
+
+                    <div id="tryOnStage"
+                        class="try-on-stage shadow-inner rounded-4 position-relative mx-auto mb-4 overflow-hidden">
+                        <!-- Background Canvas for User Photo -->
+                        <div id="userPhotoContainer"
+                            class="position-absolute top-0 start-0 w-100 h-100 bg-light d-flex align-items-center justify-content-center">
+                            <div class="text-muted opacity-50">
+                                <svg width="64" height="64" fill="none" stroke="currentColor" stroke-width="1"
+                                    viewBox="0 0 24 24" class="mb-3">
+                                    <path
+                                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <div>Waiting for Upload...</div>
+                            </div>
+                        </div>
+
+                        <!-- Draggable Jewelry Image -->
+                        <div id="jewelryDraggable" class="jewelry-draggable position-absolute"
+                            style="display: none; cursor: move; touch-action: none;">
+                            <img src="https://dummyimage.com/360x360/000/fff" id="jewelryImgForTry" alt="Jewelry"
+                                style="width: 120px; mix-blend-mode: multiply;">
+                            <div
+                                class="jewelry-controls position-absolute top-100 start-50 translate-middle-x mt-3 d-flex gap-2">
+                                <button class="btn-control rotate-left"><svg width="14" height="14" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                                    </svg></button>
+                                <button class="btn-control zoom-in"><svg width="14" height="14" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12 4v16m8-8H4" />
+                                    </svg></button>
+                                <button class="btn-control zoom-out"><svg width="14" height="14" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20 12H4" />
+                                    </svg></button>
+                                <button class="btn-control rotate-right"><svg width="14" height="14" fill="none"
+                                        stroke="currentColor" viewBox="0 0 24 24">
+                                        <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                    </svg></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center gap-3">
+                        <label for="handPhotoUpload" class="btn-primary-outline px-4 py-2" style="cursor: pointer;">
+                            <input type="file" id="handPhotoUpload" accept="image/*" hidden
+                                onchange="handleHandUpload(this)">
+                            Upload Photo
+                        </label>
+                        <button class="btn-primary px-4 py-2" id="startTryBtn" style="display: none;"
+                            onclick="startVirtualTry()">Apply Piece</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="toastEl" class="toast align-items-center text-white bg-primary-dark border-0" role="alert"
+            aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body" id="toastMsg">
+                    Success!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"
+                    aria-label="Close"></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+
+    <!-- Three.js 3D Viewer Bridge -->
+    <script type="module">
+        import { init3D } from './three-viewer.js';
+
+        window.addEventListener('initThreeViewer', () => {
+            const canvas = document.getElementById('threeCanvas');
+            const ringImg = document.getElementById('ring3d').src;
+            if (canvas) {
+                init3D(canvas, ringImg);
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,609 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Retailer List (PitJewelry) | StarGems B2B</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="retailer-command-center.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="global-header.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Checkbox (Checkbox Hack for Mobile) -->
+    <input type="checkbox" id="sidebar-toggle">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-menu">
+            <div class="sidebar-divider">COMMAND CENTER</div>
+            <div class="nav-item">
+                <a href="retailer-command-center.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="retailers.html" class="nav-link">
+                    <i class="bi bi-shop"></i>
+                    <span>Retailers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="tmc-cs-app-details.html" class="nav-link">
+                    <i class="bi bi-phone"></i>
+                    <span>TMC / CS App Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-orders.html" class="nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Custom CAD Order Module</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="gemart-ai-details.html" class="nav-link">
+                    <i class="bi bi-robot"></i>
+                    <span>GemArtAI Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="websites.html" class="nav-link">
+                    <i class="bi bi-globe"></i>
+                    <span>PIT / CWS Customers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="member-lists.html" class="nav-link">
+                    <i class="bi bi-tags"></i>
+                    <span>Specific Retailer List</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="request-manager.html" class="nav-link">
+                    <i class="bi bi-clipboard-pulse"></i>
+                    <span>Request Manager</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-iframe.html" class="nav-link">
+                    <i class="bi bi-code-square"></i>
+                    <span>Custom CAD IFrame</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="coupons.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Coupons</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="forms-demo.html" class="nav-link">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Order Form / Demo Request</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="emails-tools.html" class="nav-link">
+                    <i class="bi bi-envelope-at"></i>
+                    <span>Emails / Website</span>
+                </a>
+            </div>
+        </div>
+        <div class="p-3 mt-auto">
+            <div class="sidebar-card p-3 rounded bg-primary-light" style="border: 1px dashed var(--primary);">
+                <span class="d-block small fw-bold text-primary">Need Help?</span>
+                <span class="d-block smaller text-sub mt-1">Contact Support Center</span>
+            </div>
+        </div>
+    </nav>
+    <label for="sidebar-toggle" class="sidebar-backdrop d-lg-none"></label>
+
+        <!-- Global Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+            <div class="container-fluid h-100">
+                <a class="navbar-brand d-flex align-items-center" href="retailer-command-center.html">
+                    <h1 class="m-0">STARGEMS</h1>
+                </a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                    <ul class="navbar-nav gap-4 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                                <li><a class="dropdown-item" href="view-orders.html">All Orders</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Technology
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                                <li><a class="dropdown-item" href="https://stargems.com/gemart-ai.aspx">GemArt AI</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/textmechat.aspx">TextMeChat</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                Diamonds</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/cad-gallery.aspx">CAD
+                                        Gallery</a></li>
+                                <li><a class="dropdown-item" href="#">Archive</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Partner Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Paid Services</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/website-design-and-seo.aspx">Website
+                                                Design</a></li>
+                                        <li><a class="dropdown-item" href="https://stargems.com/Google-Ads.aspx">Google
+                                                Ads</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/social-media.aspx">Social
+                                                Media</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Support</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://stargems.com/faqs.aspx">FAQ</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/video-tutorials.aspx">Video
+                                                Tutorials</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/contact-us.aspx">Contact Us</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/book-a-demo.aspx">Book a
+                                        Demo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-heart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">3</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">1</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn profile-btn d-flex align-items-center gap-2 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-circle">AD</div>
+                            <span class="small fw-normal">Anish D.</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-gear"></i> Account Settings</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <label for="sidebar-toggle" class="btn btn-outline-secondary mobile-menu-btn d-lg-none ms-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+    <div class="main-wrapper">
+        <main class="content-padding position-relative">
+
+            <div class="mb-4">
+                <h3 class="main-title mb-1" style="border: none; padding: 0; font-size: 2.2rem;">Complete Retailer
+                    List</h3>
+                <div class="d-flex flex-column flex-md-row align-items-md-center gap-1 gap-md-3">
+                    <p class="text-muted m-0">List of Retailers in database.</p>
+                    <div class="text-secondary fw-bold border-md-start ps-md-3">
+                        Total Records: 7185
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Card Container -->
+            <div class="card border-0 shadow-sm" style="border-radius: 12px; background: #fff; min-height: 600px;">
+                <div class="card-body p-4">
+
+                    <div class="search-container-premium p-0 border-0 shadow-none mb-4">
+                        <div class="d-flex flex-column flex-lg-row align-items-lg-center gap-3">
+                            <div class="flex-grow-1">
+                                <label
+                                    class="small fw-bold text-sub mb-2 d-block text-uppercase letter-spacing-1">Search
+                                    Keywords</label>
+                                <input type="text" class="form-control input-pill"
+                                    placeholder="Search by name, city, or zip...">
+                            </div>
+                            <div style="min-width: 160px;">
+                                <label class="small fw-bold text-sub mb-2 d-block text-uppercase letter-spacing-1">Order
+                                    By</label>
+                                <select class="form-select input-pill">
+                                    <option>Sr No</option>
+                                    <option>Name</option>
+                                    <option>City</option>
+                                </select>
+                            </div>
+                            <div style="min-width: 120px;">
+                                <label
+                                    class="small fw-bold text-sub mb-2 d-block text-uppercase letter-spacing-1">Direction</label>
+                                <select class="form-select input-pill">
+                                    <option>ASC</option>
+                                    <option>DESC</option>
+                                </select>
+                            </div>
+                            <div class="d-flex gap-2 pt-lg-4 mt-1">
+                                <button class="btn btn-pill btn-pill-dark px-4">SEARCH</button>
+                                <button class="btn btn-pill btn-pill-outline px-4">CLEAR</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Table -->
+                    <div class="table-responsive">
+                        <table class="table-custom text-nowrap w-100">
+                            <thead>
+                                <tr>
+                                    <th class="ps-4">Sr No</th>
+                                    <th>Name</th>
+                                    <th>Address</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Zip</th>
+                                    <th>Contact Person</th>
+                                    <th>Phone No.</th>
+                                    <th>Fax No.</th>
+                                    <th>Email ID</th>
+                                    <th>R Click<br>Customer</th>
+                                    <th>IJO<br>Member</th>
+                                    <th>RJO<br>Member</th>
+                                    <th>AGS<br>Member</th>
+                                    <th>Registered<br>on Website</th>
+                                    <th class="pe-4 text-center">Modify</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Row 1 -->
+                                <tr class="row-bg-normal">
+                                    <td class="ps-4">1</td>
+                                    <td class="fw-bold">A & C DIAMONDS AND DESIGN</td>
+                                    <td>9 W De Renne Ave</td>
+                                    <td>Savannah</td>
+                                    <td>GA</td>
+                                    <td>-</td>
+                                    <td>CRAIG</td>
+                                    <td>(800) 503-5222</td>
+                                    <td>(912) 354-1994</td>
+                                    <td>-</td>
+                                    <td>y</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td class="pe-4 text-center">
+                                        <a href="#edit-retailer-modal" data-bs-toggle="modal" class="btn-view">Edit</a>
+                                    </td>
+                                </tr>
+                                <!-- Row 2 -->
+                                <tr class="row-bg-normal">
+                                    <td class="ps-4">2</td>
+                                    <td class="fw-bold">A STEP ABOVE</td>
+                                    <td>50222 Vernon Oak Drive</td>
+                                    <td>ATLANTA</td>
+                                    <td>GA</td>
+                                    <td>30338</td>
+                                    <td>NORMA - FRAN</td>
+                                    <td>(770) 396-0062</td>
+                                    <td>(770) 396-0062</td>
+                                    <td>normalane@bellsouth.net</td>
+                                    <td>y</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>y</td>
+                                    <td class="pe-4 text-center">
+                                        <a href="#edit-retailer-modal" data-bs-toggle="modal" class="btn-view">Edit</a>
+                                    </td>
+                                </tr>
+                                <!-- Row 3 -->
+                                <tr class="row-bg-normal">
+                                    <td class="ps-4">3</td>
+                                    <td class="fw-bold">A.L.TERRY JEWELERS</td>
+                                    <td>214 BROADWAY ST</td>
+                                    <td>Jackson</td>
+                                    <td>OH</td>
+                                    <td>45640</td>
+                                    <td>ALAN TERRY-Jeanine</td>
+                                    <td>(740) 286-2326</td>
+                                    <td>-</td>
+                                    <td>teryco@roadrunner.com</td>
+                                    <td>y</td>
+                                    <td>y</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>y</td>
+                                    <td class="pe-4 text-center">
+                                        <a href="#edit-retailer-modal" data-bs-toggle="modal" class="btn-view">Edit</a>
+                                    </td>
+                                </tr>
+                                <!-- Row 4 -->
+                                <tr class="row-bg-normal">
+                                    <td class="ps-4">4</td>
+                                    <td class="fw-bold">A.T.THOMAS JEWELERS</td>
+                                    <td>6420 O STREET</td>
+                                    <td>Lincoln</td>
+                                    <td>NE</td>
+                                    <td>68510</td>
+                                    <td>BRIAN-CHERI THOMAS</td>
+                                    <td>(402) 467-5402</td>
+                                    <td>-</td>
+                                    <td>brian@atthomasjewelers.com</td>
+                                    <td>y</td>
+                                    <td>y</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>y</td>
+                                    <td class="pe-4 text-center">
+                                        <a href="#edit-retailer-modal" data-bs-toggle="modal" class="btn-view">Edit</a>
+                                    </td>
+                                </tr>
+                                <!-- Row 5 -->
+                                <tr class="row-bg-normal">
+                                    <td class="ps-4">5</td>
+                                    <td class="fw-bold">AARON THOMAS COLLECTION</td>
+                                    <td>10303 Palm Brooke Dr</td>
+                                    <td>Bradenton</td>
+                                    <td>FL</td>
+                                    <td>34202</td>
+                                    <td>Thomas</td>
+                                    <td>(941) 320-2346</td>
+                                    <td>(941) 739-6824</td>
+                                    <td>-</td>
+                                    <td>y</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>n</td>
+                                    <td>y</td>
+                                    <td class="pe-4 text-center">
+                                        <a href="#edit-retailer-modal" data-bs-toggle="modal" class="btn-view">Edit</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Pagination -->
+                    <div class="pagination-custom border-top flex-column flex-md-row gap-3 text-center text-md-start">
+                        <span class="text-sub small">Showing 1 to 20 of 7185 entries</span>
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a href="#" class="page-link-custom active">1</a>
+                            <a href="#" class="page-link-custom">2</a>
+                            <a href="#" class="page-link-custom">3</a>
+                            <a href="#" class="page-link-custom">...</a>
+                            <a href="#" class="page-link-custom">360</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="mt-4 text-end">
+                <a href="retailers.html" class="btn-premium-back">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modify Retailer Modal -->
+    <div class="modal fade" id="edit-retailer-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+                <div class="modal-header border-bottom-0 p-4 pb-0">
+                    <div>
+                        <h3 class="font-serif modal-title h3 text-primary-dark">Modify - Retailer Details</h3>
+                        <p class="text-sub small mb-0">Update information for the complete retailer database.</p>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-light-subtle">
+                    <div class="info-grid-container mb-4">
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Customer ID</div>
+                            <div class="info-grid-value">
+                                <input type="text" value="1" readonly>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Store Name</div>
+                            <div class="info-grid-value">
+                                <input type="text" value="A & C DIAMONDS AND DESIGN">
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Address</div>
+                            <div class="info-grid-value">
+                                <input type="text" value="9 W De Renne Ave">
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">City / State</div>
+                            <div class="info-grid-value">
+                                <div class="d-flex w-100 gap-2">
+                                    <input type="text" value="Savannah" class="flex-grow-1">
+                                    <input type="text" value="GA" style="width: 80px;">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Zip Code</div>
+                            <div class="info-grid-value">
+                                <input type="text" value="31405">
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Contact Person</div>
+                            <div class="info-grid-value">
+                                <input type="text" value="CRAIG">
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Phone / Fax</div>
+                            <div class="info-grid-value">
+                                <div class="d-flex w-100 gap-2">
+                                    <input type="text" value="(800) 503-5222" class="flex-grow-1">
+                                    <input type="text" value="(912) 354-1994" class="flex-grow-1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Email Address</div>
+                            <div class="info-grid-value">
+                                <input type="email" value="craig@example.com">
+                            </div>
+                        </div>
+                    </div>
+
+                    <h6 class="text-uppercase fw-bold text-sub small mb-3 letter-spacing-1">Memberships & Website
+                        Settings</h6>
+                    <div class="info-grid-container mb-4">
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">R Click Status</div>
+                            <div class="info-grid-value">
+                                <select>
+                                    <option selected>y</option>
+                                    <option>n</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">IJO Member</div>
+                            <div class="info-grid-value">
+                                <select>
+                                    <option>y</option>
+                                    <option selected>n</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">RJO Member</div>
+                            <div class="info-grid-value">
+                                <select>
+                                    <option>y</option>
+                                    <option selected>n</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">AGS Member</div>
+                            <div class="info-grid-value">
+                                <select>
+                                    <option>y</option>
+                                    <option selected>n</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Registered</div>
+                            <div class="info-grid-value">
+                                <select>
+                                    <option>y</option>
+                                    <option selected>n</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h6 class="text-uppercase fw-bold text-sub small mb-3 letter-spacing-1">Logo Management (CAD)</h6>
+                    <div class="info-grid-container">
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Logo Files</div>
+                            <div class="info-grid-value">
+                                <div class="row g-2 w-100 py-2">
+                                    <div class="col-md-4"><input type="file" class="form-control form-control-sm"></div>
+                                    <div class="col-md-4"><input type="file" class="form-control form-control-sm"></div>
+                                    <div class="col-md-4"><input type="file" class="form-control form-control-sm"></div>
+                                    <div class="col-md-6"><input type="file" class="form-control form-control-sm"></div>
+                                    <div class="col-md-6"><input type="file" class="form-control form-control-sm"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-grid-row">
+                            <div class="info-grid-label">Logo Message</div>
+                            <div class="info-grid-value">
+                                <textarea rows="2" placeholder="Enter message if logo is uploaded..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top-0 p-4">
+                    <button type="button" class="btn btn-pill btn-pill-outline px-4"
+                        data-bs-dismiss="modal">CANCEL</button>
+                    <button type="button" class="btn btn-pill btn-pill-dark px-5">SAVE CHANGES</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+
+
+

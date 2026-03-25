@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="registration.css">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+</head>
+
+<body>
+
+    <!-- Section 1: Registration Form -->
+    <section class="section-1">
+        <!-- Main Registration Card -->
+        <div class="registration-container">
+            <!-- Left Sidebar -->
+            <div class="reg-sidebar">
+                <div class="steps-list">
+                    <!-- Step 1 (Active) -->
+                    <div class="step-item active">
+                        <div class="step-icon">
+                            <i data-feather="lock"></i>
+                        </div>
+                        <div class="step-text">
+                            <strong>Account Details</strong>
+                            <span>For login and verification</span>
+                        </div>
+                        <div class="step-status">
+                            <i data-feather="loader"></i> <!-- Progress/Current icon -->
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="step-item">
+                        <div class="step-icon">
+                            <i data-feather="book"></i>
+                        </div>
+                        <div class="step-text">
+                            <strong>Contact Information</strong>
+                            <span>Who we'll reach out to</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="step-item">
+                        <div class="step-icon">
+                            <i data-feather="layout"></i>
+                        </div>
+                        <div class="step-text">
+                            <strong>Business Information</strong>
+                            <span>About your store</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-item">
+                        <div class="step-icon">
+                            <i data-feather="users"></i>
+                        </div>
+                        <div class="step-text">
+                            <strong>Memberships & Admin</strong>
+                            <span>Verify your business affiliation</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step-item">
+                        <div class="step-icon">
+                            <i data-feather="home"></i>
+                        </div>
+                        <div class="step-text">
+                            <strong>Registration Submitted</strong>
+                            <span>Approval within 1 business day</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-footer">
+                    <a href="#" class="back-link"><i data-feather="arrow-left"></i> Back to Login</a>
+                </div>
+            </div>
+
+            <!-- Right Content -->
+            <div class="reg-content">
+                <!-- Step 1: Account Details -->
+                <div class="form-step active" id="step-1">
+                    <div class="content-header">
+                        <h2>Register as a Star Gems Retailer</h2>
+                        <p>Retailer-only access to pricing, CAD tools, and ordering.</p>
+                    </div>
+                    <form id="form-step-1">
+                        <div class="mb-3">
+                            <label class="form-label required">User ID <small>(no spaces)</small></label>
+                            <input type="text" class="form-control" id="userId" pattern="^\S+$"
+                                title="User ID cannot contain spaces" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Password</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Confirm Password</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label required">Security Verification <small>(Letters are case
+                                    sensitive)</small></label>
+                            <div class="captcha-box">
+                                <div class="captcha-img">68B910</div>
+                            </div>
+                            <input type="text" class="form-control mt-2" id="captchaInput" required>
+                        </div>
+                        <div class="form-actions text-end">
+                            <button type="button" class="btn btn-continue" onclick="nextStep(2)">Continue</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 2: Contact Information -->
+                <div class="form-step" id="step-2" style="display: none;">
+                    <div class="content-header">
+                        <div class="d-flex align-items-center mb-3">
+                            <i data-feather="book" style="width: 32px; height: 32px; margin-right: 15px;"></i>
+                            <h2 class="mb-0" style="font-size: 2rem;">Contact Information</h2>
+                        </div>
+                        <p>Who we'll reach out to</p>
+                    </div>
+                    <form id="form-step-2">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label required">First Name</label>
+                                <input type="text" class="form-control" id="firstName" pattern="[a-zA-Z\s]+" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label required">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" pattern="[a-zA-Z\s]+" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Email ID</label>
+                            <input type="email" class="form-control" id="email"
+                                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                                title="Please enter a valid email address (e.g. user@example.com)" required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label required">Phone</label>
+                                <input type="tel" class="form-control" id="phone" pattern="[0-9]{10}"
+                                    title="Format: 1234567890" placeholder="1234567890" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label required">Cell Phone</label>
+                                <input type="tel" class="form-control" id="cellPhone" pattern="[0-9]{10}"
+                                    title="Format: 1234567890" placeholder="1234567890" required>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label">Contact Person</label>
+                            <input type="text" class="form-control" id="contactPerson">
+                        </div>
+                        <div class="form-actions d-flex justify-content-between align-items-center">
+                            <a href="#" class="back-link" onclick="nextStep(1); return false;"><i
+                                    data-feather="arrow-left"></i> Back to Account Details</a>
+                            <button type="button" class="btn btn-continue" onclick="nextStep(3)">Continue</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 3: Business Information -->
+                <div class="form-step" id="step-3" style="display: none;">
+                    <div class="content-header">
+                        <div class="d-flex align-items-center mb-3">
+                            <i data-feather="layout" style="width: 32px; height: 32px; margin-right: 15px;"></i>
+                            <h2 class="mb-0" style="font-size: 2rem;">Business Information</h2>
+                        </div>
+                        <p>About your store</p>
+                    </div>
+                    <form id="form-step-3">
+                        <div class="mb-3">
+                            <label class="form-label required">Store Name</label>
+                            <input type="text" class="form-control" style="max-width: 100%;" id="storeName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required">Street Address</label>
+                            <input type="text" class="form-control" style="max-width: 100%;" id="streetAddress"
+                                required>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label required">City</label>
+                                <input type="text" class="form-control" id="city" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label required">State</label>
+                                <input type="text" class="form-control" id="state" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label class="form-label required">Zip Code</label>
+                                <input type="text" class="form-control" id="zipCode" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label required">Country</label>
+                                <input type="text" class="form-control" id="country" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">Sales Tax</label>
+                                <input type="text" class="form-control" id="salesTax">
+                            </div>
+                        </div>
+                        <div class="mb-4 d-flex align-items-center">Multiple Stores?
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="multipleStoresSwitch"
+                                    style="width: 3em; height: 1.5em;">
+                            </div>
+                        </div>
+                        <div class="mb-3" id="multipleStoresDetails" style="display: none;">
+                            <label class="form-label">Store Details</label>
+                            <textarea class="form-control" id="storeDetails" rows="3"
+                                placeholder="Please list names"></textarea>
+                        </div>
+                        <div class="form-actions d-flex justify-content-between align-items-center mt-4">
+                            <a href="#" class="back-link" onclick="nextStep(2); return false;"><i
+                                    data-feather="arrow-left"></i> Back to Contact Info</a>
+                            <button type="button" class="btn btn-continue" onclick="nextStep(4)">Continue</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 4: Memberships & Admin -->
+                <div class="form-step" id="step-4" style="display: none;">
+                    <div class="content-header">
+                        <div class="d-flex align-items-center mb-3">
+                            <i data-feather="users" style="width: 32px; height: 32px; margin-right: 15px;"></i>
+                            <h2 class="mb-0" style="font-size: 2rem;">Memberships & Admin</h2>
+                        </div>
+                        <p>Verify your business affiliation</p>
+                    </div>
+                    <form id="form-step-4">
+                        <div class="mb-4">
+                            <label class="form-label mb-3">Your Memberships</label>
+                            <div class="d-flex flex-column gap-2">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="rjoMember">
+                                    <label class="form-check-label" for="rjoMember">RJO Member</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="ijoMember">
+                                    <label class="form-check-label" for="ijoMember">IJO Member</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="agsMember">
+                                    <label class="form-check-label" for="agsMember">AGS Member</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="cbgMember">
+                                    <label class="form-check-label" for="cbgMember">CBG Member</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="jhjMember">
+                                    <label class="form-check-label" for="jhjMember">JHJ Member</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <label class="form-label required">Registered By</label>
+                            <select class="form-select" id="registeredBy" required>
+                                <option value="" selected disabled>Select Name</option>
+                                <option value="Anish">Anish</option>
+                                <option value="Amy">Amy</option>
+                                <option value="Melbry">Melbry</option>
+                                <option value="Nirav">Nirav</option>
+                                <option value="Rohan">Rohan</option>
+                                <option value="Sandy">Sandy</option>
+                            </select>
+                        </div>
+                        <div class="form-actions d-flex justify-content-between align-items-center mt-5">
+                            <a href="#" class="back-link" onclick="nextStep(3); return false;"><i
+                                    data-feather="arrow-left"></i> Back to Business Info</a>
+                            <button type="button" class="btn btn-continue" onclick="nextStep(5)">Finish
+                                Registration</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Step 5: Submitted -->
+                <div class="form-step" id="step-5" style="display: none;">
+                    <div class="success-content pt-4">
+                        <div class="d-flex align-items-center mb-4">
+                            <h2 class="mb-0 me-3"
+                                style="font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; color: #111;">You're
+                                almost in!</h2>
+                            <i data-feather="smile" style="width: 32px; height: 32px;"></i>
+                            <!-- Placeholder for cheers icon -->
+                        </div>
+
+                        <p class="mb-4"><strong>Thanks for registering — your account is pending approval.</strong><br>
+                            Our team is reviewing your details and will confirm access within 1 business day.</p>
+
+                        <p class="text-muted mb-4" style="font-size: 0.95rem;">
+                            Once approved, you'll unlock instant pricing, AI-powered design matching, and exclusive
+                            partner resources.
+                        </p>
+
+                        <div class="mb-4">
+                            <h5 style="font-size: 1rem; font-weight: 700; margin-bottom: 10px;">What happens next</h5>
+                            <ul style="padding-left: 20px; font-size: 0.95rem; color: #444; line-height: 1.6;">
+                                <li>You'll receive an approval email with login instructions</li>
+                                <li>If we need additional verification, we'll contact you</li>
+                                <li>Please check your spam/junk folder just in case</li>
+                            </ul>
+                        </div>
+
+                        <p class="mb-4" style="font-style: italic; color: #555;">You won't be able to log in until your
+                            account is approved.</p>
+
+                        <div class="d-flex gap-3 mt-5">
+                            <button class="btn btn-outline-secondary px-4 py-2" style="border-radius: 8px;">Contact
+                                Support</button>
+                            <button class="btn btn-primary px-4 py-2"
+                                style="background: var(--primary-blue); border: none; border-radius: 8px;">Back to
+                                Home</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Quick Answers -->
+    <section class="section-2">
+        <div class="quick-answers-container">
+            <h2 class="answers-title">Quick Answers</h2>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <span>Who can partner with Star Gems?</span>
+                            <i data-feather="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            We work exclusively with B2B retailers, jewelers, and wholesalers looking to increase profit
+                            margins, access flexible custom jewelry production, and maintain high-quality standards.
+                            <br><br>
+                            <a href="#" style="color: #666; text-decoration: underline; font-size: 0.9rem;">Learn more:
+                                Why Partner With Us <i data-feather="arrow-up-right"
+                                    style="width: 14px; height: 14px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <span>Do you have minimum order requirements?</span>
+                            <i data-feather="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            No. Star Gems specializes in flexibility. You can order a single piece or thousands with
+                            consistent quality and pricing.
+                            <br><br>
+                            <a href="#" style="color: #666; text-decoration: underline; font-size: 0.9rem;">Related
+                                info: Our Process <i data-feather="arrow-up-right"
+                                    style="width: 14px; height: 14px;"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <span>How long does approval take?</span>
+                            <i data-feather="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Most retailer applications are reviewed and approved within 1 business day. You'll receive
+                            an email once your account is active.
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="faq-card">
+                        <div class="faq-header">
+                            <span>What tools does Star Gems provide for retailers?</span>
+                            <i data-feather="chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            Retailers get access to:
+                            <ul style="padding-left: 20px; margin-top: 10px; list-style: none;">
+                                <li style="margin-bottom: 5px;"><strong>GemArt AI</strong> for design pricing:<br>
+                                    <a href="#">GemArt AI ↗</a>
+                                </li>
+                                <li style="margin-bottom: 5px;"><strong>TextMeChat</strong> for SMS support:<br>
+                                    <a href="#">TextMeChat ↗</a>
+                                </li>
+                                <li style="margin-bottom: 5px;"><strong>StarMatch AI</strong> for style
+                                    recommendations:<br>
+                                    <a href="#">StarMatch AI ↗</a>
+                                </li>
+                                <li><strong>Dashboard</strong> for order management and CAD tracking:<br>
+                                    <a href="#">Dashboard ↗</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script src="registration.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+
+</html>

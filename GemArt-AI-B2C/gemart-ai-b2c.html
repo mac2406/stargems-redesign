@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GemArt AI – Design Your Dream Jewelry</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link href="gemart-ai-b2c.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- MODALS -->
+  <!-- OTP LOGIN MODAL -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-hidden="true" data-bs-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered" style="max-width:440px;">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <div class="modal-eyebrow">GemArt AI</div>
+            <div class="modal-title">Sign In to Your Account</div>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body">
+          <div class="otp-step active" id="step-1">
+            <p class="modal-step-desc">Enter your mobile number - we'll send a one-time passcode.</p>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="phone-pane">
+                <label class="form-label">Mobile Number</label>
+                <div class="input-group">
+                  <select class="form-control select-country-code" id="country-code">
+                    <option value="+1">🇺🇸 +1</option>
+                    <option value="+44">🇬🇧 +44</option>
+                    <option value="+91">🇮🇳 +91</option>
+                    <option value="+61">🇦🇺 +61</option>
+                    <option value="+971">🇦🇪 +971</option>
+                    <option value="+49">🇩🇪 +49</option>
+                  </select>
+                  <input type="tel" class="form-control" id="phone-input" placeholder="(555) 000-0000" maxlength="15" />
+                </div>
+              </div>
+            </div>
+            <div id="step1-error" class="text-danger mt-2" style="font-size:.79rem;display:none;"></div>
+            <button class="btn-primary w-100 mt-4 py-3" style="background-color: #3A5778; color: #ffffff;"
+              onclick="sendOTP()" id="send-otp-btn">Send
+              One-Time Code &nbsp;<i class="bi bi-arrow-right"></i></button>
+            <div class="divider-or">or</div>
+            <p class="modal-footer-text">New customer? <a href="#" class="create-account-link">Create a free account</a>
+            </p>
+          </div>
+          <div class="otp-step" id="step-2">
+            <p style="font-size:.86rem;color:var(--text-sub);margin-bottom:.4rem;">We sent a 6-digit code to</p>
+            <p style="font-weight:600;font-size:.95rem;color:var(--primary-dark);" id="sent-to-display">your number</p>
+            <div class="otp-inputs">
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" id="otp-0" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" id="otp-1" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" id="otp-2" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" id="otp-3" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" id="otp-4" />
+              <input class="otp-box" type="text" maxlength="1" inputmode="numeric" id="otp-5" />
+            </div>
+            <div id="otp-error" class="text-danger mb-2" style="font-size:.79rem;display:none;text-align:center;"></div>
+            <button class="btn-primary w-100 py-3" style="background-color: #3A5778; color: #ffffff;"
+              onclick="verifyOTP()" id="verify-btn">Verify &amp;
+              Enter
+              GemArt AI &nbsp;<i class="bi bi-gem"></i></button>
+            <p class="resend-timer mt-3">Didn't get a code? <a class="resend-link" id="resend-link"
+                onclick="resendOTP()" style="display:none;">Resend</a><span id="resend-countdown"></span></p>
+            <button class="btn btn-link p-0 mt-3 d-block" style="font-size:.8rem;color:var(--text-sub);"
+              onclick="goToStep(1)"><i class="bi bi-arrow-left me-1"></i>Change number</button>
+          </div>
+          <div class="otp-step" id="step-3">
+            <div class="text-center py-4">
+              <div class="spinner-border mb-3 spinner-primary" role="status"></div>
+              <p class="signing-in-title">Signing you in…</p>
+              <p class="signing-in-desc">Setting up your GemArt AI workspace.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY MODAL -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content overflow-hidden">
+        <div class="modal-header border-0">
+          <h5 class="modal-title font-serif">Your Gallery</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div id="gallery-grid" class="gallery-grid"></div>
+          <div id="gallery-empty" class="text-center py-5" style="display:none;">
+            <i class="bi bi-images display-1 text-slate opacity-25 mb-3"></i>
+            <p class="text-slate">Your generated designs will appear here.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRY IT ON MODAL -->
+  <div class="modal fade" id="tryOnModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content overflow-hidden">
+        <div class="modal-header border-0">
+          <h5 class="modal-title font-serif">Virtual Try-On</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row g-4">
+            <div class="col-md-7">
+              <div class="try-on-display">
+                <img id="user-photo-preview" src="" alt="Upload your photo" style="display:none;" />
+                <div id="try-on-placeholder">
+                  <i class="bi bi-camera display-4 text-slate mb-3"></i>
+                  <p class="text-slate">Upload a photo of your hand or ear to visualize the design.</p>
+                  <button class="btn-primary" style="background-color: #3A5778; color: #ffffff;"
+                    onclick="document.getElementById('user-photo-input').click()">Upload Photo</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5">
+              <div class="try-on-controls">
+                <h6>Current Selection</h6>
+                <div class="selected-design-card mb-4">
+                  <div class="design-thumb-sm" id="try-on-thumb"></div>
+                  <div class="design-info-sm">
+                    <span id="try-on-name">Selection Design</span>
+                    <small id="try-on-price">$1,240</small>
+                  </div>
+                </div>
+                <input type="file" id="user-photo-input" style="display:none;" onchange="handleUserPhoto(event)"
+                  accept="image/*" />
+                <button class="btn-primary w-100 mb-2" style="background-color: #3A5778; color: #ffffff;"
+                  onclick="document.getElementById('user-photo-input').click()">Change Photo</button>
+                <button class="btn-primary w-100"
+                  style="background-color: #f5f5f5; color: #3A5778; border: 1px solid #3A5778;"
+                  onclick="showToast('Visualization saved to gallery!')">Save Result</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+     LANDING PAGE
+══════════════════════════════════════ -->
+  <div id="landing-view">
+
+    <!-- HERO -->
+    <section class="hero py-5">
+      <div class="container py-lg-4">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="hero-badge fade-up"><i class="bi bi-stars"></i> Powered by Real AI</div>
+            <h1 class="fade-up d1">Design Your<br /><em>Dream Jewelry</em></h1>
+            <p class="lead fade-up d2">Create a custom engagement ring, pendant, or any jewelry piece in seconds.
+              Describe your idea and instantly see design concepts come to life.</p>
+            <p class="text-white fade-up d2 mb-4" style="font-size: 15px; opacity: 0.8; line-height: 1.6;">Whether
+              you have a clear idea or just inspiration, our AI design assistant helps you visualize your custom jewelry
+              before it is crafted.</p>
+
+            <div class="d-flex flex-wrap gap-3 fade-up d3 align-items-center mb-2">
+              <a href="#" class="btn-primary" onclick="openLogin(); return false;"><i class="bi bi-gem"></i> Start
+                Designing</a>
+            </div>
+            <div class="fade-up d3 mb-4">
+              <small class="text-white-muted" style="font-size: 12px;"> No design experience needed. Just describe
+                your idea.
+              </small>
+            </div>
+
+            <div class="prompt-examples fade-up d4">
+              <span class="d-block mb-2 text-accent"
+                style="font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;">Try
+                something like:</span>
+              <ul class="list-unstyled text-white-muted mb-0" style="font-size: 13px; line-height: 1.8;">
+                <li><i class="bi bi-chat-right-text-fill me-2" style="font-size: 12px;"></i> "Oval diamond engagement
+                  ring with hidden halo and pave band"
+                </li>
+                <li><i class="bi bi-chat-right-text-fill me-2" style="font-size: 12px;"></i> "Vintage sapphire ring
+                  with milgrain details"
+                </li>
+                <li><i class="bi bi-chat-right-text-fill me-2" style="font-size: 12px;"></i> "Modern gold pendant
+                  using my old diamonds"
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6 hero-img-wrap fade-up d2 text-center">
+            <img src="https://stargems.com/assets/img/gemartai/ai-powered-jewelry-design-platform.png" alt="GemArt AI"
+              onerror="this.src='https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=700&q=80'" />
+            <div class="floating-card card-tl">
+              <div class="fc-label"><i class="bi bi-lightning-fill me-1"></i>New Design</div>
+              <div class="fc-value">Bespoke Concept</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section-padding-white" id="how-it-works">
+      <div class="container">
+        <div class="text-center mb-5">
+          <h2 class="section-title">Turn Your Idea Into a Jewelry Design</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-3">
+            <div class="step-card"><span class="step-number">01</span>
+              <h5>Describe Your Idea</h5>
+              <p> Tell us what you want to create. You can describe the jewelry style, center stone, metal type, or
+                overall look.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="step-card"><span class="step-number">02</span>
+              <h5>See Design Concepts Instantly</h5>
+              <p>Our AI generates realistic jewelry design concepts based on your description.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="step-card"><span class="step-number">03</span>
+              <h5>Refine Your Design</h5>
+              <p>Adjust the design by changing stone shapes, band styles, or details until it feels perfect.</p>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="step-card"><span class="step-number">04</span>
+              <h5>Bring It to Life</h5>
+              <p>Once you love the design, our store can help turn it into a real handcrafted piece.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="section-padding-dark text-center"
+      style="background: linear-gradient(150deg, #1e293b 0%, #0f172a 100%) !important;">
+      <div class="container py-4">
+        <h2 class="section-title text-white-important mb-3">Start Designing Your Custom Jewelry</h2>
+        <p class="text-white-muted mx-auto mb-4" style="max-width: 600px; font-size: 15px;">Create your own
+          engagement
+          ring, redesign an heirloom piece, or bring a completely new idea to life. Your
+          design can become the next piece crafted by our jewelers.
+        </p>
+        <div class="fade-up d2">
+          <a href="#" class="btn-primary mb-3" onclick="openLogin(); return false;"><i class="bi bi-magic me-2"></i>
+            Create Your Design</a>
+          <p class="text-accent mt-2" style="font-size: 12px; font-weight: 500; letter-spacing: 0.02em;"> Custom
+            jewelry crafted with expert care by our store.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </div><!-- /landing-view -->
+
+
+  <!-- ══════════════════════════════════════
+     APP VIEW (shown after login)
+══════════════════════════════════════ -->
+  <div id="app-view" style="display:none;">
+    <div class="app-shell">
+
+      <!-- SIDEBAR -->
+      <aside id="app-sidebar">
+        <div class="sidebar-logo">
+          <div class="gemlogo sidebar-logo-text hide-collapsed">
+            <img src="https://stargems.com/assets/img/gemartai/gemart-ai-at-stargems.svg" alt="GemArt AI"
+              class="img-fluid">
+          </div>
+          <button class="icon-btn" onclick="toggleSidebar()" title="Toggle sidebar"><i
+              class="bi bi-list icon-list-item"></i></button>
+        </div>
+        <div class="sidebar-actions">
+          <button class="btn-new-design" onclick="newDesign()">
+            <i class="bi bi-plus-lg"></i> <span class="hide-collapsed">Start New Design</span>
+          </button>
+          <button class="btn-all-designs" style="background-color: #ffffff; color: #3A5778; border: 1px solid #3A5778;"
+            onclick="openGallery()">
+            <i class="bi bi-folder" style="color:var(--primary);"></i> <span class="hide-collapsed">Your Gallery</span>
+          </button>
+        </div>
+        <div class="sidebar-section-label hide-collapsed">
+          <span>Recent Designs</span>
+        </div>
+        <div id="design-list"></div>
+
+        <!-- Sidebar Footer -->
+        <div class="sidebar-footer">
+          <div class="user-profile-mini">
+            <div class="user-avatar" id="user-avatar">U</div>
+            <div class="user-info hide-collapsed">
+              <span id="user-name-chip">User</span>
+            </div>
+          </div>
+          <button class="btn-sidebar-signout w-100" onclick="logout()">
+            <i class="bi bi-box-arrow-right"></i>
+            <span class="hide-collapsed ms-2">Sign out</span>
+          </button>
+        </div>
+      </aside>
+
+      <!-- MAIN -->
+      <div class="app-main">
+
+        <!-- Top bar -->
+        <div class="app-topbar">
+          <div class="d-flex align-items-center gap-2">
+            <button class="icon-btn d-lg-none" onclick="toggleSidebar()" title="Toggle sidebar">
+              <i class="bi bi-list fs-5"></i>
+            </button>
+            <span class="topbar-hint" id="topbar-hint">Start a new design or continue a recent one.</span>
+          </div>
+          <button class="icon-btn d-lg-none" onclick="toggleDetails()" title="Design Details">
+            <i class="bi bi-info-circle fs-5"></i>
+          </button>
+        </div>
+
+        <!-- Workspace -->
+        <div id="workspace">
+
+          <!-- Canvas column -->
+          <div class="canvas-col">
+
+            <!-- Conversational Chat Area -->
+            <div id="chat-messages" class="chat-container">
+              <div class="ai-message">
+                <div class="message-bubble">
+                  <div class="ai-header">
+                    <i class="bi bi-stars text-primary me-2"></i>
+                    <span>GemArt AI</span>
+                  </div>
+                  <p class="mb-0">Hello! I'm your AI design assistant. Upload a sketch or describe your vision, and I'll
+                    create photorealistic concepts for you.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Prompt bar -->
+            <div class="prompt-bar">
+              <i class="bi bi-stars prompt-bar-stars"></i>
+              <input type="text" id="prompt-input" placeholder="Describe a change or new design idea…"
+                onkeydown="if(event.key==='Enter')generateDesign()" />
+              <button class="icon-btn" onclick="document.getElementById('file-input').click()"
+                title="Upload reference"><i class="bi bi-upload"></i></button>
+              <input type="file" id="file-input" style="display:none;" onchange="onFileSelect(event)"
+                accept="image/*" />
+              <button class="btn-send" id="send-btn" onclick="generateDesign()"><i class="bi bi-send"></i></button>
+            </div>
+            <p style="text-align:center;font-size:.72rem;color:var(--text-slate);margin:0;">GemArt AI can make mistakes.
+              Check important info.</p>
+
+          </div><!-- /canvas-col -->
+
+          <!-- Design Details Panel -->
+          <div class="details-panel">
+            <div class="d-flex justify-content-between align-items-center mb-1">
+              <div class="details-title mb-0">Design details</div>
+              <button class="icon-btn d-lg-none" onclick="toggleDetails()" title="Close details">
+                <i class="bi bi-x fs-4"></i>
+              </button>
+            </div>
+
+            <!-- Empty state -->
+            <div id="details-empty">
+              <div class="skeleton-line" style="width:100%;height:34px;border-radius:8px;margin-bottom:12px;"></div>
+              <div style="text-align: center; padding: 10px 0 14px; align-items: center;">
+                <div class="d-flex justify-content-center">
+                  <div class="details-empty-icon-wrap">
+                    <i class="bi bi-info fa-solid fa-circle-info text-slate"></i>
+                  </div>
+                </div>
+                <p class="details-empty-text">Design details will appear
+                  here.</p>
+              </div>
+              <div class="skeleton-line" style="width:90%;"></div>
+              <div class="skeleton-line" style="width:75%;"></div>
+              <div class="skeleton-line" style="width:55%;"></div>
+            </div>
+
+            <!-- Filled state -->
+            <div id="details-filled" style="display:none;">
+              <div class="details-header-wrap">
+                <span class="details-header-text" id="detail-title">Custom
+                  Design</span>
+              </div>
+              <div id="detail-rows">
+                <div class="detail-row"><span class="detail-label">Metal</span><span class="detail-val"
+                    id="d-metal">—</span></div>
+                <div class="detail-row"><span class="detail-label">Center Stone</span><span class="detail-val"
+                    id="d-stone">—</span></div>
+                <div class="detail-row"><span class="detail-label">Side Stones</span><span class="detail-val"
+                    id="d-side">—</span></div>
+                <div class="detail-row"><span class="detail-label">Style</span><span class="detail-val"
+                    id="d-style">—</span></div>
+              </div>
+              <div class="details-footer-actions">
+                <button class="btn-primary w-100 py-2" style="background-color: #3A5778; color: #ffffff;"><i
+                    class="bi bi-bag me-1"></i>Request Quote</button>
+                <button class="btn-primary w-100 py-2 mt-2"
+                  style="background-color: #ffffff; color: #3A5778; border: 1px solid #3A5778;" onclick="openTryOn()"><i
+                    class="bi bi-person-bounding-box me-1"></i>Try It On Yourself</button>
+              </div>
+            </div><!-- /details-filled -->
+          </div><!-- /details-panel -->
+        </div><!-- /workspace -->
+        <div class="px-4 pb-2 text-center" style="opacity: 0.5;">
+          <small class="text-slate" style="font-size: 0.75rem;">Design concepts are visual ideas to help start the
+            custom design process.</small>
+        </div>
+      </div><!-- /app-main -->
+    </div><!-- /app-shell -->
+  </div><!-- /app-view -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+
+  <script src="gemart-ai-b2c.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,439 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers Website Plans | StarGems B2B</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="retailer-command-center.css">
+    <style>
+        .table-premium-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-custom thead th {
+            background: var(--bg-neutral);
+            border-bottom: 2px solid var(--border-color);
+            padding: 1.25rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: var(--text-sub);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .table-custom tbody td {
+            padding: 1.25rem 1rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #f8f8f8;
+            font-size: 0.85rem;
+        }
+
+        .plan-badge {
+            background: #f0f4f8;
+            color: var(--primary-dark);
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.75rem;
+            display: inline-block;
+            border: 1px solid #e0e7f0;
+        }
+
+        .visit-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .visit-link:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        .address-box {
+            max-width: 200px;
+            white-space: normal;
+            font-size: 0.8rem;
+            color: var(--text-sub);
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="global-header.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="sidebar-toggle">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-menu">
+            <div class="sidebar-divider">COMMAND CENTER</div>
+            <div class="nav-item">
+                <a href="retailer-command-center.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="retailers.html" class="nav-link">
+                    <i class="bi bi-shop"></i>
+                    <span>Retailers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="tmc-cs-app-details.html" class="nav-link">
+                    <i class="bi bi-phone"></i>
+                    <span>TMC / CS App Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-orders.html" class="nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Custom CAD Order Module</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="gemart-ai-details.html" class="nav-link">
+                    <i class="bi bi-robot"></i>
+                    <span>GemArtAI Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="websites.html" class="nav-link">
+                    <i class="bi bi-globe"></i>
+                    <span>PIT / CWS Customers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="member-lists.html" class="nav-link">
+                    <i class="bi bi-tags"></i>
+                    <span>Specific Retailer List</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="request-manager.html" class="nav-link">
+                    <i class="bi bi-clipboard-pulse"></i>
+                    <span>Request Manager</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-iframe.html" class="nav-link">
+                    <i class="bi bi-code-square"></i>
+                    <span>Custom CAD IFrame</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="coupons.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Coupons</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="forms-demo.html" class="nav-link">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Order Form / Demo Request</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="emails-tools.html" class="nav-link">
+                    <i class="bi bi-envelope-at"></i>
+                    <span>Emails / Website</span>
+                </a>
+            </div>
+        </div>
+        <div class="p-3 mt-auto">
+            <div class="sidebar-card p-3 rounded bg-primary-light" style="border: 1px dashed var(--primary);">
+                <span class="d-block small fw-bold text-primary">Need Help?</span>
+                <span class="d-block smaller text-sub mt-1">Contact Support Center</span>
+            </div>
+        </div>
+    </nav>
+    <label for="sidebar-toggle" class="sidebar-backdrop d-lg-none"></label>
+
+        <!-- Global Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+            <div class="container-fluid h-100">
+                <a class="navbar-brand d-flex align-items-center" href="retailer-command-center.html">
+                    <h1 class="m-0">STARGEMS</h1>
+                </a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                    <ul class="navbar-nav gap-4 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                                <li><a class="dropdown-item" href="view-orders.html">All Orders</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Technology
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                                <li><a class="dropdown-item" href="https://stargems.com/gemart-ai.aspx">GemArt AI</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/textmechat.aspx">TextMeChat</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                Diamonds</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/cad-gallery.aspx">CAD
+                                        Gallery</a></li>
+                                <li><a class="dropdown-item" href="#">Archive</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Partner Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Paid Services</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/website-design-and-seo.aspx">Website
+                                                Design</a></li>
+                                        <li><a class="dropdown-item" href="https://stargems.com/Google-Ads.aspx">Google
+                                                Ads</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/social-media.aspx">Social
+                                                Media</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Support</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://stargems.com/faqs.aspx">FAQ</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/video-tutorials.aspx">Video
+                                                Tutorials</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/contact-us.aspx">Contact Us</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/book-a-demo.aspx">Book a
+                                        Demo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-heart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">3</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">1</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn profile-btn d-flex align-items-center gap-2 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-circle">AD</div>
+                            <span class="small fw-normal">Anish D.</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-gear"></i> Account Settings</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <label for="sidebar-toggle" class="btn btn-outline-secondary mobile-menu-btn d-lg-none ms-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+    <div class="main-wrapper">
+        <main class="content-padding">
+            <div class="mb-4">
+                <h2 class="font-serif mb-1"
+                    style="font-size: 2.5rem; letter-spacing: -0.5px; color: var(--primary-dark);">Website Plans</h2>
+                <div class="d-flex flex-column flex-md-row align-items-md-center gap-1 gap-md-3">
+                    <p class="text-sub mb-0">List of Customers under PIT Website Plan</p>
+                    <div class="text-secondary fw-bold border-md-start ps-md-3">
+                        Active Subscriptions: 21
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-premium-card">
+                <div class="table-responsive">
+                    <table class="table-custom text-nowrap w-100">
+                        <thead>
+                            <tr>
+                                <th class="ps-4">Sr No.</th>
+                                <th>Website / Store</th>
+                                <th>Contact Person</th>
+                                <th>Address</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Website Plan</th>
+                                <th class="pe-4">Visit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Item 1 -->
+                            <tr>
+                                <td class="ps-4">1</td>
+                                <td>
+                                    <div class="fw-bold text-dark">Wolf Jewelry</div>
+                                </td>
+                                <td>Jose Loret</td>
+                                <td>
+                                    <div class="address-box">4301 W Kennedy Blvd</div>
+                                </td>
+                                <td>(813) 535-7722</td>
+                                <td>info@thewolfjewelry.com</td>
+                                <td><span class="plan-badge">Premium SEO+Social Media+Google Ads Package 3</span></td>
+                                <td class="pe-4"><a href="http://thewolfjewelry.com" target="_blank"
+                                        class="visit-link">thewolfjewelry.com</a></td>
+                            </tr>
+                            <!-- Item 2 -->
+                            <tr>
+                                <td class="ps-4">2</td>
+                                <td>
+                                    <div class="fw-bold text-dark">Dale Robertson Jewelry Co., LLC</div>
+                                </td>
+                                <td>Dale Robertson</td>
+                                <td>
+                                    <div class="address-box">784 Loveland Miamiville Rd, Ste 300</div>
+                                </td>
+                                <td>(513) 583-5900</td>
+                                <td>info@dalerobertsonjewelry.com</td>
+                                <td><span class="plan-badge">Premium SEO</span></td>
+                                <td class="pe-4"><a href="http://dalerobertsonjewelry.com" target="_blank"
+                                        class="visit-link">dalerobertsonjewelry.com</a></td>
+                            </tr>
+                            <!-- Item 3 -->
+                            <tr>
+                                <td class="ps-4">3</td>
+                                <td>
+                                    <div class="fw-bold text-dark">Mansi Jewelry</div>
+                                </td>
+                                <td>Mansi Pandya</td>
+                                <td>
+                                    <div class="address-box">145 Forest Ave</div>
+                                </td>
+                                <td>(646) 895-6327</td>
+                                <td>mansi@mansijewelry.com</td>
+                                <td><span class="plan-badge">Premium SEO+Google Ads Package 1</span></td>
+                                <td class="pe-4"><a href="http://mansijewelry.com" target="_blank"
+                                        class="visit-link">mansijewelry.com</a></td>
+                            </tr>
+                            <!-- Item 4 -->
+                            <tr>
+                                <td class="ps-4">4</td>
+                                <td>
+                                    <div class="fw-bold text-dark">Rockys Diamond Gallery</div>
+                                </td>
+                                <td>Rakesh Baxani</td>
+                                <td>
+                                    <div class="address-box">186 seafarer way</div>
+                                </td>
+                                <td>(345) 546-6250</td>
+                                <td>sales@rockysdiamonds.com</td>
+                                <td><span class="plan-badge">Premium SEO</span></td>
+                                <td class="pe-4"><a href="http://www.rockysdiamonds.com" target="_blank"
+                                        class="visit-link">www.rockysdiamonds.com</a></td>
+                            </tr>
+                            <!-- Item 5 -->
+                            <tr>
+                                <td class="ps-4">5</td>
+                                <td>
+                                    <div class="fw-bold text-dark">AJ's Jewelry</div>
+                                </td>
+                                <td>Jordan Eddi</td>
+                                <td>
+                                    <div class="address-box">5744 myrtle ave</div>
+                                </td>
+                                <td>(718) 628-4499</td>
+                                <td>info@ajsjewelers.com</td>
+                                <td><span class="plan-badge">Custom Plans+Lifestyle Image Service</span></td>
+                                <td class="pe-4"><a href="http://youdesignwecreate.com" target="_blank"
+                                        class="visit-link">youdesignwecreate.com</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-custom border-top flex-column flex-md-row gap-3 text-center text-md-start">
+                    <span class="text-sub small">Showing 1 to 5 of 21 entries</span>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <a href="#" class="page-link-custom active">1</a>
+                        <a href="#" class="page-link-custom">2</a>
+                        <a href="#" class="page-link-custom">3</a>
+                        <a href="#" class="page-link-custom">4</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 text-end">
+                <a href="websites.html" class="btn-premium-back">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </a>
+            </div>
+        </main>
+    </div>
+
+</body>
+
+</html>
+
+
+
+

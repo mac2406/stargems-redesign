@@ -1,0 +1,737 @@
+:root {
+    /* --- Color Palette (Consistent with Website SEO) --- */
+    --primary: #6487AF;
+    --primary-dark: #3A5778;
+    --primary-light: #E6EFF9;
+    --accent: #AABEDC;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --bg-body: #FFFFFF;
+    --bg-neutral: #F5F5F5;
+    --border-color: #E6E6E6;
+
+    /* --- Design Variables --- */
+    --shadow-hover: 0 12px 24px rgba(58, 87, 120, 0.15);
+    --radius-pill: 999px;
+    --radius-card: 12px;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'IBM Plex Sans', sans-serif;
+
+    /* --- Header Heights for offset --- */
+    --header-height: 80px;
+}
+
+/* ================= BASE STYLES ================= */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+/* ================= UTILITIES ================= */
+.text-serif {
+    font-family: var(--font-serif);
+}
+
+.text-primary {
+    color: var(--primary) !important;
+}
+
+/* ================= HEADER (Replicated from Reference) ================= */
+.site-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background: #fff;
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--primary-dark);
+    font-family: var(--font-serif);
+}
+
+.nav-menu {
+    display: flex;
+    gap: 30px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    color: #888;
+    font-size: 0.95rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-header-fill {
+    background: var(--primary);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: none;
+}
+
+/* ================= HERO & FILTERS ================= */
+.collection-header {
+    text-align: center;
+    padding: 60px 20px 40px;
+    background: #fff;
+}
+
+.collection-header h1 {
+    font-size: 3.5rem;
+    margin-bottom: 10px;
+    color: #000;
+}
+
+.collection-header p {
+    color: var(--text-sub);
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+}
+
+/* Filters Row */
+.filters-container {
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 40px;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.filter-label {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #888;
+    margin-right: 5px;
+}
+
+.filter-value {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #000;
+}
+
+.filter-options {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* New Filter Structure */
+.filter-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+    padding: 2px;
+    /* Spacing for the ring */
+}
+
+/* Active State - Blue Ring */
+.filter-option.active {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 1px var(--primary);
+    /* Simulate thicker border/ring */
+}
+
+.filter-option:hover {
+    border-color: #ccc;
+}
+
+.filter-img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.filter-option.active .filter-img {
+    opacity: 1;
+}
+
+.color-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    display: block;
+}
+
+.search-bar {
+    background: #F0F0F0;
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: flex;
+    align-items: center;
+    width: 300px;
+}
+
+.search-bar input {
+    border: none;
+    background: transparent;
+    width: 100%;
+    outline: none;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* ================= PRODUCT GRID ================= */
+.product-card {
+    background: #fff;
+    border: none;
+    transition: transform 0.3s;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.product-image-wrapper {
+    background: #F9F9F9;
+    position: relative;
+    margin-bottom: 15px;
+    /* Aspect ratio square */
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.product-img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.3s, opacity 0.3s ease;
+}
+
+.product-img.hover-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 2;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+.product-card:hover .product-img.hover-img {
+    opacity: 1;
+}
+
+.badge-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: #fff;
+    color: #333;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.btn-wishlist {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+    padding: 0;
+    transition: transform 0.2s;
+}
+
+.btn-wishlist svg {
+    width: 24px;
+    height: 24px;
+    stroke: #333;
+    stroke-width: 2;
+    transition: all 0.3s ease;
+}
+
+.btn-wishlist:hover {
+    transform: scale(1.1);
+}
+
+.btn-wishlist:hover svg {
+    stroke: #E63946;
+    /* Red hover */
+}
+
+.btn-wishlist.active svg {
+    fill: #E63946;
+    stroke: #E63946;
+}
+
+.product-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #111;
+}
+
+.product-price {
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ================= LOOSE DIAMONDS SECTION ================= */
+.loose-diamonds-section {
+    position: relative;
+    overflow: hidden;
+    margin: 80px 0;
+}
+
+.loose-diamonds-bg {
+    /* Placeholder for the background image from screenshot 2 */
+    background: #f4f4f4;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+}
+
+.diamonds-content-card {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 500px;
+    margin-left: 10%;
+    backdrop-filter: blur(5px);
+}
+
+.diamonds-content-card h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.diamonds-content-card p {
+    color: var(--text-sub);
+    margin-bottom: 25px;
+}
+
+/* ================= CTA SECTION ================= */
+.cta-section {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0.15) 70%, rgba(0, 0, 0, 0.05) 100%), url('https://stargems.com/assets/img/guidelines/grow-your-jewelry-business-with-stargems.webp');
+    inset: 0;
+    position: relative;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    padding: 100px 0;
+    text-align: left;
+}
+
+.cta-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-family: var(--font-serif);
+    max-width: 600px;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 0 40px 0;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+.cta-buttons {
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-cta {
+    background: #3A7CA5;
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s;
+}
+
+.btn-cta:hover {
+    background: #5aa1cc;
+    color: white;
+}
+
+.btn-cta-blue {
+    background: #3A7CA5;
+    /* Lighter blue for 'Book a Demo' */
+    border: none;
+}
+
+.btn-cta-blue:hover {
+    background: #5aa1cc;
+}
+
+.btn-promo {
+    background: #3A5778;
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-promo:hover {
+    background: #4a6b91;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= FAQ SECTION (Quick Answers) ================= */
+.quick-answers-section {
+    padding: 80px 0;
+    background: #fff;
+}
+
+.quick-answers-box {
+    border: 1px solid #eee;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Subtle shadow like screenshot */
+}
+
+.quick-answers-header {
+    font-family: var(--font-serif);
+    font-size: 2.2rem;
+    margin-bottom: 40px;
+    color: #111;
+}
+
+.faq-card {
+    border: 1px solid #eee;
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 24px;
+    transition: box-shadow 0.3s;
+    cursor: pointer;
+    /* Interaction hint */
+}
+
+.faq-card:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.faq-card:last-child {
+    margin-bottom: 0;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: 600;
+    font-size: 1.15rem;
+    margin-bottom: 0;
+    color: #111;
+    font-family: var(--font-sans);
+}
+
+.faq-question i {
+    transition: transform 0.3s ease;
+}
+
+.faq-card.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer-container {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, opacity 0.4s ease;
+    opacity: 0;
+}
+
+.faq-card.active .faq-answer-container {
+    max-height: 300px;
+    /* Adjust if content is longer */
+    opacity: 1;
+    margin-top: 15px;
+    /* Spacing handled here */
+}
+
+.faq-answer {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.faq-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #666;
+    font-size: 0.85rem;
+    text-decoration: underline;
+    margin-top: 12px;
+}
+
+/* ================= REVIEWS SECTION ================= */
+.reviews-section {
+    padding: 80px 0;
+    background: #FAFAFA;
+}
+
+.review-card {
+    background: white;
+    padding: 40px;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    height: 100%;
+}
+
+.review-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 20px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+}
+
+.reviewer-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reviewer-img {
+    width: 50px !important;
+    height: 50px !important;
+    min-width: 50px !important;
+    /* Ensure it stays round */
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    /* Prevent shrinking */
+}
+
+@media (max-width: 768px) {
+    .review-card {
+        padding: 25px;
+        /* Reduce padding on mobile */
+    }
+}
+
+/* Reviews Section - Desktop Masonry */
+@media (min-width: 992px) {
+    .reviews-carousel {
+        column-count: 3;
+        column-gap: 20px;
+        display: block !important;
+        /* Override owl-carousel default if needed */
+    }
+
+    .reviews-carousel .review-card {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        break-inside: avoid;
+    }
+
+    /* Hide owl styling if accidentally applied */
+    .reviews-carousel.owl-carousel {
+        display: block;
+    }
+}
+
+/* Responsive CTA Section for Mobile/Tablet */
+@media (max-width: 991px) {
+    .cta-section {
+        background: none !important;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cta-section::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 300px;
+        background: url('https://stargems.com/assets/img/guidelines/grow-your-jewelry-business-with-stargems-mob.webp') no-repeat center center;
+        background-size: cover;
+    }
+
+    .cta-section .container {
+        background-color: #3A7CA5;
+        width: 100%;
+        max-width: 100%;
+        padding: 50px 20px;
+        text-align: center !important;
+    }
+
+    .cta-section h2,
+    .cta-section p {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+
+    .cta-buttons {
+        justify-content: center;
+    }
+
+    .btn-cta {
+        background: transparent;
+        border: 1px solid white;
+    }
+
+    /* Reviews Mobile Layout: Info above Text */
+    .review-card {
+        display: flex;
+        flex-direction: column-reverse;
+        gap: 15px;
+        padding: 25px;
+        /* Ensure padding override is here */
+        height: auto;
+        /* Allow height to adjust */
+    }
+
+    .review-text {
+        margin-bottom: 0;
+    }
+
+    .reviewer-info {
+        justify-content: center;
+        /* Center align the info if needed, though card text is left aligned usually */
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 991px) {
+    .collection-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .filters-container .row>div {
+        margin-bottom: 20px;
+        justify-content: center;
+    }
+
+    .filter-group {
+        justify-content: center;
+    }
+
+    .diamonds-content-card {
+        margin: 0 auto;
+        max-width: 90%;
+    }
+
+    .site-header {
+        padding: 15px 20px;
+    }
+
+    .nav-menu {
+        display: none;
+        /* Hide for mobile initially or implement hamburger */
+    }
+
+    .faq-card {
+        margin-bottom: 15px;
+        /* Reduced from 24px */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .collection-header h1 {
+        font-size: 2rem;
+    }
+
+    .cta-section h2 {
+        font-size: 2rem;
+    }
+
+    .feature-grid .col-md-6 {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 1600px) {
+    .container {
+        max-width: 1520px;
+    }
+}

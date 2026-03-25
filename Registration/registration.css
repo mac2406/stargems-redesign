@@ -1,0 +1,422 @@
+:root {
+    /* Colors */
+    --primary-blue: #6487AF;
+    --sidebar-bg: #EAEFF5;
+    /* Light blue-grey for sidebar */
+    --active-step-bg: #FFFFFF;
+    --text-dark: #222;
+    --text-med: #555;
+    --text-light: #888;
+}
+
+body {
+    margin: 0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    background: #fff;
+}
+
+/* --- SECTIONS --- */
+.section-1 {
+    min-height: 100vh;
+    width: 100%;
+    background: url('https://stargems.com/assets/img/explore-jewelry-collection-of-stargems.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.section-2 {
+    background: white;
+    padding: 80px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.page-background {
+    width: 100%;
+}
+
+/* --- MAIN CONTAINER --- */
+.registration-container {
+    background: white;
+    border-radius: 30px;
+    display: flex;
+    overflow: hidden;
+    width: 1100px;
+    height: 750px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* --- SIDEBAR --- */
+.reg-sidebar {
+    background: var(--sidebar-bg);
+    width: 35%;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* --- CONTENT --- */
+.reg-content {
+    flex: 1;
+    padding: 60px 80px;
+    background: white;
+}
+
+.steps-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+/* Connecting line (pseudo-element) - simplified conceptual implementation */
+.steps-list::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 30px;
+    bottom: 30px;
+    width: 2px;
+    background: #ccc;
+    z-index: 0;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px;
+    border-radius: 12px;
+    position: relative;
+    z-index: 1;
+    transition: all 0.3s;
+}
+
+/* Disable interactions when submitted */
+.step-item.submitted-locked {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.step-item.active {
+    background: white;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+    /* Slightly stronger shadow */
+    transform: translateX(5px);
+    /* Subtle pop out */
+}
+
+/* ... existing icon styles restored ... */
+.step-icon {
+    width: 48px;
+    height: 48px;
+    background: #CDD9E4;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #444;
+}
+
+.step-item.active .step-icon {
+    background: white;
+    color: black;
+}
+
+.step-item:not(.active) .step-icon {
+    background: #9FB6CD;
+    color: #222;
+}
+
+.step-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.step-text strong {
+    font-size: 0.95rem;
+    color: var(--text-dark);
+}
+
+.step-text span {
+    font-size: 0.75rem;
+    color: var(--text-med);
+}
+
+.step-status {
+    color: black;
+    display: none;
+    /* Hidden by default */
+}
+
+.step-item.active .step-status {
+    display: block;
+    /* Show only when active */
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.step-status i {
+    animation: spin 2s linear infinite;
+}
+
+.back-link {
+    text-decoration: none;
+    color: #444;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+/* --- CONTENT --- */
+.reg-content {
+    flex: 1;
+    padding: 60px 80px;
+    background: white;
+    overflow-y: auto;
+}
+
+.content-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.content-header p {
+    color: #555;
+    margin-bottom: 40px;
+}
+
+.form-label {
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    display: block;
+    /* Ensure block for spacing */
+    color: #4b5563;
+}
+
+.form-label.required::after {
+    content: " *";
+    color: #dc3545;
+    /* Bootstrap danger color */
+}
+
+.form-label small {
+    font-weight: 400;
+    color: #777;
+    margin-left: 5px;
+}
+
+.form-control,
+.form-select {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    background: #fff;
+    width: 100%;
+    max-width: 400px;
+}
+
+.captcha-box {
+    width: 150px;
+    height: 40px;
+    background: #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: monospace;
+    font-size: 1.2rem;
+    letter-spacing: 3px;
+    color: #555;
+    background-image: repeating-linear-gradient(45deg, #ccc 0, #ccc 1px, transparent 0, transparent 50%);
+    background-size: 10px 10px;
+}
+
+.btn-continue {
+    background: var(--primary-blue);
+    color: white;
+    padding: 12px 30px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    margin-top: 20px;
+    transition: background 0.2s;
+}
+
+.btn-continue:hover {
+    background: #4a6a8a;
+    color: white;
+}
+
+/* --- QUICK ANSWERS --- */
+.quick-answers-container {
+    background: white;
+    width: 100%;
+    max-width: 1100px;
+    padding: 0 20px;
+    background: transparent;
+    box-shadow: none;
+}
+
+.answers-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.2rem;
+    margin-bottom: 30px;
+    color: #111;
+    text-align: center;
+}
+
+.faq-card {
+    border: 1px solid #eee;
+    padding: 20px 25px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    /* Stack header and answer */
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+    transition: all 0.3s;
+}
+
+.faq-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.faq-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.faq-answer {
+    display: none;
+    margin-top: 15px;
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 15px;
+}
+
+.faq-card.active .faq-answer {
+    display: block;
+}
+
+.faq-card.active i {
+    transform: rotate(180deg);
+    transition: transform 0.3s;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-step {
+    animation: fadeIn 0.4s ease-out forwards;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .section-1 {
+        padding: 20px 10px;
+        height: auto;
+        min-height: 100vh;
+        display: block;
+        /* Allow scrolling */
+    }
+
+    .registration-container {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 20px;
+    }
+
+    .reg-sidebar {
+        width: 100%;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 15px;
+        gap: 10px;
+        background: #f8f9fa;
+        border-bottom: 1px solid #eee;
+    }
+
+    .steps-list {
+        flex-direction: row;
+        width: 100%;
+        gap: 10px;
+    }
+
+    /* Hide connecting line on mobile */
+    .steps-list::before {
+        display: none;
+    }
+
+    .step-item {
+        min-width: 60px;
+        /* Collapse to icons */
+        padding: 8px;
+        justify-content: center;
+    }
+
+    .step-text,
+    .step-status {
+        display: none;
+        /* Hide text, show only icons for compaction */
+    }
+
+    .sidebar-footer {
+        display: none;
+        /* Hide back link on mobile sidebar to save space */
+    }
+
+    .reg-content {
+        padding: 30px 20px;
+    }
+
+    .content-header h2 {
+        font-size: 1.8rem;
+    }
+
+    .faq-header span {
+        font-size: 0.95rem;
+    }
+}

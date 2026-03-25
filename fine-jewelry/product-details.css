@@ -1,0 +1,81 @@
+/* Existing styles... */
+
+/* Existing Gallery Grid */
+.product-gallery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.gallery-item {
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Configurator Styles */
+.config-icon-selection {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.config-icon-selection.active,
+.config-icon-selection:hover {
+    border-color: #333 !important;
+}
+
+.config-color-selection {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+}
+
+.config-color-selection.active {
+    box-shadow: 0 0 0 2px white, 0 0 0 4px #333;
+}
+
+.config-band-selection {
+    cursor: pointer;
+    transition: all 0.2s;
+    border-color: #ddd !important;
+}
+
+.config-band-selection.active {
+    border-color: #333 !important;
+    background-color: #f8f9fa;
+}
+
+/* Wishlist Button Detail Page */
+.btn-wishlist-detail {
+    transition: all 0.3s ease;
+}
+
+.btn-wishlist-detail.active svg {
+    fill: #333;
+    /* Fill black on active */
+    color: #333;
+}
+
+.btn-wishlist-detail:hover {
+    color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+    .product-details-section .sticky-top {
+        position: static !important;
+        /* Disable sticky on mobile */
+    }
+
+    .product-gallery-grid {
+        margin-bottom: 30px;
+    }
+}

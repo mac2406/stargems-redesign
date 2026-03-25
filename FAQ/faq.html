@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frequently Asked Questions</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="faq.css">
+</head>
+
+<body>
+
+    <section class="faq-section py-5">
+        <div class="container main-faq-container faq-card">
+            <!-- CSS Tabs Logic: Hidden Radio Inputs -->
+            <input type="radio" name="faq-tabs" id="tab-getting-started" checked hidden>
+            <input type="radio" name="faq-tabs" id="tab-cad-design" hidden>
+            <input type="radio" name="faq-tabs" id="tab-production" hidden>
+            <input type="radio" name="faq-tabs" id="tab-tools-support" hidden>
+            <input type="radio" name="faq-tabs" id="tab-shipping" hidden>
+
+            <div class="faq-header text-center mb-5">
+                <h1 class="display-4 serif-font mb-3">Frequently Asked Questions</h1>
+                <p class="lead text-muted mx-auto" style="max-width: 700px;">
+                    We’ve gathered the most common questions about our CAD gallery, production process,
+                    and partnership program — all in one place to help you get started quickly.
+                </p>
+                <p class="text-muted">
+                    If you don’t see what you’re looking for, <a href="#"
+                        class="text-decoration-underline text-dark">our team is always happy to help!</a>
+                </p>
+            </div>
+
+            <!-- Mobile Navigation (Visible on lg and below) -->
+            <div class="mobile-nav-container d-lg-none mb-4">
+                <label for="tab-getting-started" class="mobile-nav-pill">Getting Started</label>
+                <label for="tab-cad-design" class="mobile-nav-pill">CAD & Design</label>
+                <label for="tab-production" class="mobile-nav-pill">Production</label>
+                <label for="tab-tools-support" class="mobile-nav-pill">Tools & Support</label>
+                <label for="tab-shipping" class="mobile-nav-pill">Shipping</label>
+            </div>
+
+            <div class="row g-5">
+                <!-- Sticky Sidebar (Table of Contents / Tabs) -->
+                <div class="col-lg-4 d-none d-lg-block">
+                    <div class="sticky-sidebar p-4 rounded-4 border">
+                        <h5 class="mb-4 fw-bold">Table of Contents</h5>
+                        <div class="sidebar-menu">
+                            <label for="tab-getting-started" class="d-block mb-3 pointer">Getting Started</label>
+                            <label for="tab-cad-design" class="d-block mb-3 pointer">CAD & Design</label>
+                            <label for="tab-production" class="d-block mb-3 pointer">Production & Manufacturing</label>
+                            <label for="tab-tools-support" class="d-block mb-3 pointer">Tools & Support</label>
+                            <label for="tab-shipping" class="d-block mb-3 pointer">Shipping & Delivery</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Accordion Content -->
+                <div class="col-lg-8">
+                    <div id="getting-started" class="faq-category mb-5">
+                        <h2 class="serif-font mb-4">Getting Started:</h2>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What makes Star Gems different from other jewelry
+                                    manufacturers?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Star Gems is a full in-house B2B jewelry manufacturer. From sketching
+                                    and CAD design to casting, stone setting, and finishing, we handle everything
+                                    internally. This ensures consistent quality, fast turnaround, and the best pricing
+                                    for retailers with no minimum order requirements.</p>
+                                <p class="text-muted">
+                                    Learn more:
+                                    <a href="#" class="text-decoration-underline text-dark">Why Partner With Us ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How do I create an account?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Click “Free Registration” in the nav bar. After registering, you’ll get
+                                    access to your dashboard to submit orders, track designs, and use tools like GemArt
+                                    AI and StarMatch AI.</p>
+                                <p class="text-muted">
+                                    Use this link:
+                                    <a href="#" class="text-decoration-underline text-dark">Free Registration ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Do you have minimum order requirements?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">No. Star Gems specializes in flexibility. You can order a single piece
+                                    or thousands with consistent quality and pricing.</p>
+                                <p class="text-muted">
+                                    Related info:
+                                    <a href="#" class="text-decoration-underline text-dark">Our Process ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Who can partner with Star Gems?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">We partner with retail jewelers, designers, and wholesalers looking for
+                                    a reliable manufacturing partner. Our services are tailored to B2B clients.</p>
+                                <p class="text-muted">
+                                    Learn more:
+                                    <a href="#" class="text-decoration-underline text-dark">Why Partner With Us ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What types of jewelry can you produce?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Everything—engagement rings, wedding bands, pendants, earrings, and
+                                    fully bespoke pieces. If you can imagine it, we can create it.
+                                </p>
+                                <p class="text-muted">
+                                    Links:<br>
+                                    <a href="#" class="text-decoration-underline text-dark">Fine Jewelry ↗<br> CAD
+                                        Gallery ↗<br> Archive ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How do I start a custom order?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Submit a sketch, CAD reference, photo, or idea through your dashboard.
+                                    Our team will guide you through the CAD, approval, and production process..</p>
+                                <p class="text-muted">
+                                    Link:
+                                    <a href="#" class="text-decoration-underline text-dark">Order Guidelines ↗</a>
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div id="cad-design" class="faq-category mb-5">
+                        <h2 class="serif-font mb-4">CAD & Design</h2>
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What is required to submit a CAD design?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Provide a sketch, photo, or written description of your design. Clear
+                                    references make the CAD process faster and more accurate.</p>
+                                <p class="text-muted">
+                                    Guidelines:
+                                    <a href="#" class="text-decoration-underline text-dark">Order Guidelines ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How long does it take to create a CAD design?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Most CAD designs are completed within 24–48 hours, depending on
+                                    complexity.</p>
+                                <p class="text-muted">
+                                    Track progress:
+                                    <a href="#" class="text-decoration-underline text-dark">My Orders ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Can I request CAD revisions?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Yes. You can request edits until the design is approved and ready for
+                                    production.</p>
+                                <p class="text-muted">
+                                    Manage revisions:
+                                    <a href="#" class="text-decoration-underline text-dark">My Orders ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Does Star Gems charge for CAD designs?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Yes, CAD fees apply, but they are credited toward production costs. Our
+                                    pricing is designed to maximize retailer profit margins.</p>
+                                <p class="text-muted">
+                                    Guidelines:
+                                    <a href="#" class="text-decoration-underline text-dark">Order Guidelines ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Can Star Gems replicate an existing jewelry design?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Absolutely. We can match, modify, or modernize nearly any design for
+                                    your customers.</p>
+                                <p class="text-muted">
+                                    Start here:
+                                    <a href="#" class="text-decoration-underline text-dark">New Custom Order ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What types of CAD formats do you provide?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">We provide standard CAD files compatible with industry software for
+                                    visualization, 3D printing, and manufacturing.</p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div id="production" class="faq-category mb-5">
+                        <h2 class="serif-font mb-4">Production & Manufacturing</h2>
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Where is all Star Gems jewelry produced?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">All production is done in-house—from casting to finishing—to maintain
+                                    strict quality control and fast turnaround.</p>
+                                <p class="text-muted">
+                                    Learn more:
+                                    <a href="#" class="text-decoration-underline text-dark">Our Process ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What materials do you work with?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Gold (all karats and colors), platinum, silver, lab-grown gemstones, and
+                                    natural diamonds—plus our wide selection of loose stones, including certified
+                                    (GIA, AGS, EGL) diamonds from 0.50 to 5.00 carats in natural and fancy colors.</p>
+                                <p class="text-muted">
+                                    Loose diamonds:
+                                    <a href="#" class="text-decoration-underline text-dark">Shop now ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How long does production take?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Production timelines vary but standard orders typically take 2-3 weeks.
+                                </p>
+                                <p class="text-muted">
+                                    Related info:
+                                    <a href="#" class="text-decoration-underline text-dark">Our Process ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Can I order a single piece?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Yes. We specialize in low-volume or single-piece orders without
+                                    compromising quality or price.</p>
+                                <p class="text-muted">
+                                    Start here:
+                                    <a href="#" class="text-decoration-underline text-dark">New Custom Order ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What quality control measures do you use?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Multi-stage inspections are performed at each step, including casting,
+                                    stone setting, polishing, and final finishing.</p>
+                                <p class="text-muted">
+                                    Questions?
+                                    <a href="#" class="text-decoration-underline text-dark">Contact Support ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Can I make changes after CAD approval?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Minor revisions may be possible depending on the stage of production.
+                                    Contact support for guidance.</p>
+                                <p class="text-muted">
+                                    Questions?
+                                    <a href="#" class="text-decoration-underline text-dark">Contact Support ↗</a>
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div id="tools-support" class="faq-category mb-5">
+                        <h2 class="serif-font mb-4">Tools & Support</h2>
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What tools does Star Gems provide for retailers?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Retailers get access to:</p>
+                                <ul class="list-unstyled mt-2">
+                                    <li class="mb-2"><strong>GemArt AI</strong> for design pricing:
+                                        <a href="#" class="text-decoration-underline text-dark">GemArt AI ↗</a>
+                                    </li>
+                                    <li class="mb-2"><strong>TextMeChat</strong> for SMS support:
+                                        <a href="#" class="text-decoration-underline text-dark">TextMeChat ↗</a>
+                                    </li>
+                                    <li class="mb-2"><strong>StarMatch AI</strong> for style recommendations:
+                                        <a href="#" class="text-decoration-underline text-dark">StarMatch AI ↗</a>
+                                    </li>
+                                    <li class="mb-0"><strong>Dashboard</strong> for order management and CAD tracking:
+                                        <a href="#" class="text-decoration-underline text-dark">Dashboard ↗</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How can these tools help me increase profit margins?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Instant pricing and production estimates allow retailers to quote
+                                    accurately, reduce guesswork, and increase profitability.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How do I get support?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Contact our dedicated support team via your dashboard, email, or phone.
+                                </p>
+                                <p class="text-muted">
+                                    Questions: <a href="#" class="text-decoration-underline text-dark">Contact Support
+                                        ↗</a><br>
+                                    Tutorials: <a href="#" class="text-decoration-underline text-dark">Video Tutorials
+                                        ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Are onboarding sessions available?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Yes. Short training sessions are offered to help retailers navigate
+                                    tools, order processes, and CAD submissions.</p>
+                                <p class="text-muted">
+                                    Request help:
+                                    <a href="#" class="text-decoration-underline text-dark">Book A Demo ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Can I track my orders?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Yes. Your dashboard provides real-time updates from CAD approval through
+                                    production to shipment.</p>
+                                <p class="text-muted">
+                                    Track here:
+                                    <a href="#" class="text-decoration-underline text-dark">My Orders ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How do I access GemArt AI?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Registered retailers can try a free trial via the dashboard. Upgrade
+                                    options are available for full access.</p>
+                                <p class="text-muted">
+                                    Access GemArt AI: <a href="#" class="text-decoration-underline text-dark">GemArt AI
+                                        ↗</a><br>
+                                    Upgrade: <a href="#" class="text-decoration-underline text-dark">GemArt AI Plans
+                                        ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How do I access StarMatch AI?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">StarMatch is integrated into your dashboard. Use it to recommend styles
+                                    and match designs to customer preferences.</p>
+                                <p class="text-muted">
+                                    Access:
+                                    <a href="#" class="text-decoration-underline text-dark">StarMatch AI ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What is TextMeChat?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">TextMeChat is a messaging tool for retailers to communicate with
+                                    customers quickly. It has its own login and pricing.</p>
+                                <p class="text-muted">
+                                    Learn more:
+                                    <a href="#" class="text-decoration-underline text-dark">TextMeChat ↗</a>
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+
+                    <div id="shipping" class="faq-category mb-5">
+                        <h2 class="serif-font mb-4">Shipping & Delivery</h2>
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Where does Star Gems ship orders?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">We ship nationwide and offer international shipping upon request.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What carriers are used for shipping?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">FedEx and UPS are used depending on destination and retailer preference.
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">Is shipping insured?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Yes, all orders can be fully insured for protection during transit.</p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">How long does shipping take?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Standard shipping takes 1–3 business days depending on location and
+                                    carrier.</p>
+                                <p class="text-muted">
+                                    Track shipping:
+                                    <a href="#" class="text-decoration-underline text-dark">My Orders ↗</a>
+                                </p>
+                            </div>
+                        </details>
+
+                        <details class="faq-item mb-3">
+                            <summary
+                                class="faq-question p-4 d-flex justify-content-between align-items-center rounded-3">
+                                <span class="fw-semibold">What happens if a shipment is lost or damaged?</span>
+                                <i data-feather="chevron-down" class="icon-toggle"></i>
+                            </summary>
+                            <div class="faq-answer p-4 border-top">
+                                <p class="mb-0">Contact us immediately to initiate a claim and replacement.</p>
+                                <p class="text-muted">
+                                    Support:
+                                    <a href="#" class="text-decoration-underline text-dark">Contact Us ↗</a>
+                                </p>
+                            </div>
+                        </details>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Partner Logos -->
+    <section class="partners-section py-5 bg-white border-top border-bottom">
+        <div class="container overflow-hidden">
+            <div class="logos-track-container">
+                <div class="logos-track">
+                    <!-- Set 1 -->
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/retail-jewelers-organization.webp"
+                        alt="RJO" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/continental-buying-group.webp"
+                        alt="CBG" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/member-of-american-gem-society.webp"
+                        alt="American Gem Society" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/american-gem-trade-association.webp"
+                        alt="Member" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/jewelers-of-america-at-stargems.webp"
+                        alt="Jewelers of America" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/stargems-partners-with-polygon.webp"
+                        alt="Polygon" class="partner-logo">
+
+                    <!-- Set 2 (Duplicate for infinite scroll) -->
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/retail-jewelers-organization.webp"
+                        alt="RJO" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/continental-buying-group.webp"
+                        alt="CBG" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/member-of-american-gem-society.webp"
+                        alt="American Gem Society" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/american-gem-trade-association.webp"
+                        alt="Member" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/jewelers-of-america-at-stargems.webp"
+                        alt="Jewelers of America" class="partner-logo">
+                    <img src="https://stargems.com/assets/img/partnerwithus/affiliations/stargems-partners-with-polygon.webp"
+                        alt="Polygon" class="partner-logo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Book a Demo -->
+    <section class="book-demo-section py-5">
+        <div class="container main-faq-container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-5">
+                    <h2 class="serif-font display-5 mb-4">Book a 1-on-1 Demo</h2>
+                    <p class="lead text-muted mb-4">
+                        Schedule a personalized demo to explore our CAD Gallery, GemArt AI, and production tools —
+                        and discover how Star Gems can help you design, price, and produce jewelry faster than ever.
+                    </p>
+                    <a href="#" class="btn btn-primary d-inline-flex align-items-center px-4 py-2 rounded-pill"
+                        style="background-color: #3b5670; border: none;">
+                        Book a Demo
+                    </a>
+                </div>
+                <div class="col-lg-7">
+                    <div class="team-image-wrapper rounded-5 overflow-hidden shadow-sm"
+                        style="min-height: 400px; background-color: #ddd; display: flex; align-items: center; justify-content: center;">
+                        <img src="https://stargems.com/assets/img/book-a-demo-at-stargems.webp" alt="demo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        feather.replace();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const details = document.querySelectorAll('details.faq-item');
+
+            details.forEach(targetDetail => {
+                const summary = targetDetail.querySelector('summary');
+
+                summary.addEventListener('click', (e) => {
+                    e.preventDefault(); // Stop default instant toggle
+
+                    // 1. Close other open details
+                    details.forEach(detail => {
+                        if (detail !== targetDetail && detail.hasAttribute('open')) {
+                            closeAccordion(detail);
+                        }
+                    });
+
+                    // 2. Toggle clicked detail
+                    if (targetDetail.hasAttribute('open')) {
+                        closeAccordion(targetDetail);
+                    } else {
+                        openAccordion(targetDetail);
+                    }
+                });
+            });
+
+            function openAccordion(detail) {
+                // Return if already animating or open
+                if (detail.classList.contains('is-animating')) return;
+
+                detail.classList.add('is-animating');
+
+                // Get current height (summary only)
+                const startHeight = detail.offsetHeight;
+
+                // Open to calculate full height
+                detail.setAttribute('open', '');
+                const endHeight = detail.scrollHeight; // Full height with content
+
+                // If already open (e.g. browser restored state), no animation needed? 
+                // But we are here because we want to open it.
+
+                if (startHeight === endHeight) {
+                    detail.classList.remove('is-animating');
+                    return;
+                }
+
+                // Set start height immediately
+                detail.style.height = `${startHeight}px`;
+
+                // Force reflow
+                void detail.offsetHeight;
+
+                // Animate to end height
+                detail.style.transition = 'height 0.3s ease-out';
+                detail.style.height = `${endHeight}px`;
+
+                // Reset after animation
+                detail.addEventListener('transitionend', function onEnd() {
+                    detail.style.height = null; // Remove explicit height to allow auto resizing
+                    detail.style.transition = null;
+                    detail.classList.remove('is-animating');
+                    detail.removeEventListener('transitionend', onEnd);
+                });
+            }
+
+            function closeAccordion(detail) {
+                if (detail.classList.contains('is-animating')) return;
+
+                detail.classList.add('is-animating');
+
+                // Set explicit height to current height (start animation)
+                const startHeight = detail.offsetHeight;
+                detail.style.height = `${startHeight}px`;
+
+                // Force reflow
+                void detail.offsetHeight;
+
+                // Animate to summary height
+                const summary = detail.querySelector('summary');
+                const endHeight = summary.offsetHeight;
+
+                detail.style.transition = 'height 0.3s ease-out';
+                detail.style.height = `${endHeight}px`;
+
+                // Remove open attribute after animation
+                detail.addEventListener('transitionend', function onEnd() {
+                    detail.removeAttribute('open');
+                    detail.style.height = null;
+                    detail.style.transition = null;
+                    detail.classList.remove('is-animating');
+                    detail.removeEventListener('transitionend', onEnd);
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

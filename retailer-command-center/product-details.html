@@ -1,0 +1,561 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details | StarGems B2B</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="retailer-command-center.css">
+    <style>
+        .product-img-mini {
+            width: 80px;
+            height: 60px;
+            object-fit: contain;
+            background: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+        }
+
+        .action-icons {
+            display: flex;
+            gap: 10px;
+            color: var(--text-sub);
+        }
+
+        .action-icons i {
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .action-icons i:hover {
+            color: var(--primary);
+        }
+
+        .action-icons .bi-trash:hover {
+            color: #FF4D4D;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="global-header.css">
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Checkbox (Checkbox Hack for Mobile) -->
+    <input type="checkbox" id="sidebar-toggle">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-menu">
+            <div class="sidebar-divider">COMMAND CENTER</div>
+            <div class="nav-item">
+                <a href="retailer-command-center.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="retailers.html" class="nav-link">
+                    <i class="bi bi-shop"></i>
+                    <span>Retailers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="tmc-cs-app-details.html" class="nav-link">
+                    <i class="bi bi-phone"></i>
+                    <span>TMC / CS App Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-orders.html" class="nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Custom CAD Order Module</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="gemart-ai-details.html" class="nav-link">
+                    <i class="bi bi-robot"></i>
+                    <span>GemArtAI Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="websites.html" class="nav-link">
+                    <i class="bi bi-globe"></i>
+                    <span>PIT / CWS Customers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="member-lists.html" class="nav-link">
+                    <i class="bi bi-tags"></i>
+                    <span>Specific Retailer List</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="request-manager.html" class="nav-link">
+                    <i class="bi bi-clipboard-pulse"></i>
+                    <span>Request Manager</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-iframe.html" class="nav-link">
+                    <i class="bi bi-code-square"></i>
+                    <span>Custom CAD IFrame</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="coupons.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Coupons</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="forms-demo.html" class="nav-link">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Order Form / Demo Request</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="emails-tools.html" class="nav-link">
+                    <i class="bi bi-envelope-at"></i>
+                    <span>Emails / Website</span>
+                </a>
+            </div>
+        </div>
+        <div class="p-3 mt-auto">
+            <div class="sidebar-card p-3 rounded bg-primary-light" style="border: 1px dashed var(--primary);">
+                <span class="d-block small fw-bold text-primary">Need Help?</span>
+                <span class="d-block smaller text-sub mt-1">Contact Support Center</span>
+            </div>
+        </div>
+    </nav>
+    <label for="sidebar-toggle" class="sidebar-backdrop d-lg-none"></label>
+
+        <!-- Global Header -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+            <div class="container-fluid h-100">
+                <a class="navbar-brand d-flex align-items-center" href="retailer-command-center.html">
+                    <h1 class="m-0">STARGEMS</h1>
+                </a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                    <ul class="navbar-nav gap-4 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                                <li><a class="dropdown-item" href="view-orders.html">All Orders</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Technology
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                                <li><a class="dropdown-item" href="https://stargems.com/gemart-ai.aspx">GemArt AI</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/textmechat.aspx">TextMeChat</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                Diamonds</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/cad-gallery.aspx">CAD
+                                        Gallery</a></li>
+                                <li><a class="dropdown-item" href="#">Archive</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Partner Resources
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Paid Services</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/website-design-and-seo.aspx">Website
+                                                Design</a></li>
+                                        <li><a class="dropdown-item" href="https://stargems.com/Google-Ads.aspx">Google
+                                                Ads</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/social-media.aspx">Social
+                                                Media</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Support</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="https://stargems.com/faqs.aspx">FAQ</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/video-tutorials.aspx">Video
+                                                Tutorials</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/contact-us.aspx">Contact Us</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/book-a-demo.aspx">Book a
+                                        Demo</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-heart"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">3</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-solid fa-bag-shopping"></i>
+                            <span
+                                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                                style="font-size: 0.7rem; margin-top: -2px;">1</span>
+                        </a>
+                    </div>
+
+                    <div class="dropdown">
+                        <button class="btn profile-btn d-flex align-items-center gap-2 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-circle">AD</div>
+                            <span class="small fw-normal">Anish D.</span>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-gear"></i> Account Settings</a></li>
+                            <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                        class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                        </ul>
+                    </div>
+
+                    <label for="sidebar-toggle" class="btn btn-outline-secondary mobile-menu-btn d-lg-none ms-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+    <div class="main-wrapper">
+        <main class="content-padding">
+            <div class="mb-4">
+                <div
+                    class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center mb-3">
+                    <div>
+                        <h2 class="mb-0">Product Details</h2>
+                        <p class="text-sub mb-2">Product List on Stargems Website.</p>
+                        <button class="btn btn-primary rounded-pill px-4"
+                            style="background-color: var(--primary); border: none; height: 40px;"><i
+                                class="bi bi-plus-lg me-2"></i>Add New Product</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="table-container">
+                <div class="table-header-custom">
+                    <div class="search-inner">
+                        <input type="text" placeholder="Search by SKU, Description, Metal...">
+                        <button class="btn-search">Search</button>
+                    </div>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="table-custom">
+                        <thead>
+                            <tr>
+                                <th>Actions</th>
+                                <th>Sr No.</th>
+                                <th>Sku #</th>
+                                <th>Category</th>
+                                <th>Qty In Stock</th>
+                                <th>Price ($)</th>
+                                <th>Metal Purity</th>
+                                <th>Metal Color</th>
+                                <th>Metal Type</th>
+                                <th>Desc.</th>
+                                <th>CAD #</th>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="action-icons">
+                                        <a href="#editProductModal" class="text-decoration-none text-sub"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <i class="bi bi-trash"></i>
+                                    </div>
+                                </td>
+                                <td>1</td>
+                                <td class="fw-bold text-primary">SR2-202987</td>
+                                <td class="text-sub">Ring</td>
+                                <td>1</td>
+                                <td class="fw-bold">1150.00</td>
+                                <td>14KT</td>
+                                <td>Yellow</td>
+                                <td>Gold</td>
+                                <td class="small">RD4/0.24CT BAG3/0.34CT 14KY</td>
+                                <td class="text-sub">Null</td>
+                                <td><img src="https://placehold.co/80x60?text=Product" alt="SR2-202987"
+                                        class="product-img-mini"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-icons">
+                                        <a href="#editProductModal" class="text-decoration-none text-sub"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <i class="bi bi-trash"></i>
+                                    </div>
+                                </td>
+                                <td>2</td>
+                                <td class="fw-bold text-primary">SR2-203368</td>
+                                <td class="text-sub">Ring</td>
+                                <td>1</td>
+                                <td class="fw-bold">1150.00</td>
+                                <td>14KT</td>
+                                <td>White</td>
+                                <td>GOLD</td>
+                                <td class="small">RD32/0.59CT 14KW</td>
+                                <td class="text-sub">Null</td>
+                                <td><img src="https://placehold.co/80x60?text=Product" alt="SR2-203368"
+                                        class="product-img-mini"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-icons">
+                                        <a href="#editProductModal" class="text-decoration-none text-sub"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <i class="bi bi-trash"></i>
+                                    </div>
+                                </td>
+                                <td>3</td>
+                                <td class="fw-bold text-primary">SR2-203392</td>
+                                <td class="text-sub">Ring</td>
+                                <td>1</td>
+                                <td class="fw-bold">1350.00</td>
+                                <td>14KT</td>
+                                <td>Yellow</td>
+                                <td>Gold</td>
+                                <td class="small">MQ8/0.81CT RD7/0.50CT 14KY</td>
+                                <td class="text-sub">Null</td>
+                                <td><img src="https://placehold.co/80x60?text=Product" alt="SR2-203392"
+                                        class="product-img-mini"></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="action-icons">
+                                        <a href="#editProductModal" class="text-decoration-none text-sub"><i
+                                                class="bi bi-pencil-square"></i></a>
+                                        <i class="bi bi-trash"></i>
+                                    </div>
+                                </td>
+                                <td>4</td>
+                                <td class="fw-bold text-primary">SR2-203383</td>
+                                <td class="text-sub">Ring</td>
+                                <td>1</td>
+                                <td class="fw-bold">995.00</td>
+                                <td>14KT</td>
+                                <td>White</td>
+                                <td>Gold</td>
+                                <td class="small">RD30/0.56CT 14KW RING GUARD</td>
+                                <td class="text-sub">Null</td>
+                                <td><img src="https://placehold.co/80x60?text=Product" alt="SR2-203383"
+                                        class="product-img-mini"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="pagination-custom">
+                    <span class="text-sub small">Showing 1 to 20 of 1,245 entries</span>
+                    <div class="d-flex">
+                        <a href="#" class="page-link-custom active">1</a>
+                        <a href="#" class="page-link-custom">2</a>
+                        <a href="#" class="page-link-custom">3</a>
+                        <a href="#" class="page-link-custom">...</a>
+                        <a href="#" class="page-link-custom">63</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 text-end">
+                <a href="tmc-cs-app-details.html" class="btn-premium-back">
+                    <i class="bi bi-arrow-left me-2"></i>Back
+                </a>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Product Modal -->
+    <div id="editProductModal" class="modal-overlay">
+        <div class="modal-content-custom" style="max-width: 1200px; width: 95%; border-radius: 24px;">
+            <div class="p-3 p-md-4 border-bottom d-flex justify-content-between align-items-start"
+                style="background: #fff;">
+                <div>
+                    <h3 class="mb-1 fw-bold text-primary-dark font-serif" style="font-size: clamp(1.5rem, 5vw, 2rem);">
+                        Modify - Product Details</h3>
+                    <p class="text-muted small mb-0">Update inventory details and manage product specifications.</p>
+                </div>
+                <a href="#" class="text-muted fs-4 text-decoration-none hover-lift"><i class="bi bi-x-lg"></i></a>
+            </div>
+            <div class="p-3 p-md-4">
+                <!-- Modal Search and Tools -->
+                <div class="d-flex justify-content-between align-items-center mb-4 gap-3">
+                    <div class="d-flex align-items-center gap-2 flex-grow-1" style="max-width: 400px;">
+                        <span class="small text-muted fw-bold d-none d-sm-inline">Search:</span>
+                        <div class="input-group input-group-sm">
+                            <input type="text" class="form-control rounded-start-pill ps-3"
+                                placeholder="Search SKU or Name...">
+                            <button class="btn btn-dark rounded-end-pill px-3"
+                                style="background-color: var(--primary-dark); border: none;">Search</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-sm px-3 px-md-4 rounded-pill border-0 shadow-sm text-nowrap"
+                        style="background-color: var(--primary-dark); height: 38px;">
+                        <i class="bi bi-plus-lg me-2"></i>Add New
+                    </button>
+                </div>
+
+                <!-- Table inside Modal (Edit Mode) -->
+                <div class="table-responsive" style="border-radius: 12px; border: 1px solid #eee;">
+                    <table class="table table-sm align-middle mb-0 text-nowrap table-hover">
+                        <thead>
+                            <tr style="background-color: var(--primary-dark); color: white;">
+                                <th style="width: 70px; padding: 12px;" class="text-center">Action</th>
+                                <th style="padding: 12px;">Sr. No.</th>
+                                <th style="padding: 12px;">Sku #</th>
+                                <th style="padding: 12px;">Category</th>
+                                <th style="padding: 12px;">Qty In Stock</th>
+                                <th style="padding: 12px;">Price</th>
+                                <th style="padding: 12px;">Metal Purity</th>
+                                <th style="padding: 12px;">Metal Color</th>
+                                <th style="padding: 12px;">Metal Type</th>
+                                <th style="padding: 12px;">Desc.</th>
+                                <th style="padding: 12px;">CAD #</th>
+                                <th style="padding: 12px;" class="pe-4">Image</th>
+                            </tr>
+                        </thead>
+                        <tbody style="border-top: none;">
+                            <tr class="align-middle">
+                                <td class="text-center py-3">
+                                    <div class="d-flex flex-row justify-content-center gap-2">
+                                        <i class="bi bi-floppy text-primary cursor-pointer fs-5" title="Save"></i>
+                                        <i class="bi bi-trash text-danger cursor-pointer fs-5" title="Delete"></i>
+                                    </div>
+                                </td>
+                                <td class="fw-bold">1</td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm rounded-pill"
+                                        value="SR2-202987" style="width: 130px;">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control form-control-sm rounded-pill"
+                                        value="Top 100 Styles" style="width: 140px;">
+                                </td>
+                                <td>
+                                    <input type="number" class="form-control form-control-sm rounded-pill text-center"
+                                        value="1" style="width: 70px;">
+                                </td>
+                                <td>
+                                    <div class="input-group input-group-sm" style="width: 110px;">
+                                        <span class="input-group-text bg-light border-end-0 rounded-start-pill">$</span>
+                                        <input type="text" class="form-control rounded-end-pill" value="1150.00">
+                                    </div>
+                                </td>
+                                <td>
+                                    <select class="form-select form-select-sm rounded-pill" style="width: 90px;">
+                                        <option selected>14KT</option>
+                                        <option>18KT</option>
+                                        <option>PT</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-select form-select-sm rounded-pill" style="width: 110px;">
+                                        <option selected>Yellow</option>
+                                        <option>White</option>
+                                        <option>Rose</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <select class="form-select form-select-sm rounded-pill" style="width: 110px;">
+                                        <option selected>GOLD</option>
+                                        <option>SILVER</option>
+                                        <option>PLATINUM</option>
+                                    </select>
+                                </td>
+                                <td>
+                                    <textarea class="form-control form-control-sm rounded-4" rows="1"
+                                        style="width: 220px; font-size: 0.8rem;">RD4/0.24CT BAG3/0.34CT 14KY</textarea>
+                                </td>
+                                <td class="text-muted small">Null</td>
+                                <td class="pe-4">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <img src="https://placehold.co/50x40?text=IMG" alt="Preview"
+                                            class="rounded border shadow-sm" style="width: 50px;">
+                                        <input type="file" class="form-control form-control-sm rounded-pill"
+                                            style="width: 160px; font-size: 0.7rem;">
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Modal Pagination -->
+                <div class="mt-4 d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+                    <span class="text-muted small">Showing 1 to 1 of 1 entries</span>
+                    <div class="d-flex gap-1">
+                        <button class="btn btn-sm text-white d-flex align-items-center justify-content-center"
+                            style="width: 32px; height: 32px; border-radius: 8px; background-color: var(--primary-dark); border: none;">1</button>
+                    </div>
+                </div>
+            </div>
+            <div class="p-3 p-md-4 border-top text-end d-flex justify-content-end gap-2"
+                style="background: #fafafa; border-bottom-left-radius: 24px; border-bottom-right-radius: 24px;">
+                <a href="#" class="btn btn-outline-secondary px-4 px-md-5 rounded-pill fw-bold"
+                    style="border: 2px solid #ddd;">Cancel</a>
+                <button class="btn btn-primary px-4 px-md-5 rounded-pill fw-bold shadow-sm"
+                    style="background-color: var(--primary-dark); border: none;">Save Changes</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+
+
+
+

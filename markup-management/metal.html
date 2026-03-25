@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Metal Rates | Lumina Vault</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,300;0,400;0,700;1,400&amp;family=Inter:wght@300;400;500;600;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="tailwind-config.js"></script>
+    <link rel="stylesheet" href="app.css" />
+</head>
+
+<body class="bg-surface font-body text-on-surface flex min-h-screen">
+    <!-- SideNavBar -->
+    <aside
+        class="h-screen w-64 left-0 top-0 fixed flex flex-col py-8 px-4 bg-surface-container-low no-border space-y-2 hidden md:flex">
+        <div class="mb-10 px-4">
+            <h1 class="font-headline text-lg text-primary tracking-tighter leading-none">The Archive</h1>
+            <p class="font-label text-[10px] uppercase tracking-[0.2em] text-outline mt-1">Curated Management</p>
+        </div>
+        <nav class="flex-1 space-y-1">
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-white/50 transition-all duration-200 group"
+                href="dashboard.html">
+                <span class="material-symbols-outlined text-[20px]">dashboard</span>
+                <span class="font-label text-sm tracking-wide">Dashboard</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-blue-800 font-bold border-r-2 border-primary bg-white/50 transition-all duration-200"
+                href="metal.html">
+                <span class="material-symbols-outlined text-[20px]">payments</span>
+                <span class="font-label text-sm tracking-wide">Metal Rates</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-white/50 transition-all duration-200 group"
+                href="margin.html">
+                <span class="material-symbols-outlined text-[20px]">percent</span>
+                <span class="font-label text-sm tracking-wide">Margin Rates</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-white/50 transition-all duration-200 group"
+                href="stone.html">
+                <span class="material-symbols-outlined text-[20px]">diamond</span>
+                <span class="font-label text-sm tracking-wide">Stone Prices</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-xl text-slate-500 hover:bg-white/50 transition-all duration-200 group"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">history</span>
+                <span class="font-label text-sm tracking-wide">Activity Log</span>
+            </a>
+        </nav>
+        <div class="px-4 pt-4 mt-auto border-t border-outline-variant/10">
+            <div class="flex items-center space-x-3">
+                <div
+                    class="w-8 h-8 rounded-full bg-primary-container flex items-center justify-center text-white font-serif italic text-xs">
+                    LV</div>
+                <div class="overflow-hidden">
+                    <p class="text-xs font-semibold truncate">Lumina Vault</p>
+                    <p class="text-[10px] text-outline truncate">Premium Admin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="flex-1 md:ml-64 flex flex-col min-h-screen">
+        <!-- TopNavBar -->
+        <header class="flex justify-between items-center w-full px-8 h-16 bg-surface z-50 sticky top-0">
+            <div class="flex items-center space-x-6">
+                <span class="md:hidden material-symbols-outlined text-on-surface">menu</span>
+                <div class="flex items-center bg-surface-container-low px-4 py-2 rounded-full w-64">
+                    <span class="material-symbols-outlined text-outline text-sm">search</span>
+                    <input class="bg-transparent border-none focus:ring-0 text-xs w-full ml-2 font-label"
+                        placeholder="Search archive..." type="text" />
+                </div>
+            </div>
+            <div class="flex items-center space-x-5">
+                <button class="text-slate-500 hover:text-blue-700 transition-colors duration-300">
+                    <span class="material-symbols-outlined">settings</span>
+                </button>
+                <div
+                    class="h-8 w-8 rounded-full bg-surface-container-highest flex items-center justify-center overflow-hidden">
+                    <img alt="User Profile Avatar" class="w-full h-full object-cover"
+                        data-alt="professional headshot of a curator in a soft-lit modern office environment wearing neutral professional attire"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCw8imcx8cY-QiKzvdx1e3Co1lTnuVuw82sSQXTlOZmPA18aEAvqid6N_hbJ3kW4Wnwu6KFNQKsJMBFpw_2hDvSP9kOFu3pg78O-AwoXwtO3iDLvJHzIV75kun7T3nRkaAuSTdXQP6q0up6tSPGdPRjmGtBGd1D1szUNadssu_AOan_NnX5PBRV_gqgWgrue0XKvb4XLp1zOIKfL6KVTo977fDjdebpEhrcJrPcF4132DEBu5FBzOK0xkHP0YoVnNqfqMgcc-Yocv8" />
+                </div>
+            </div>
+        </header>
+        <!-- Page Canvas -->
+        <div class="px-8 py-12 max-w-7xl mx-auto w-full">
+            <!-- Hero Header Section -->
+            <section class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-6">
+                <div class="max-w-2xl">
+                    <h2 class="font-headline text-5xl tracking-tight text-on-surface font-light leading-tight">Precious
+                        Metal <br /><span class="italic text-primary">Market Rates</span></h2>
+                    <p class="mt-4 text-outline font-body leading-relaxed max-w-lg">
+                        Real-time valuation of the vault's core assets. Manage pricing fluctuations and update official
+                        exchange rates for inventory appraisals.
+                    </p>
+                </div>
+                <div class="flex gap-4">
+                    <div
+                        class="bg-surface-container-lowest px-6 py-4 rounded-xl editorial-shadow flex items-center space-x-4">
+                        <div class="p-2 bg-primary-container/10 rounded-lg">
+                            <span class="material-symbols-outlined text-primary">update</span>
+                        </div>
+                        <div>
+                            <p class="text-[10px] uppercase tracking-widest text-outline font-label">Last Global Sync
+                            </p>
+                            <p class="text-sm font-semibold">14:02 GMT</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Metal Rates Grid (Bento Style) -->
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+                <!-- Gold Card (Primary Focus) -->
+                <div class="md:col-span-8 group">
+                    <div
+                        class="bg-surface-container-lowest rounded-xl overflow-hidden editorial-shadow transition-transform duration-500 hover:-translate-y-1 relative h-full">
+                        <div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <span class="material-symbols-outlined text-[120px]"
+                                style="font-variation-settings: 'FILL' 1;">payments</span>
+                        </div>
+                        <div class="p-10 flex flex-col h-full">
+                            <div class="flex justify-between items-start mb-12">
+                                <div>
+                                    <span
+                                        class="inline-block px-3 py-1 rounded-full bg-primary-container text-white text-[10px] font-label tracking-widest uppercase mb-4">High
+                                        Performance</span>
+                                    <h3 class="font-headline text-3xl">Gold (XAU)</h3>
+                                </div>
+                                <div class="text-right">
+                                    <p class="text-[10px] uppercase tracking-widest text-outline font-label mb-1">
+                                        Current Rate</p>
+                                    <p class="text-4xl font-headline text-primary">$2,154.20 <span
+                                            class="text-sm font-sans font-medium text-emerald-600">+0.4%</span></p>
+                                </div>
+                            </div>
+                            <div class="mt-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                                <div class="space-y-6">
+                                    <div>
+                                        <label class="block font-headline text-sm text-on-surface-variant mb-2">Update
+                                            Gold Spot Rate</label>
+                                        <div class="relative group/input">
+                                            <div
+                                                class="absolute inset-y-0 left-0 flex items-center pl-4 text-outline group-focus-within/input:text-primary transition-colors">
+                                                <span class="text-sm font-label">$</span>
+                                            </div>
+                                            <input
+                                                class="w-full bg-surface-container-low border-none rounded-xl py-4 pl-10 pr-4 text-lg font-body focus:ring-2 focus:ring-primary/20 transition-all focus:bg-white"
+                                                step="0.01" type="number" value="2154.20" />
+                                        </div>
+                                    </div>
+                                    <button
+                                        class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-white rounded-xl font-label text-xs uppercase tracking-widest shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+                                        Update Asset Valuation
+                                    </button>
+                                </div>
+                                <div class="hidden md:block rounded-xl overflow-hidden aspect-video relative">
+                                    <img alt="Gold bars" class="w-full h-full object-cover"
+                                        data-alt="close up of polished gold bars stacked in an elegant pattern with soft atmospheric lighting reflecting on the metallic surfaces"
+                                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAVL4i5pbwHKo2Z0qAjPm-vX_lmDjJnmAsSMlVZKm5BV4tCuWhc5OPZnhKVew0qRw0VDIXpUErvHmBLE_2999WAR8nciOM4o_gsy7qdHGD5zWYjE5cRJ2lBmHkg3F1N24GeevNIhwTlFZsDBtBTC8uv1qJhn-0OtX2XBfcWkbglOtJkIOVytNXretwvg21nMB2oyq8JiiHO-xBetTaE4HqMp2yg3pgHInZf2A5BIyBKgolsBJnHeKHOVcOKM2W6KMe0NbtqaT8jRMQ" />
+                                    <div class="absolute inset-0 bg-primary/10 mix-blend-multiply"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Silver Card -->
+                <div class="md:col-span-4 flex flex-col gap-8">
+                    <div
+                        class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow group transition-all duration-300 hover:bg-white">
+                        <div class="flex justify-between items-center mb-8">
+                            <h3 class="font-headline text-xl">Silver (XAG)</h3>
+                            <span class="material-symbols-outlined text-outline">trending_down</span>
+                        </div>
+                        <div class="mb-10">
+                            <p class="text-[10px] uppercase tracking-widest text-outline font-label">Market Spot</p>
+                            <p class="text-2xl font-headline text-secondary">$24.82</p>
+                        </div>
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-outline text-xs">$</span>
+                                <input
+                                    class="w-full bg-surface-container-low border-none rounded-xl py-3 pl-8 pr-4 text-sm font-body focus:bg-white transition-all"
+                                    placeholder="24.82" step="0.01" type="number" />
+                            </div>
+                            <button
+                                class="w-full py-3 bg-surface-container-high hover:bg-primary hover:text-white rounded-xl font-label text-[10px] uppercase tracking-widest transition-all"
+                                type="submit">
+                                Update Rate
+                            </button>
+                        </form>
+                    </div>
+                    <!-- Platinum Card -->
+                    <div
+                        class="bg-surface-container-lowest p-8 rounded-xl editorial-shadow group transition-all duration-300 hover:bg-white">
+                        <div class="flex justify-between items-center mb-8">
+                            <h3 class="font-headline text-xl">Platinum (XPT)</h3>
+                            <span class="material-symbols-outlined text-outline">trending_flat</span>
+                        </div>
+                        <div class="mb-10">
+                            <p class="text-[10px] uppercase tracking-widest text-outline font-label">Market Spot</p>
+                            <p class="text-2xl font-headline text-secondary">$924.15</p>
+                        </div>
+                        <form class="space-y-4">
+                            <div class="relative">
+                                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-outline text-xs">$</span>
+                                <input
+                                    class="w-full bg-surface-container-low border-none rounded-xl py-3 pl-8 pr-4 text-sm font-body focus:bg-white transition-all"
+                                    placeholder="924.15" step="0.01" type="number" />
+                            </div>
+                            <button
+                                class="w-full py-3 bg-surface-container-high hover:bg-primary hover:text-white rounded-xl font-label text-[10px] uppercase tracking-widest transition-all"
+                                type="submit">
+                                Update Rate
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <!-- Information Section (Wider Bento Row) -->
+                <div class="md:col-span-12 mt-4">
+                    <div
+                        class="bg-surface-container-low p-10 rounded-2xl flex flex-col md:flex-row items-center gap-12 overflow-hidden relative">
+                        <div class="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
+                            <img alt="Texture" class="w-full h-full object-cover"
+                                data-alt="smooth flowing metallic silk texture in shades of deep blue and silver with soft light highlights"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCXwJfeI-5Ok8yI9p8G3nNsp_QPHd01p16zUWOs0P6Iqa4IpWie9uwz3U5NtiwoTl1uLQjUNvwuBR3J5muIXVey0iOWoZ0yOX3eiqZImMxc3xUbXPyy1Q25IwcXh4HiQEZKNInWnP0zjwYE4KPkr7KYs5BHukoazhwLUJVIeEjSTuiMDlImDNnv4UGjqhvkOqADM-E_DOdzZzDUq1CgYtkktFl4GvBqSYFdpblHNzWnK0XWn0mXYACwc4BFHTP5mzVj8nKyzEY6O4" />
+                        </div>
+                        <div class="flex-1 space-y-4">
+                            <h4 class="font-headline text-2xl">Pricing Integrity</h4>
+                            <p class="text-on-surface-variant font-body text-sm leading-relaxed max-w-xl">
+                                Lumina Vault employs a multi-tiered verification system. Rates updated here are
+                                immediately reflected across the appraisal engine and client dashboards. Manual
+                                overrides are logged for audit compliance.
+                            </p>
+                            <div class="pt-4 flex gap-8">
+                                <div class="flex items-center space-x-2 text-primary">
+                                    <span class="material-symbols-outlined text-sm">verified_user</span>
+                                    <span class="text-[10px] uppercase tracking-widest font-label font-bold">Audit
+                                        Ready</span>
+                                </div>
+                                <div class="flex items-center space-x-2 text-primary">
+                                    <span class="material-symbols-outlined text-sm">lock_clock</span>
+                                    <span class="text-[10px] uppercase tracking-widest font-label font-bold">Encrypted
+                                        Values</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-6">
+                            <div class="h-32 w-px bg-outline-variant opacity-20 hidden md:block"></div>
+                            <div class="bg-white/50 backdrop-blur p-6 rounded-xl border border-white/50">
+                                <p class="text-[10px] uppercase tracking-widest text-outline font-label mb-2">System
+                                    Health</p>
+                                <div class="flex items-center space-x-3 text-emerald-600">
+                                    <span class="relative flex h-2 w-2">
+                                        <span
+                                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                                    </span>
+                                    <span class="text-sm font-semibold">API Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer / Soft Ending -->
+        <footer class="mt-auto px-8 py-10 border-t border-outline-variant/10 text-center">
+            <p class="text-[10px] uppercase tracking-[0.3em] text-outline font-label">© 2024 Lumina Vault • Proprietary
+                System</p>
+        </footer>
+    </main>
+    <!-- Mobile Bottom Navigation (Filtered for Mobile) -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 right-0 glass-panel border-t border-outline-variant/10 px-6 h-16 flex justify-around items-center z-50">
+        <a class="flex flex-col items-center text-slate-500" href="dashboard.html">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="text-[8px] mt-1 uppercase">Home</span>
+        </a>
+        <a class="flex flex-col items-center text-primary font-bold" href="metal.html">
+            <span class="material-symbols-outlined">payments</span>
+            <span class="text-[8px] mt-1 uppercase">Rates</span>
+        </a>
+        <a class="flex flex-col items-center text-slate-500" href="stone.html">
+            <span class="material-symbols-outlined">diamond</span>
+            <span class="text-[8px] mt-1 uppercase">Stones</span>
+        </a>
+        <a class="flex flex-col items-center text-slate-500" href="#">
+            <span class="material-symbols-outlined">history</span>
+            <span class="text-[8px] mt-1 uppercase">Logs</span>
+        </a>
+    </nav>
+</body>
+
+</html>

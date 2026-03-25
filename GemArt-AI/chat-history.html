@@ -1,0 +1,690 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat History - GemArt AI</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="gemart-ai.css">
+    <link rel="stylesheet" href="global-header.css">
+</head>
+
+<body>
+    <!-- Global Header -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+        <div class="container-fluid h-100">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <h1 class="m-0 text-uppercase fw-bold"
+                    style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: #4a6fa5; letter-spacing: 0.05em;">
+                    STARGEMS</h1>
+            </a>
+
+            <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                <ul class="navbar-nav gap-4 align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                            aria-expanded="false">
+                            Dashboard
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                            <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                            <li><a class="dropdown-item" href="#">All Orders</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                            aria-expanded="false">
+                            Our Technology
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                            <li><a class="dropdown-item" href="#">GemArt AI</a></li>
+                            <li><a class="dropdown-item" href="#">TextMeChat</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">View all apps</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                            aria-expanded="false">
+                            Product Gallery
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                    <li><a class="dropdown-item" href="#">Loose Diamonds</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#">CAD Gallery</a></li>
+                            <li><a class="dropdown-item" href="#">Archive</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                            aria-expanded="false">
+                            Partner Resources
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Paid Services</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Website Design</a></li>
+                                    <li><a class="dropdown-item" href="#">Google Ads</a></li>
+                                    <li><a class="dropdown-item" href="#">Social Media</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" href="#">Support</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">FAQ</a></li>
+                                    <li><a class="dropdown-item" href="#">Video Tutorials</a></li>
+                                </ul>
+                            </li>
+                            <li><a class="dropdown-item" href="#">Contact Us</a></li>
+                            <li><a class="dropdown-item" href="#">Book a Demo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="d-flex align-items-center gap-3">
+                <!-- Mobile Global Navigation Dropdown -->
+                <!-- Mobile Global Navigation Dropdown -->
+                <div class="dropdown d-lg-none">
+                    <a href="#" class="text-decoration-none text-secondary fs-5" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" data-bs-auto-close="outside">
+                        <i class="fa-solid fa-ellipsis-vertical"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0"
+                        style="max-height: 80vh; overflow-y: auto; min-width: 260px;">
+                        <li><a class="dropdown-item fw-medium" href="#" style="color: var(--text-main);">Home</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+
+                        <!-- Accordion for Sub-menus -->
+                        <li class="px-0">
+                            <div class="accordion accordion-flush" id="mobileNavAccordion">
+
+                                <!-- Dashboard -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed py-2 shadow-none fw-medium"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#nav-dashboard"
+                                            aria-expanded="false"
+                                            style="color: var(--primary); background-color: transparent;">
+                                            Dashboard
+                                        </button>
+                                    </h2>
+                                    <div id="nav-dashboard" class="accordion-collapse collapse"
+                                        data-bs-parent="#mobileNavAccordion">
+                                        <div class="accordion-body p-0">
+                                            <ul class="list-unstyled mb-0">
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary" href="#">Request
+                                                        Pricing</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary" href="#">Start an
+                                                        Order</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary" href="#">All
+                                                        Orders</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Our Technology -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed py-2 shadow-none fw-medium"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#nav-technology"
+                                            aria-expanded="false"
+                                            style="color: var(--primary); background-color: transparent;">
+                                            Our Technology
+                                        </button>
+                                    </h2>
+                                    <div id="nav-technology" class="accordion-collapse collapse"
+                                        data-bs-parent="#mobileNavAccordion">
+                                        <div class="accordion-body p-0">
+                                            <ul class="list-unstyled mb-0">
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary" href="#">StarMatch
+                                                        AI</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/gemart-ai.aspx">GemArt AI</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/textmechat.aspx">TextMeChat</a></li>
+                                                <li>
+                                                    <hr class="dropdown-divider my-1">
+                                                </li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary" href="#">View all
+                                                        apps</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Product Gallery -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed py-2 shadow-none fw-medium"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#nav-gallery"
+                                            aria-expanded="false"
+                                            style="color: var(--primary); background-color: transparent;">
+                                            Product Gallery
+                                        </button>
+                                    </h2>
+                                    <div id="nav-gallery" class="accordion-collapse collapse"
+                                        data-bs-parent="#mobileNavAccordion">
+                                        <div class="accordion-body p-0">
+                                            <ul class="list-unstyled mb-0">
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary" href="#">Fine
+                                                        Jewelry</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                        Diamonds</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/cad-gallery.aspx">CAD Gallery</a>
+                                                </li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="#">Archive</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Partner Resources -->
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header">
+                                        <button class="accordion-button collapsed py-2 shadow-none fw-medium"
+                                            type="button" data-bs-toggle="collapse" data-bs-target="#nav-partners"
+                                            aria-expanded="false"
+                                            style="color: var(--primary); background-color: transparent;">
+                                            Partner Resources
+                                        </button>
+                                    </h2>
+                                    <div id="nav-partners" class="accordion-collapse collapse"
+                                        data-bs-parent="#mobileNavAccordion">
+                                        <div class="accordion-body p-0">
+                                            <ul class="list-unstyled mb-0">
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/website-design-and-seo.aspx">Website
+                                                        Design</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/Google-Ads.aspx">Google Ads</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/social-media.aspx">Social Media</a>
+                                                </li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/faqs.aspx">FAQ</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/video-tutorials.aspx">Video
+                                                        Tutorials</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/contact-us.aspx">Contact Us</a></li>
+                                                <li><a class="dropdown-item ps-4 py-2 text-secondary"
+                                                        href="https://stargems.com/book-a-demo.aspx">Book a Demo</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Favorites Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                        aria-expanded="false">
+                        <i class="fa-regular fa-heart"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                            style="font-size: 0.7rem; margin-top: -2px;">3</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end custom-dropdown-width">
+                        <li>
+                            <h6 class="dropdown-header-custom">Your Favorites</h6>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-start gap-3 mb-3 position-relative">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=100"
+                                    alt="Ring" class="cart-item-img">
+                                <div class="flex-grow-1">
+                                    <div class="cart-item-title">Signature Engagement Ring</div>
+                                    <div class="cart-item-price">$899</div>
+                                </div>
+                                <span class="close-btn-custom">&times;</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-start gap-3 mb-3 position-relative">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=100"
+                                    alt="Ring" class="cart-item-img">
+                                <div class="flex-grow-1">
+                                    <div class="cart-item-title">Signature Engagement Ring</div>
+                                    <div class="cart-item-price">$899</div>
+                                </div>
+                                <span class="close-btn-custom">&times;</span>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-start gap-3 mb-3 position-relative">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=100"
+                                    alt="Ring" class="cart-item-img">
+                                <div class="flex-grow-1">
+                                    <div class="cart-item-title">Signature Engagement Ring</div>
+                                    <div class="cart-item-price">$899</div>
+                                </div>
+                                <span class="close-btn-custom">&times;</span>
+                            </div>
+                        </li>
+                        <li><button class="btn-primary-custom mt-2">View Favorites</button></li>
+                    </ul>
+                </div>
+
+                <!-- Cart Dropdown -->
+                <div class="dropdown">
+                    <a href="#" class="text-decoration-none text-secondary position-relative fs-5" role="button"
+                        aria-expanded="false">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-transparent text-primary fw-bold p-0"
+                            style="font-size: 0.7rem; margin-top: -2px;">1</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end custom-dropdown-width">
+                        <li>
+                            <h6 class="dropdown-header-custom">Your Cart</h6>
+                        </li>
+                        <li>
+                            <div class="d-flex align-items-start gap-3 mb-3 position-relative">
+                                <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&q=80&w=100"
+                                    alt="Ring" class="cart-item-img">
+                                <div class="flex-grow-1">
+                                    <div class="cart-item-title">Signature Engagement Ring</div>
+                                    <div class="cart-item-qty">QTY: 1</div>
+                                    <div class="cart-item-price">$899</div>
+                                </div>
+                                <span class="close-btn-custom">&times;</span>
+                            </div>
+                        </li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="text-muted small">Subtotal:</span>
+                                <span class="fw-bold">$2970.00</span>
+                            </div>
+                        </li>
+                        <li><button class="btn-primary-custom">Checkout</button></li>
+                    </ul>
+                </div>
+
+                <!-- Profile Dropdown -->
+                <div class="dropdown">
+                    <button class="btn btn-primary d-flex align-items-center gap-2 py-1 px-3 rounded-2 dropdown-toggle"
+                        type="button" aria-expanded="false">
+                        <img src="https://ui-avatars.com/api/?name=Anish+D&background=0D8ABC&color=fff&rounded=true"
+                            alt="Profile" class="rounded-circle" style="width: 24px; height: 24px;">
+                        <span class="small fw-normal">Anish D.</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                    class="fa-solid fa-gear"></i> Account Settings</a></li>
+                        <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                    class="fa-solid fa-arrow-right-from-bracket"></i> Log Out</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item d-flex align-items-center gap-2" href="#"><i
+                                    class="fa-solid fa-circle-question"></i> Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Mobile Menu Button - visible only on mobile -->
+                <button class="btn btn-outline-secondary mobile-menu-btn ms-2" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid h-100 p-0">
+        <div class="row">
+            <!-- Mobile Toggle Button Removed (Moved to Main) -->
+
+            <!-- Sidebar -->
+            <nav id="sidebarMenu" class="d-md-block bg-light sidebar collapse offcanvas-md offcanvas-start border-end"
+                tabindex="-1">
+                <div class="offcanvas-header d-md-none">
+                    <h5 class="offcanvas-title"
+                        style="font-family: 'Cormorant Garamond', serif; color: #4a6fa5; font-weight: bold;">GEMART AI
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#sidebarMenu"
+                        aria-label="Close"></button>
+                </div>
+                <div class="offcanvas-body d-md-flex flex-column p-0 pt-lg-4 position-relative sidebar-body">
+                    <!-- Sticky Header Section -->
+                    <div class="sidebar-header">
+                        <div
+                            class="d-none d-md-flex justify-content-between align-items-center mb-4 sidebar-header-container">
+                            <div class="logo">
+                                <h1 class="h4 m-0 text-slate fw-bold"
+                                    style="font-family: 'Cormorant Garamond', serif; align-items: left; color: #4a6fa5;">
+                                    GEMART AI
+                                </h1>
+                            </div>
+                            <button class="toggle-sidebar btn btn-link text-muted p-0 fs-4 text-decoration-none">
+                                <i class="fa-solid fa-bars"></i>
+                            </button>
+                        </div><a href="gemart-ai.html" class="new-chat-btn w-100 mb-4 text-decoration-none d-block">
+                            <i class="fa-solid fa-plus"></i> New Design
+                        </a>
+
+                        <div class="main-nav">
+                            <ul class="nav flex-column gap-2">
+                                <li class="nav-item"><a href="explore.html"
+                                        class="nav-link sidebar-nav-link d-flex align-items-center"><i
+                                            class="fa-solid fa-globe me-3" style="width:20px;text-align:center;"></i>
+                                        <span class="nav-text">Explore</span></a></li>
+                                <li class="nav-item"><a href="#"
+                                        class="nav-link sidebar-nav-link d-flex align-items-center"
+                                        data-bs-toggle="modal" data-bs-target="#searchModal"><i
+                                            class="fa-solid fa-magnifying-glass me-3"
+                                            style="width:20px;text-align:center;"></i> <span class="nav-text">Search
+                                            Chats</span></a></li>
+                                <li class="nav-item"><a href="design-library.html"
+                                        class="nav-link sidebar-nav-link d-flex align-items-center"><i
+                                            class="fa-regular fa-image me-3" style="width:20px;text-align:center;"></i>
+                                        <span class="nav-text">Design Library</span></a></li>
+                                <li class="nav-item"><a href="chat-history.html"
+                                        class="nav-link sidebar-nav-link d-flex align-items-center"><i
+                                            class="fa-solid fa-clock-rotate-left me-3"
+                                            style="width:20px;text-align:center;"></i> <span class="nav-text">Chat
+                                            History</span></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Scrollable Recent Chats Section -->
+                    <div class="recent-chats-scroll mt-1 flex-grow-1 overflow-y-auto">
+                        <div class="recent-chats">
+                            <div class="recent-chats-header">
+                                <h3>Recent Designs</h3>
+                                <a href="#" class="view-all-link">View all</a>
+                            </div>
+
+                            <a href="#" class="recent-chat-card">
+                                <img src="https://placehold.co/48" alt="Ring" class="recent-chat-thumb">
+                                <div class="recent-chat-info">
+                                    <div class="recent-chat-title">Modern Solitaire Ring Design</div>
+                                    <div class="recent-chat-meta">Last modified 2h ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="recent-chat-card">
+                                <img src="https://placehold.co/48" alt="Ring" class="recent-chat-thumb">
+                                <div class="recent-chat-info">
+                                    <div class="recent-chat-title">Vintage Inspired Engagement</div>
+                                    <div class="recent-chat-meta">Last modified 5h ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="recent-chat-card">
+                                <img src="https://placehold.co/48" alt="Pendant" class="recent-chat-thumb">
+                                <div class="recent-chat-info">
+                                    <div class="recent-chat-title">Emerald Pendant Concept</div>
+                                    <div class="recent-chat-meta">Last modified 1d ago</div>
+                                </div>
+                            </a>
+
+                            <a href="#" class="recent-chat-card">
+                                <img src="https://placehold.co/48" alt="Bracelet" class="recent-chat-thumb">
+                                <div class="recent-chat-info">
+                                    <div class="recent-chat-title">Custom Gold Bracelet</div>
+                                    <div class="recent-chat-meta">Last modified 2d ago</div>
+                                </div>
+                            </a>
+                        </div>
+                                    class="fa-regular fa-circle-question me-3 text-center" style="width:20px;"></i>
+                                <span class="nav-text">FAQ</span></a></li>
+                        <li><a href="settings.html"
+                                class="nav-link sidebar-nav-link d-flex align-items-center text-dark"><i
+                                    class="fa-solid fa-gear me-3 text-center" style="width:20px;"></i> <span
+                                    class="nav-text">Settings</span></a></li>
+                    </ul>
+                </div>
+        </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content history-wrapper vh-100 d-block overflow-auto px-md-4">
+            <div class="pt-3 pb-2 mb-3 d-flex align-items-center d-md-none">
+                <button class="btn btn-outline-secondary me-2 toggle-sidebar" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#sidebarMenu" style="color: #f5f5f5; border-color: #f5f5f5;">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <!-- Toggle moved to main content area -->
+            </div>
+            <div class="history-container container py-5" style="max-width: 900px;">
+                <h2 class="display-5 fw-bold mb-4 text-white">Chat History</h2>
+                <div
+                    class="d-flex flex-column flex-md-row justify-content-between align-items-md-center mb-4 border-bottom border-light border-opacity-25 pb-2">
+                    <ul class="nav nav-underline dark-mode mb-3 mb-md-0">
+                        <li class="nav-item"><a class="nav-link text-white active fw-medium px-0 me-4" href="#">View
+                                All</a></li>
+                        <li class="nav-item"><a class="nav-link text-light-dim fw-medium px-0 me-4"
+                                href="#">Favorites</a></li>
+                        <li class="nav-item"><a class="nav-link text-light-dim fw-medium px-0" href="#">Archived</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="d-flex justify-content-between align-items-center mb-4 text-white">
+                    <div class="d-flex align-items-center">
+                        <span class="fs-5">Select all</span>
+                    </div>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="d-flex align-items-center gap-3">
+                            <i class="fa-regular fa-heart cursor-pointer fs-5"></i>
+                            <i class="fa-solid fa-download cursor-pointer fs-5"></i>
+                            <i class="fa-regular fa-trash-can cursor-pointer fs-5"></i>
+                        </div>
+                        <div class="dropdown">
+                            <button class="btn btn-link text-white text-decoration-none dropdown-toggle p-0"
+                                type="button" data-bs-toggle="dropdown">
+                                <i class="fa-solid fa-filter me-1"></i> <span class="d-none d-sm-inline">Most
+                                    Recent</span>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li><a class="dropdown-item" href="#">Most Recent</a></li>
+                                <li><a class="dropdown-item" href="#">Oldest</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="history-list">
+                    <div class="history-section mb-5">
+                        <h5 class="text-light-dim mb-3 fw-normal">Today</h5>
+                        <div
+                            class="history-item d-flex align-items-start align-items-md-center text-white py-3 border-bottom border-light border-opacity-10">
+                            <div class="col-auto me-3 pt-1 pt-md-0">
+                                <input class="form-check-input bg-transparent border-light rounded-2" type="checkbox"
+                                    style="width: 1.2rem; height: 1.2rem;">
+                            </div>
+                            <div class="flex-grow-1 row align-items-center m-0 gx-2">
+                                <div class="col-12 col-md-3 fw-medium mb-1 mb-md-0 p-0 text-truncate history-title">
+                                    Studio Solitaire Ring</div>
+                                <div class="col-12 col-md-4 text-light-dim text-truncate mb-1 mb-md-0 p-0 history-desc">
+                                    Keep it subtle and stylish...</div>
+                                <div class="col-6 col-md-auto ms-md-auto text-light-dim small p-0 history-date">
+                                    Today, 2:15 PM</div>
+                                <div
+                                    class="col-6 col-md-auto ms-auto d-flex justify-content-end gap-3 p-0 history-actions">
+                                    <i class="fa-regular fa-heart cursor-pointer"></i>
+                                    <i class="fa-solid fa-download cursor-pointer"></i>
+                                    <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="history-item d-flex align-items-start align-items-md-center text-white py-3 border-bottom border-light border-opacity-10">
+                            <div class="col-auto me-3 pt-1 pt-md-0">
+                                <input class="form-check-input bg-transparent border-light rounded-2" type="checkbox"
+                                    style="width: 1.2rem; height: 1.2rem;">
+                            </div>
+                            <div class="flex-grow-1 row align-items-center m-0 gx-2">
+                                <div class="col-12 col-md-3 fw-medium mb-1 mb-md-0 p-0 text-truncate history-title">
+                                    Holiday Jewelry Shot</div>
+                                <div class="col-12 col-md-4 text-light-dim text-truncate mb-1 mb-md-0 p-0 history-desc">
+                                    Center around a June...</div>
+                                <div class="col-6 col-md-auto ms-md-auto text-light-dim small p-0 history-date">
+                                    Yesterday, 4:20 PM</div>
+                                <div
+                                    class="col-6 col-md-auto ms-auto d-flex justify-content-end gap-3 p-0 history-actions">
+                                    <i class="fa-regular fa-heart cursor-pointer"></i>
+                                    <i class="fa-solid fa-download cursor-pointer"></i>
+                                    <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="history-section mb-5">
+                        <h5 class="text-light-dim mb-3 fw-normal">This Week</h5>
+                        <div
+                            class="history-item d-flex align-items-start align-items-md-center text-white py-3 border-bottom border-light border-opacity-10">
+                            <div class="col-auto me-3 pt-1 pt-md-0">
+                                <input class="form-check-input bg-transparent border-light rounded-2" type="checkbox"
+                                    style="width: 1.2rem; height: 1.2rem;">
+                            </div>
+                            <div class="flex-grow-1 row align-items-center m-0 gx-2">
+                                <div class="col-12 col-md-3 fw-medium mb-1 mb-md-0 p-0 text-truncate history-title">
+                                    Ring Mounting Detail</div>
+                                <div class="col-12 col-md-4 text-light-dim text-truncate mb-1 mb-md-0 p-0 history-desc">
+                                    Simple platinum band...</div>
+                                <div class="col-6 col-md-auto ms-md-auto text-light-dim small p-0 history-date">Mon,
+                                    11:05 AM</div>
+                                <div
+                                    class="col-6 col-md-auto ms-auto d-flex justify-content-end gap-3 p-0 history-actions">
+                                    <i class="fa-regular fa-heart cursor-pointer"></i>
+                                    <i class="fa-solid fa-download cursor-pointer"></i>
+                                    <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="history-section mb-5">
+                        <h5 class="text-light-dim mb-3 fw-normal">Earlier</h5>
+                        <div
+                            class="history-item d-flex align-items-start align-items-md-center text-white py-3 border-bottom border-light border-opacity-10">
+                            <div class="col-auto me-3 pt-1 pt-md-0">
+                                <input class="form-check-input bg-transparent border-light rounded-2" type="checkbox"
+                                    style="width: 1.2rem; height: 1.2rem;">
+                            </div>
+                            <div class="flex-grow-1 row align-items-center m-0 gx-2">
+                                <div class="col-12 col-md-3 fw-medium mb-1 mb-md-0 p-0 text-truncate history-title">
+                                    Jewelry Design</div>
+                                <div class="col-12 col-md-4 text-light-dim text-truncate mb-1 mb-md-0 p-0 history-desc">
+                                    Gold bracelet with 5...</div>
+                                <div class="col-6 col-md-auto ms-md-auto text-light-dim small p-0 history-date">Dec
+                                    12, 2025</div>
+                                <div
+                                    class="col-6 col-md-auto ms-auto d-flex justify-content-end gap-3 p-0 history-actions">
+                                    <i class="fa-regular fa-heart cursor-pointer"></i>
+                                    <i class="fa-solid fa-download cursor-pointer"></i>
+                                    <i class="fa-regular fa-trash-can cursor-pointer"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    </div>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content search-modal-content border-0 shadow-lg">
+                <div class="modal-header border-bottom-0 pb-0 pt-4 px-4">
+                    <div class="w-100 position-relative">
+                        <input type="text" class="form-control border-0 bg-transparent fs-5 ps-0 shadow-none text-dark"
+                            placeholder="Search chats..." style="font-weight: 500;">
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body px-4 pb-4 pt-2">
+                    <div class="mb-4 mt-2">
+                        <a href="#" class="text-decoration-none text-dark fw-medium d-flex align-items-center"><i
+                                class="fa-regular fa-pen-to-square me-2"></i> New chat</a>
+                    </div>
+
+                    <div class="search-section mb-4">
+                        <h6 class="text-muted small fw-normal mb-2">Today</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><a href="#"
+                                    class="text-decoration-none text-dark d-flex align-items-center"><i
+                                        class="fa-regular fa-message me-2 text-muted small"></i> Studio Solitaire
+                                    Ring</a></li>
+                            <li><a href="#" class="text-decoration-none text-dark d-flex align-items-center"><i
+                                        class="fa-regular fa-message me-2 text-muted small"></i> On-Hand Diamond
+                                    Ring</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="search-section mb-2">
+                        <h6 class="text-muted small fw-normal mb-2">Last 7 days</h6>
+                        <ul class="list-unstyled mb-0">
+                            <li class="mb-2"><a href="#"
+                                    class="text-decoration-none text-dark d-flex align-items-center"><i
+                                        class="fa-regular fa-message me-2 text-muted small"></i> Holiday Jewelry
+                                    Shot</a></li>
+                            <li><a href="#" class="text-decoration-none text-dark d-flex align-items-center"><i
+                                        class="fa-regular fa-message me-2 text-muted small"></i> Ring Mounting
+                                    Detail</a></li>
+                        </ul>
+                    </div>
+                    <div class="search-section mt-4 mb-2">
+                        <h6 class="text-muted small fw-normal mb-2">Last 30 days</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Sidebar Toggle
+            const toggleBtn = document.querySelector('.toggle-sidebar');
+            if (toggleBtn) {
+                toggleBtn.addEventListener('click', function () {
+                    document.body.classList.toggle('sidebar-collapsed');
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

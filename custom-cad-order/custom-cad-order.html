@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom CAD Order | StarGems</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link href="custom-cad-order.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="builder-shell">
+
+        <!-- ═══════════ SIDEBAR ═══════════ -->
+        <aside class="builder-sidebar">
+            <div class="sidebar-brand">
+                <div class="sidebar-brand-sub">Custom Designed Jewelry</div>
+            </div>
+
+            <nav class="sidebar-steps">
+                <div class="sidebar-step active" data-step="1" onclick="goToStep(1)">
+                    <div class="ss-num">01</div>
+                    <div class="ss-info">
+                        <span class="ss-label">Step 1</span>
+                        <div class="ss-title">Contact Info</div>
+                    </div>
+                </div>
+                <div class="sidebar-step" data-step="2" onclick="goToStep(2)">
+                    <div class="ss-num">02</div>
+                    <div class="ss-info">
+                        <span class="ss-label">Step 2</span>
+                        <div class="ss-title">Budget & Timeline</div>
+                    </div>
+                </div>
+                <div class="sidebar-step" data-step="3" onclick="goToStep(3)">
+                    <div class="ss-num">03</div>
+                    <div class="ss-info">
+                        <span class="ss-label">Step 3</span>
+                        <div class="ss-title">Choose Item</div>
+                    </div>
+                </div>
+                <div class="sidebar-step" data-step="4" onclick="goToStep(4)">
+                    <div class="ss-num">04</div>
+                    <div class="ss-info">
+                        <span class="ss-label">Step 4</span>
+                        <div class="ss-title">Metal & Color</div>
+                    </div>
+                </div>
+                <div class="sidebar-step" data-step="5" onclick="goToStep(5)">
+                    <div class="ss-num">05</div>
+                    <div class="ss-info">
+                        <span class="ss-label">Step 5</span>
+                        <div class="ss-title">Upload Images</div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="sidebar-summary">
+                <div class="sum-title">Your Selections</div>
+                <div>
+                    <span class="sum-chip" id="chip-item">Item —</span>
+                    <span class="sum-chip" id="chip-metal">Metal —</span>
+                    <span class="sum-chip" id="chip-color">Color —</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ═══════════ MAIN ═══════════ -->
+        <div class="builder-main">
+            <div class="builder-content">
+
+                <!-- ▸ STEP 1: Contact -->
+                <div class="step-panel active" id="step1">
+                    <div class="step-header">
+                        <div class="step-eyebrow">Step 1 of 5</div>
+                        <h2>Let's start with <em>your details</em></h2>
+                        <p>We'll use this to get in touch and discuss your vision. </p>
+
+                        <p style="color: rgb(192, 0, 0); font-size: 12px;">Fields marked <strong>*</strong> are
+                            required.</p>
+                    </div>
+
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name <span class="req">*</span></label>
+                            <input type="text" class="form-control" id="fullName" placeholder="Your full name">
+                            <div class="invalid-feedback">Please enter a valid name</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Country <span class="req">*</span></label>
+                            <select class="form-select" id="country">
+                                <option value="1">Afghanistan</option>
+                                <option value="2">Albania</option>
+                                <option value="3">Algeria</option>
+                                <option value="4">American Samoa</option>
+                                <option value="5">Andorra</option>
+                                <option value="6">Angola</option>
+                                <option value="7">Anguilla</option>
+                                <option value="8">Antarctica</option>
+                                <option value="9">Antigua and Barbuda</option>
+                                <option value="10">Argentina</option>
+                                <option value="11">Armenia</option>
+                                <option value="12">Aruba</option>
+                                <option value="13">Australia</option>
+                                <option value="14">Austria</option>
+                                <option value="15">Azerbaijan</option>
+                                <option value="16">Bahamas</option>
+                                <option value="17">Bahrain</option>
+                                <option value="18">Bangladesh</option>
+                                <option value="19">Barbados</option>
+                                <option value="20">Belarus</option>
+                                <option value="21">Belgium</option>
+                                <option value="22">Belize</option>
+                                <option value="23">Benin</option>
+                                <option value="24">Bermuda</option>
+                                <option value="25">Bhutan</option>
+                                <option value="26">Bolivia</option>
+                                <option value="27">Bosnia and Herzegovina</option>
+                                <option value="28">Botswana</option>
+                                <option value="29">Bouvet Island</option>
+                                <option value="30">Brazil</option>
+                                <option value="31">British Indian Ocean Territory</option>
+                                <option value="32">Brunei</option>
+                                <option value="33">Bulgaria</option>
+                                <option value="34">Burkina Faso</option>
+                                <option value="35">Burundi</option>
+                                <option value="36">Cambodia</option>
+                                <option value="37">Cameroon</option>
+                                <option value="38">Canada</option>
+                                <option value="39">Cape Verde</option>
+                                <option value="40">Cayman Islands</option>
+                                <option value="41">Central African Republic</option>
+                                <option value="42">Chad</option>
+                                <option value="43">Chile</option>
+                                <option value="44">China</option>
+                                <option value="45">Christmas Island</option>
+                                <option value="46">Cocos (Keeling) Islands</option>
+                                <option value="47">Colombia</option>
+                                <option value="48">Comoros</option>
+                                <option value="49">Congo</option>
+                                <option value="50">Congo (DRC)</option>
+                                <option value="51">Cook Islands</option>
+                                <option value="52">Costa Rica</option>
+                                <option value="53">C&#244;te d&#39;Ivoire</option>
+                                <option value="54">Croatia</option>
+                                <option value="55">Cuba</option>
+                                <option value="56">Cyprus</option>
+                                <option value="57">Czech Republic</option>
+                                <option value="58">Denmark</option>
+                                <option value="59">Djibouti</option>
+                                <option value="60">Dominica</option>
+                                <option value="61">Dominican Republic</option>
+                                <option value="62">Ecuador</option>
+                                <option value="63">Egypt</option>
+                                <option value="64">El Salvador</option>
+                                <option value="65">Equatorial Guinea</option>
+                                <option value="66">Eritrea</option>
+                                <option value="67">Estonia</option>
+                                <option value="68">Ethiopia</option>
+                                <option value="69">Falkland Islands (Islas Malvinas)</option>
+                                <option value="70">Faroe Islands</option>
+                                <option value="71">Fiji Islands</option>
+                                <option value="72">Finland</option>
+                                <option value="73">France</option>
+                                <option value="74">French Guiana</option>
+                                <option value="75">French Polynesia</option>
+                                <option value="76">French Southern and Antarctic Lands</option>
+                                <option value="77">Gabon</option>
+                                <option value="78">Gambia, The</option>
+                                <option value="79">Georgia</option>
+                                <option value="80">Germany</option>
+                                <option value="81">Ghana</option>
+                                <option value="82">Gibraltar</option>
+                                <option value="83">Greece</option>
+                                <option value="84">Greenland</option>
+                                <option value="85">Grenada</option>
+                                <option value="86">Guadeloupe</option>
+                                <option value="87">Guam</option>
+                                <option value="88">Guatemala</option>
+                                <option value="89">Guernsey</option>
+                                <option value="90">Guinea</option>
+                                <option value="91">Guinea-Bissau</option>
+                                <option value="92">Guyana</option>
+                                <option value="93">Haiti</option>
+                                <option value="94">Heard Island and McDonald Islands</option>
+                                <option value="95">Honduras</option>
+                                <option value="96">Hong Kong SAR</option>
+                                <option value="97">Hungary</option>
+                                <option value="98">Iceland</option>
+                                <option value="99">India</option>
+                                <option value="100">Indonesia</option>
+                                <option value="101">Iran</option>
+                                <option value="102">Iraq</option>
+                                <option value="103">Ireland</option>
+                                <option value="104">Isle of Man</option>
+                                <option value="105">Israel</option>
+                                <option value="106">Italy</option>
+                                <option value="107">Jamaica</option>
+                                <option value="108">Japan</option>
+                                <option value="109">Jersey</option>
+                                <option value="110">Jordan</option>
+                                <option value="111">Kazakhstan</option>
+                                <option value="112">Kenya</option>
+                                <option value="113">Kiribati</option>
+                                <option value="114">Korea</option>
+                                <option value="115">Kuwait</option>
+                                <option value="116">Kyrgyzstan</option>
+                                <option value="117">Laos</option>
+                                <option value="118">Latvia</option>
+                                <option value="119">Lebanon</option>
+                                <option value="120">Lesotho</option>
+                                <option value="121">Liberia</option>
+                                <option value="122">Libya</option>
+                                <option value="123">Liechtenstein</option>
+                                <option value="124">Lithuania</option>
+                                <option value="125">Luxembourg</option>
+                                <option value="126">Macao SAR</option>
+                                <option value="127">Macedonia, Former Yugoslav Republic of</option>
+                                <option value="128">Madagascar</option>
+                                <option value="129">Malawi</option>
+                                <option value="130">Malaysia</option>
+                                <option value="131">Maldives</option>
+                                <option value="132">Mali</option>
+                                <option value="133">Malta</option>
+                                <option value="134">Marshall Islands</option>
+                                <option value="135">Martinique</option>
+                                <option value="136">Mauritania</option>
+                                <option value="137">Mauritius</option>
+                                <option value="138">Mayotte</option>
+                                <option value="139">Mexico</option>
+                                <option value="140">Micronesia</option>
+                                <option value="141">Moldova</option>
+                                <option value="142">Monaco</option>
+                                <option value="143">Mongolia</option>
+                                <option value="144">Montenegro</option>
+                                <option value="145">Montserrat</option>
+                                <option value="146">Morocco</option>
+                                <option value="147">Mozambique</option>
+                                <option value="148">Myanmar</option>
+                                <option value="149">Namibia</option>
+                                <option value="150">Nauru</option>
+                                <option value="151">Nepal</option>
+                                <option value="152">Netherlands</option>
+                                <option value="153">Netherlands Antilles</option>
+                                <option value="154">New Caledonia</option>
+                                <option value="155">New Zealand</option>
+                                <option value="156">Nicaragua</option>
+                                <option value="157">Niger</option>
+                                <option value="158">Nigeria</option>
+                                <option value="159">Niue</option>
+                                <option value="160">Norfolk Island</option>
+                                <option value="161">North Korea</option>
+                                <option value="162">Northern Mariana Islands</option>
+                                <option value="163">Norway</option>
+                                <option value="164">Oman</option>
+                                <option value="165">Pakistan</option>
+                                <option value="166">Palau</option>
+                                <option value="167">Palestinian Authority</option>
+                                <option value="168">Panama</option>
+                                <option value="169">Papua New Guinea</option>
+                                <option value="170">Paraguay</option>
+                                <option value="171">Peru</option>
+                                <option value="172">Philippines</option>
+                                <option value="173">Pitcairn Islands</option>
+                                <option value="174">Poland</option>
+                                <option value="175">Portugal</option>
+                                <option value="176">Puerto Rico</option>
+                                <option value="177">Qatar</option>
+                                <option value="178">Reunion</option>
+                                <option value="179">Romania</option>
+                                <option value="180">Russia</option>
+                                <option value="181">Rwanda</option>
+                                <option value="182">Samoa</option>
+                                <option value="183">San Marino</option>
+                                <option value="184">S&#227;o Tom&#233; and Pr&#237;ncipe</option>
+                                <option value="185">Saudi Arabia</option>
+                                <option value="186">Senegal</option>
+                                <option value="187">Serbia</option>
+                                <option value="188">Seychelles</option>
+                                <option value="189">Sierra Leone</option>
+                                <option value="190">Singapore</option>
+                                <option value="191">Slovakia</option>
+                                <option value="192">Slovenia</option>
+                                <option value="193">Solomon Islands</option>
+                                <option value="194">Somalia</option>
+                                <option value="195">South Africa</option>
+                                <option value="196">South Georgia and the South Sandwich Islands</option>
+                                <option value="197">Spain</option>
+                                <option value="198">Sri Lanka</option>
+                                <option value="199">St. Helena</option>
+                                <option value="200">St. Kitts and Nevis</option>
+                                <option value="201">St. Lucia</option>
+                                <option value="202">St. Pierre and Miquelon</option>
+                                <option value="203">St. Vincent and the Grenadines</option>
+                                <option value="204">Sudan</option>
+                                <option value="205">Suriname</option>
+                                <option value="206">Svalbard and Jan Mayen</option>
+                                <option value="207">Swaziland</option>
+                                <option value="208">Sweden</option>
+                                <option value="209">Switzerland</option>
+                                <option value="210">Syria</option>
+                                <option value="211">Taiwan</option>
+                                <option value="212">Tajikistan</option>
+                                <option value="213">Tanzania</option>
+                                <option value="214">Thailand</option>
+                                <option value="215">Timor-Leste (East Timor)</option>
+                                <option value="216">Togo</option>
+                                <option value="217">Tokelau</option>
+                                <option value="218">Tonga</option>
+                                <option value="219">Trinidad and Tobago</option>
+                                <option value="220">Tunisia</option>
+                                <option value="221">Turkey</option>
+                                <option value="222">Turkmenistan</option>
+                                <option value="223">Turks and Caicos Islands</option>
+                                <option value="224">Tuvalu</option>
+                                <option value="225">Uganda</option>
+                                <option value="226">Ukraine</option>
+                                <option value="227">United Arab Emirates</option>
+                                <option value="228">United Kingdom</option>
+                                <option selected="selected" value="229">United States </option>
+                                <option value="230">United States Minor Outlying Islands</option>
+                                <option value="231">Uruguay</option>
+                                <option value="232">Uzbekistan</option>
+                                <option value="233">Vanuatu</option>
+                                <option value="234">Vatican City</option>
+                                <option value="235">Venezuela</option>
+                                <option value="236">Vietnam</option>
+                                <option value="237">Virgin Islands, British</option>
+                                <option value="238">Virgin Islands, U.S.</option>
+                                <option value="239">Wallis and Futuna</option>
+                                <option value="240">Yemen</option>
+                                <option value="241">Zambia</option>
+                                <option value="242">Zimbabwe</option>
+                                <option value="243">Western Sahara</option>
+                            </select>
+                            <div class="invalid-feedback">Please select your country</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Cell Phone <span class="req">*</span></label>
+                            <input type="tel" class="form-control" id="phone" placeholder="+1 (555) 000-0000">
+                            <div class="invalid-feedback">Phone number is required</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email <span class="req">*</span></label>
+                            <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                            <div class="invalid-feedback">Please enter a valid email</div>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Company Name <span
+                                    style="color:var(--muted);font-weight:300">(optional)</span></label>
+                            <input type="text" class="form-control" id="company" placeholder="Your company">
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label" style="margin-bottom:12px">Preferred Contact Method <span
+                                    class="req">*</span></label>
+                            <div class="contact-pills" id="contactMethod">
+                                <div class="cpill" data-value="Email" onclick="selectPill(this,'contactMethod')">
+                                    <i class="fa-regular fa-envelope"></i> Email
+                                </div>
+                                <div class="cpill" data-value="Call" onclick="selectPill(this,'contactMethod')">
+                                    <i class="fa-solid fa-phone"></i> Call
+                                </div>
+                                <div class="cpill" data-value="Text" onclick="selectPill(this,'contactMethod')">
+                                    <i class="fa-regular fa-comment"></i> Text
+                                </div>
+                                <div class="cpill" data-value="No Preference"
+                                    onclick="selectPill(this,'contactMethod')">
+                                    <i class="fa-solid fa-infinity"></i> No Preference
+                                </div>
+                            </div>
+                            <div class="invalid-feedback" id="contactMethodErr" style="display:none">Please select a
+                                contact method</div>
+                        </div>
+                        <div class="col-12">
+                            <label class="form-label">Notes for This Inquiry</label>
+                            <textarea class="form-control" id="contactNotes"
+                                placeholder="Any additional context, inspiration, or details…"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ▸ STEP 2: Budget -->
+                <div class="step-panel" id="step2">
+                    <div class="step-header">
+                        <div class="step-eyebrow">Step 2 of 5</div>
+                        <h2>Budget & <em>Timeline</em></h2>
+                        <p>Help us understand your investment range and any important dates.</p>
+                    </div>
+
+                    <div class="field-block">
+                        <label class="form-label" style="margin-bottom:12px">Quick Budget Range</label>
+                        <div class="budget-presets" id="budgetPresets">
+                            <div class="bp" onclick="setBP(this,500,1500)">$500 – $1,500</div>
+                            <div class="bp" onclick="setBP(this,1500,3000)">$1,500 – $3,000</div>
+                            <div class="bp" onclick="setBP(this,3000,6000)">$3,000 – $6,000</div>
+                            <div class="bp" onclick="setBP(this,6000,12000)">$6,000 – $12,000</div>
+                            <div class="bp" onclick="setBP(this,12000,0)">$12,000+</div>
+                        </div>
+                        <div class="budget-row">
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="budgetFrom" placeholder="From" min="1">
+                            </div>
+                            <div class="budget-sep">—</div>
+                            <div class="input-group">
+                                <span class="input-group-text">$</span>
+                                <input type="number" class="form-control" id="budgetTo" placeholder="To" min="1">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-block">
+                        <label class="form-label">Budget Notes</label>
+                        <textarea class="form-control" id="budgetNotes" placeholder="Flexible, strict, open to options…"
+                            style="min-height:72px"></textarea>
+                    </div>
+
+                    <div class="fdiv"></div>
+
+                    <div class="field-block">
+                        <label class="form-label">Delivery Deadline (if applicable)</label>
+                        <input type="date" class="form-control" id="deadline" style="max-width:230px">
+                    </div>
+
+                    <div class="field-block">
+                        <label class="form-label">Deadline Notes</label>
+                        <textarea class="form-control" id="deadlineNotes"
+                            placeholder="Special occasion, anniversary, event…" style="min-height:72px"></textarea>
+                    </div>
+                </div>
+
+                <!-- ▸ STEP 3: Item Type -->
+                <div class="step-panel" id="step3">
+                    <div class="step-header">
+                        <div class="step-eyebrow">Step 3 of 5</div>
+                        <h2>What are we <em>creating for you?</em></h2>
+                        <p>Select the type of piece you have in mind.</p>
+                    </div>
+                    <label class="form-label">Type <span class="req">*</span></label>
+                    <div class="option-grid c4" id="itemType">
+
+                        <div class="opt-card" data-value="Ring" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="26" cy="28" r="13" stroke="#6487AF" stroke-width="5" fill="none" />
+                                    <circle cx="26" cy="15" r="5.5" fill="#AABEDC" />
+                                    <circle cx="26" cy="15" r="3.2" fill="#6487AF" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Ring</div>
+                            <div class="opt-sub">Engagement, fashion, statement</div>
+                        </div>
+
+                        <div class="opt-card" data-value="Earring" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <line x1="19" y1="8" x2="19" y2="22" stroke="#6487AF" stroke-width="2.5"
+                                        stroke-linecap="round" />
+                                    <line x1="33" y1="8" x2="33" y2="22" stroke="#6487AF" stroke-width="2.5"
+                                        stroke-linecap="round" />
+                                    <ellipse cx="19" cy="32" rx="6.5" ry="8.5" fill="#AABEDC" />
+                                    <ellipse cx="33" cy="32" rx="6.5" ry="8.5" fill="#AABEDC" />
+                                    <ellipse cx="19" cy="32" rx="3.5" ry="5" fill="#6487AF" />
+                                    <ellipse cx="33" cy="32" rx="3.5" ry="5" fill="#6487AF" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Earring</div>
+                            <div class="opt-sub">Studs, drops, hoops</div>
+                        </div>
+
+                        <div class="opt-card" data-value="Pendant" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M26 8 L26 16" stroke="#6487AF" stroke-width="2.5" stroke-linecap="round" />
+                                    <ellipse cx="26" cy="9.5" rx="5" ry="2.5" stroke="#6487AF" stroke-width="2"
+                                        fill="none" />
+                                    <polygon points="26,18 37,30 26,45 15,30" fill="#AABEDC" />
+                                    <polygon points="26,22 33,30 26,41 19,30" fill="#6487AF" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Pendant</div>
+                            <div class="opt-sub">Custom shape, charm, solitaire</div>
+                        </div>
+
+                        <div class="opt-card" data-value="Necklace" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M8 12 Q26 38 44 12" stroke="#6487AF" stroke-width="2.5" fill="none"
+                                        stroke-linecap="round" />
+                                    <circle cx="26" cy="38" r="6" fill="#AABEDC" />
+                                    <circle cx="26" cy="38" r="3.5" fill="#6487AF" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Necklace</div>
+                            <div class="opt-sub">Chain, station, layered</div>
+                        </div>
+
+                        <div class="opt-card" data-value="Bangle/Bracelet" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <ellipse cx="26" cy="28" rx="17" ry="11" stroke="#6487AF" stroke-width="4"
+                                        fill="none" />
+                                    <circle cx="35" cy="19" r="4.5" fill="#AABEDC" />
+                                    <circle cx="35" cy="19" r="2.5" fill="#6487AF" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Bracelet</div>
+                            <div class="opt-sub">Bangle, tennis, cuff</div>
+                        </div>
+
+                        <div class="opt-card" data-value="Remake" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13 26 A13 13 0 1 1 26 39" stroke="#6487AF" stroke-width="3"
+                                        stroke-linecap="round" fill="none" />
+                                    <polygon points="26,43 22,35 30,35" fill="#6487AF" />
+                                    <circle cx="26" cy="20" r="5" fill="#AABEDC" />
+                                    <circle cx="26" cy="20" r="3" fill="#6487AF" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Remake</div>
+                            <div class="opt-sub">Restore or redesign existing</div>
+                        </div>
+
+                        <div class="opt-card" data-value="Band" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <rect x="8" y="19" width="36" height="14" rx="7" stroke="#6487AF" stroke-width="4"
+                                        fill="none" />
+                                    <rect x="13" y="23" width="26" height="6" rx="3" fill="#AABEDC" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Band</div>
+                            <div class="opt-sub">Wedding, anniversary, eternity</div>
+                        </div>
+
+                        <div class="opt-card" data-value="Other/Misc" onclick="selectOpt(this,'itemType')">
+                            <div class="opt-check"><i class="fa-solid fa-check"></i></div>
+                            <div class="opt-visual">
+                                <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="26" cy="13" r="5" fill="#AABEDC" />
+                                    <circle cx="26" cy="13" r="3" fill="#6487AF" />
+                                    <circle cx="13" cy="35" r="5" fill="#AABEDC" />
+                                    <circle cx="13" cy="35" r="3" fill="#6487AF" />
+                                    <circle cx="39" cy="35" r="5" fill="#AABEDC" />
+                                    <circle cx="39" cy="35" r="3" fill="#6487AF" />
+                                    <line x1="26" y1="18" x2="13" y2="30" stroke="#AABEDC" stroke-width="1.5" />
+                                    <line x1="26" y1="18" x2="39" y2="30" stroke="#AABEDC" stroke-width="1.5" />
+                                </svg>
+                            </div>
+                            <div class="opt-title">Other</div>
+                            <div class="opt-sub">Brooch, cufflinks, misc.</div>
+                        </div>
+
+                    </div>
+                    <div class="invalid-feedback" id="itemTypeErr" style="display:none;margin-top:10px">Please select an
+                        item type to continue</div>
+
+                    <!-- Conditional Finger Size -->
+                    <div id="ringSizeRow" style="display:none; margin-top:30px;">
+                        <div class="fdiv"></div>
+                        <div class="field-block">
+                            <label class="form-label">Finger Size <span class="req">*</span></label>
+                            <div class="weight-wrap" style="max-width:180px">
+                                <input type="text" class="form-control" id="fingerSize" placeholder="e.g. 6.5">
+                                <span class="weight-unit">US</span>
+                            </div>
+                            <div class="invalid-feedback">Please enter a finger size</div>
+                            <p class="mt-2" style="font-size:12px; color:var(--muted)">We can send a physical sizer if
+                                you're unsure.</p>
+                        </div>
+                    </div>
+                    <!-- Conditional Other Item Type -->
+                    <div id="otherItemRow" style="display:none; margin-top:30px;">
+                        <div class="fdiv"></div>
+                        <div class="field-block">
+                            <label class="form-label">Please Specify Item Type <span class="req">*</span></label>
+                            <input type="text" class="form-control" id="otherItemType"
+                                placeholder="e.g. Brooch, Tiara, Anklet">
+                            <div class="invalid-feedback">Please specify the item type</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ▸ STEP 4: Metal + Color -->
+                <div class="step-panel" id="step4">
+                    <div class="step-header">
+                        <div class="step-eyebrow">Step 4 of 5</div>
+                        <h2>Metal, Color, Diamonds & Gemstones</h2>
+                        <p>Choose the material, color, diamonds & gemstones</p>
+                    </div>
+
+                    <div class="field-block">
+                        <label class="form-label" style="margin-bottom:14px">Select Metal <span
+                                class="req">*</span></label>
+                        <div class="metal-grid" id="metalType">
+                            <div class="metal-card" data-value="10K Gold" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#f7e28a,#c8960a 60%,#7d5c00)">
+                                </div>
+                                <div class="metal-name">10K Gold</div>
+                            </div>
+                            <div class="metal-card" data-value="14K Gold" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#faf0a0,#d4a800 60%,#8a6600)">
+                                </div>
+                                <div class="metal-name">14K Gold</div>
+                            </div>
+                            <div class="metal-card" data-value="18K Gold" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#fff3b0,#e5b800 60%,#9a7000)">
+                                </div>
+                                <div class="metal-name">18K Gold</div>
+                            </div>
+                            <div class="metal-card" data-value="Platinum" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#f0f0f0,#b0b8c8 60%,#606878)">
+                                </div>
+                                <div class="metal-name">Platinum</div>
+                            </div>
+                            <div class="metal-card" data-value="Palladium" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#e8e8f0,#9098a8 60%,#505860)">
+                                </div>
+                                <div class="metal-name">Palladium</div>
+                            </div>
+                            <div class="metal-card" data-value="Two-Tone" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:conic-gradient(#f0f0f0 0deg 180deg,#d4a800 180deg 360deg)"></div>
+                                <div class="metal-name">Two-Tone</div>
+                            </div>
+                            <div class="metal-card" data-value="Sterling Silver" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#ffffff,#c0c8d0 60%,#707880)">
+                                </div>
+                                <div class="metal-name">Sterling Silver</div>
+                            </div>
+                            <div class="metal-card" data-value="Electrum" onclick="selectMetal(this)">
+                                <div class="mc-check"><i class="fa-solid fa-check"></i></div>
+                                <div class="metal-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#f8f4c0,#c8c060 60%,#807830)">
+                                </div>
+                                <div class="metal-name">Electrum</div>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback" id="metalTypeErr" style="display:none;margin-top:8px">Please
+                            select a metal to continue</div>
+                    </div>
+
+                    <div class="fdiv"></div>
+
+                    <div class="field-block">
+                        <label class="form-label" style="margin-bottom:14px">Color <span class="req">*</span></label>
+                        <div class="color-row" id="colorSelect">
+                            <div class="csw" data-value="White" onclick="selectColor(this)">
+                                <div class="csw-orb" style="background:radial-gradient(circle at 35% 35%,#fff,#d0d0d0)">
+                                </div>
+                                <span class="csw-label">White</span>
+                            </div>
+                            <div class="csw" data-value="Yellow" onclick="selectColor(this)">
+                                <div class="csw-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#ffe88a,#c8960a)"></div>
+                                <span class="csw-label">Yellow</span>
+                            </div>
+                            <div class="csw" data-value="Pink" onclick="selectColor(this)">
+                                <div class="csw-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#ffd6e0,#d46080)"></div>
+                                <span class="csw-label">Pink</span>
+                            </div>
+                            <div class="csw" data-value="Rose" onclick="selectColor(this)">
+                                <div class="csw-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#ffc4b0,#c05040)"></div>
+                                <span class="csw-label">Rose</span>
+                            </div>
+                            <div class="csw" data-value="Green" onclick="selectColor(this)">
+                                <div class="csw-orb"
+                                    style="background:radial-gradient(circle at 35% 35%,#b8e8b0,#408040)"></div>
+                                <span class="csw-label">Green</span>
+                            </div>
+                            <div class="csw" data-value="Two-Tone" onclick="selectColor(this)">
+                                <div class="csw-orb"
+                                    style="background:conic-gradient(#d0d0d0 0deg 180deg,#c8960a 180deg 360deg)"></div>
+                                <span class="csw-label">Two-Tone</span>
+                            </div>
+                            <div class="csw" data-value="Tri-Tone" onclick="selectColor(this)">
+                                <div class="csw-orb"
+                                    style="background:conic-gradient(#d0d0d0 0deg 120deg,#c8960a 120deg 240deg,#e8a090 240deg 360deg)">
+                                </div>
+                                <span class="csw-label">Tri-Tone</span>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback" id="colorTypeErr" style="display:none;margin-top:8px">Please
+                            select a color to continue</div>
+                    </div>
+
+                    <div class="fdiv"></div>
+
+                    <div class="field-block">
+                        <label class="form-label" style="margin-bottom:14px">Diamonds & Gemstones <span
+                                style="color:var(--muted);font-weight:300">(optional)</span></label>
+                        <div class="contact-pills" id="stoneType">
+                            <div class="cpill" data-value="Natural Dia." onclick="selectPill(this,'stoneType')">Natural
+                                Dia.</div>
+                            <div class="cpill" data-value="Lab Grown Dia." onclick="selectPill(this,'stoneType')">Lab
+                                Grown Dia.</div>
+                            <div class="cpill" data-value="Moissanite" onclick="selectPill(this,'stoneType')">Moissanite
+                            </div>
+                            <div class="cpill" data-value="White CZ" onclick="selectPill(this,'stoneType')">White CZ
+                            </div>
+                            <div class="cpill" data-value="Natural Gemstone" onclick="selectPill(this,'stoneType')">
+                                Natural Gemstone</div>
+                            <div class="cpill" data-value="Lab Gemstone" onclick="selectPill(this,'stoneType')">Lab
+                                Gemstone</div>
+                            <div class="cpill" data-value="Customer Supplied Stones"
+                                onclick="selectPill(this,'stoneType')">Customer Supplied Stones</div>
+                            <div class="cpill" data-value="Blank Mounting" onclick="selectPill(this,'stoneType')">Blank
+                                Mounting</div>
+                            <div class="cpill" data-value="Others" onclick="selectPill(this,'stoneType')">Others</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ▸ STEP 5: Images -->
+                <div class="step-panel" id="step5">
+                    <div class="step-header">
+                        <div class="step-eyebrow">Step 5 of 5</div>
+                        <h2>Share your <em>inspiration</em></h2>
+                        <p>Upload up to 4 reference images — things you love, want to recreate, or use as design
+                            inspiration.</p>
+                    </div>
+
+                    <div class="upload-grid">
+                        <div class="upload-zone" id="uz1">
+                            <input type="file" accept="image/*" onchange="handleUZ(this,'uz1','fn1')">
+                            <div class="uz-icon"><i class="fa-regular fa-image"></i></div>
+                            <div class="uz-label">Image 1</div>
+                            <div class="uz-sub">JPG, PNG, WEBP</div>
+                            <div class="uz-fn" id="fn1"></div>
+                        </div>
+                        <div class="upload-zone" id="uz2">
+                            <input type="file" accept="image/*" onchange="handleUZ(this,'uz2','fn2')">
+                            <div class="uz-icon"><i class="fa-regular fa-image"></i></div>
+                            <div class="uz-label">Image 2</div>
+                            <div class="uz-sub">JPG, PNG, WEBP</div>
+                            <div class="uz-fn" id="fn2"></div>
+                        </div>
+                        <div class="upload-zone" id="uz3">
+                            <input type="file" accept="image/*" onchange="handleUZ(this,'uz3','fn3')">
+                            <div class="uz-icon"><i class="fa-regular fa-image"></i></div>
+                            <div class="uz-label">Image 3</div>
+                            <div class="uz-sub">JPG, PNG, WEBP</div>
+                            <div class="uz-fn" id="fn3"></div>
+                        </div>
+                        <div class="upload-zone" id="uz4">
+                            <input type="file" accept="image/*" onchange="handleUZ(this,'uz4','fn4')">
+                            <div class="uz-icon"><i class="fa-regular fa-image"></i></div>
+                            <div class="uz-label">Image 4</div>
+                            <div class="uz-sub">JPG, PNG, WEBP</div>
+                            <div class="uz-fn" id="fn4"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div><!-- /builder-content -->
+
+            <!-- Success -->
+            <div class="success-screen" id="successScreen">
+                <div class="suc-ring"><i class="fa-solid fa-check"></i></div>
+                <h2>Inquiry Submitted</h2>
+                <p>Thank you. Our design team will review your request and contact you within 1–2 business days to begin
+                    bringing your vision to life.</p>
+            </div>
+
+            <!-- Footer -->
+            <div class="builder-footer" id="builderFooter">
+                <button class="btn-prev" id="prevBtn" onclick="prevStep()" style="visibility:hidden">
+                    <i class="fa-solid fa-arrow-left"></i> Back
+                </button>
+                <div class="fp">
+                    <div class="fp-label" id="fpLabel">Step 1 of 5</div>
+                    <div class="fp-bar">
+                        <div class="fp-fill" id="fpFill" style="width:20%"></div>
+                    </div>
+                </div>
+                <button class="btn-next" id="nextBtn" onclick="nextStep()">
+                    Continue <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+
+        </div><!-- /builder-main -->
+    </div><!-- /builder-shell -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="custom-cad-order.js"></script>
+</body>
+
+</html>

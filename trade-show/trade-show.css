@@ -1,0 +1,245 @@
+/* Global Theme Variables */
+:root {
+    /* --- Color Palette --- */
+    --primary: #6487AF;
+    --primary-dark: #3A5778;
+    --primary-light: #E6EFF9;
+    --accent: #AABEDC;
+    --text-main: #333333;
+    --text-sub: #666666;
+    --bg-body: #FFFFFF;
+    --bg-neutral: #F5F5F5;
+    --border-color: #E6E6E6;
+
+    /* --- Styles --- */
+    --shadow-hover: 0 12px 24px rgba(58, 87, 120, 0.15);
+    --radius-pill: 999px;
+    --radius-card: 12px;
+    --font-serif: 'Cormorant Garamond', serif;
+    --font-sans: 'IBM Plex Sans', sans-serif;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-main);
+    background-color: var(--bg-neutral);
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Utilities */
+.serif-font {
+    font-family: var(--font-serif);
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.1em;
+}
+
+.mw-800 {
+    max-width: 800px;
+}
+
+.icon-sm {
+    width: 16px;
+    height: 16px;
+}
+
+.icon-xs {
+    width: 14px;
+    height: 14px;
+}
+
+.mt-6 {
+    margin-top: 4rem;
+}
+
+/* Header & Hero */
+.page-header {
+    height: 20vh;
+    min-height: 100px;
+    background-color: #E6EFF9;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    margin-bottom: -3rem;
+}
+
+.header-overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    color: var(--primary-dark);
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background-color: var(--primary-dark);
+}
+
+.header-subtitle {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--primary-dark);
+}
+
+/* Section Styling */
+.trade-show-section {
+    position: relative;
+    z-index: 5;
+}
+
+/* Cards */
+.event-card {
+    border-radius: var(--radius-card);
+    background: var(--bg-body);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover) !important;
+}
+
+/* Date Column */
+.event-date-col {
+    background-color: var(--primary);
+    position: relative;
+    background-image: radial-gradient(circle at 100% 0%, rgba(255, 255, 255, 0.1) 0%, transparent 20%);
+}
+
+.event-date-col .month {
+    font-size: 1.1rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+}
+
+.event-date-col .day {
+    font-size: 3.5rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+/* Typography in Card */
+.event-title {
+    font-size: 1.8rem;
+    color: var(--primary-dark);
+}
+
+.venue-text {
+    font-weight: 500;
+    color: var(--text-main);
+}
+
+/* Badges */
+.badge.bg-primary-subtle {
+    background-color: var(--primary-light) !important;
+    color: var(--primary) !important;
+    border-color: var(--accent) !important;
+}
+
+/* Hover Logistics */
+.grayscale-hover {
+    filter: grayscale(100%);
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.event-card:hover .grayscale-hover {
+    filter: grayscale(0%);
+    opacity: 1;
+}
+
+.hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Link Effect */
+.link-hover-effect {
+    position: relative;
+}
+
+.link-hover-effect::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    transition: width 0.3s ease;
+}
+
+.link-hover-effect:hover::after {
+    width: 100%;
+}
+
+/* Custom Button */
+.btn-primary-custom {
+    background-color: var(--primary-dark);
+    color: #fff;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-primary-custom:hover {
+    background-color: var(--primary);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.5rem;
+    }
+
+    .event-date-col {
+        padding: 2rem !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        text-align: left !important;
+    }
+
+    .event-date-col .month {
+        font-size: 1.2rem;
+        margin-bottom: 0;
+    }
+
+    .event-date-col .day {
+        font-size: 2.5rem;
+        margin-bottom: 0;
+        margin-left: 1rem;
+    }
+
+    .event-card .row>div {
+        width: 100%;
+        /* Force stacking */
+    }
+
+    .event-details {
+        text-align: center !important;
+    }
+
+    .venue-address {
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+    .d-flex.flex-md-row {
+        gap: 1.5rem;
+    }
+}

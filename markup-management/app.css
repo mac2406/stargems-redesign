@@ -1,0 +1,40 @@
+/* Global Base Styles */
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
+}
+
+.glass-panel,
+.glass-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+}
+
+.glass-card {
+    border: 1px solid rgba(59, 94, 132, 0.1);
+}
+
+.editorial-shadow {
+    box-shadow: 0 24px 48px -12px rgba(65, 93, 127, 0.06);
+}
+
+.serif-title {
+    font-family: 'Cormorant Garamond', serif;
+}
+
+/* Specific Component Utilities */
+.active-dot {
+    position: relative;
+}
+
+.active-dot::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 4px;
+    background-color: #3b5e84;
+    border-radius: 50%;
+}

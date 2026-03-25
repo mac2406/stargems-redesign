@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="no-referrer">
+    <title>Recent Work</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="RecentWork&Pricing.css">
+</head>
+
+<body>
+
+    <nav class="main-toolbar">
+        <div class="filter-tabs-container" id="platform-filters">
+        </div>
+
+        <div class="right-actions">
+            <div class="search-wrapper">
+                <i data-feather="search" class="search-icon"></i>
+                <input type="text" id="search-input" class="search-input" placeholder="Search">
+            </div>
+            <button id="get-quote-btn" class="btn-primary" type="button">Get Quote</button>
+        </div>
+    </nav>
+
+    <div class="section">
+
+        <div id="showcase-grid" class="showcase-grid"></div>
+
+        <div id="empty-state" class="empty-state hidden">
+            <h3>No results found</h3>
+            <p>Try adjusting your search.</p>
+        </div>
+
+        <div id="see-more-container" class="see-more-container hidden">
+            <button id="see-more-btn" class="btn-secondary" type="button">Load More</button>
+        </div>
+
+    </div>
+    <div class="pricing-wrapper">
+        <div class="section">
+            <div class="section-header">
+                <h2>Ready to Get Started?</h2>
+                <p>Choose a plan that fits your business goals.</p>
+            </div>
+            <div id="pricing-grid" class="pricing-grid"></div>
+            <div class="terms-trigger-container">
+                <button onclick="openTermsModal(event)" class="btn-terms" type="button">Terms & Conditions</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terms Modal -->
+    <div id="terms-modal" class="modal-overlay hidden" onclick="closeTermsModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="close-modal-btn" onclick="closeTermsModal(event)" type="button">
+                <i data-feather="x"></i>
+            </button>
+            <div class="modal-header">
+                <h2>Terms & Conditions</h2>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>The contract duration is 1 year starting from the date of the website launch.</li>
+                    <li>One time setup fee will be non refundable deposit and same will be adjusted towards your first
+                        month billing.</li>
+                    <li>If the website is built using the Shopify platform, the client will directly cover the Shopify
+                        subscription fee to Shopify.</li>
+                    <li>We promote website by ethical methods. We neither use nor endorse techniques that might be
+                        labeled Spam.</li>
+                    <li>Search Engines may change their criteria of selection without any prior notice. We won't be
+                        responsible for the resultant effect on Search Engine Rankings.</li>
+                    <li>Where your feedback is required we expect you to respond within 3 working days.</li>
+                    <li>Key Phrases will be finalized right at the start of the SEO Project.</li>
+                    <li>One Domain is free there after additional .com will be $30 and .net will be $35 for other
+                        extension get in touch with us.</li>
+                    <li>For ADA Compliance, we are using a free tool which covers majority of the points but not all.
+                    </li>
+                </ul>
+                <div class="modal-notes">
+                    <p class="note">*Ads monthly spend will be directly paid to Google/Meta.</p>
+                    <p class="note">**Ad management charges will be paid to Star Gems Inc monthly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="RecentWork&Pricing.js"></script>
+</body>
+
+</html>

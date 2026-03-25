@@ -1,0 +1,408 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GemArt Discarded Designs | StarGems</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="retailer-command-center.css">
+    <link rel="stylesheet" href="global-header.css">
+    <style>
+        .table-premium-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .table-custom thead th {
+            background: #fff;
+            border-bottom: 2px solid #000;
+            padding: 1rem 1.5rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: #000;
+            text-align: left;
+        }
+
+        .table-custom tbody td {
+            padding: 1rem 1.5rem;
+            vertical-align: middle;
+            border-bottom: 1px solid #dee2e6;
+            font-size: 0.9rem;
+            color: var(--text-main);
+        }
+
+        .table-custom tbody tr:nth-of-type(odd) {
+            background-color: rgba(0, 0, 0, 0.02);
+        }
+
+        .table-bordered-columns td,
+        .table-bordered-columns th {
+            border-right: 1px solid #dee2e6;
+        }
+
+        .table-bordered-columns td:last-child,
+        .table-bordered-columns th:last-child {
+            border-right: none;
+        }
+
+        .pagination-btn {
+            padding: 0.3rem 0.75rem;
+            border: 1px solid #dee2e6;
+            background: #fff;
+            color: #0d6efd;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border-radius: 2px;
+            display: inline-block;
+            margin-left: -1px;
+        }
+
+        .pagination-btn:hover {
+            background: #e9ecef;
+            color: #0a58ca;
+        }
+
+        .pagination-btn.active {
+            background: #0d6efd;
+            color: white;
+            border-color: #0d6efd;
+        }
+
+        .pagination-btn.disabled {
+            color: #6c757d;
+            pointer-events: none;
+            background-color: #fff;
+            border-color: #dee2e6;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Sidebar Toggle Checkbox -->
+    <input type="checkbox" id="sidebar-toggle">
+
+    <!-- Sidebar Navigation -->
+    <nav class="sidebar">
+        <div class="nav-menu">
+            <div class="sidebar-divider">COMMAND CENTER</div>
+            <div class="nav-item">
+                <a href="retailer-command-center.html" class="nav-link">
+                    <i class="bi bi-speedometer2"></i>
+                    <span>Dashboard</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="retailers.html" class="nav-link">
+                    <i class="bi bi-shop"></i>
+                    <span>Retailers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="tmc-cs-app-details.html" class="nav-link">
+                    <i class="bi bi-phone"></i>
+                    <span>TMC / CS App Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-orders.html" class="nav-link">
+                    <i class="bi bi-box-seam"></i>
+                    <span>Custom CAD Order Module</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="gemart-ai-details.html" class="nav-link active">
+                    <i class="bi bi-robot"></i>
+                    <span>GemArtAI Details</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="websites.html" class="nav-link">
+                    <i class="bi bi-globe"></i>
+                    <span>PIT / CWS Customers</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="member-lists.html" class="nav-link">
+                    <i class="bi bi-tags"></i>
+                    <span>Specific Retailer List</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="request-manager.html" class="nav-link">
+                    <i class="bi bi-clipboard-pulse"></i>
+                    <span>Request Manager</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="cad-iframe.html" class="nav-link">
+                    <i class="bi bi-code-square"></i>
+                    <span>Custom CAD IFrame</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="coupons.html" class="nav-link">
+                    <i class="bi bi-ticket-perforated"></i>
+                    <span>Coupons</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="forms-demo.html" class="nav-link">
+                    <i class="bi bi-ui-checks"></i>
+                    <span>Order Form / Demo Request</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="emails-tools.html" class="nav-link">
+                    <i class="bi bi-envelope-at"></i>
+                    <span>Emails / Website</span>
+                </a>
+            </div>
+        </div>
+        <div class="p-3 mt-auto">
+            <div class="sidebar-card p-3 rounded bg-primary-light" style="border: 1px dashed var(--primary);">
+                <span class="d-block small fw-bold text-primary">Need Help?</span>
+                <span class="d-block smaller text-sub mt-1">Contact Support Center</span>
+            </div>
+        </div>
+    </nav>
+    <label for="sidebar-toggle" class="sidebar-backdrop d-lg-none"></label>
+
+    <div class="main-wrapper">
+        <!-- Global Header -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top px-3 px-md-4 global-navbar">
+            <div class="container-fluid h-100">
+                <a class="navbar-brand d-flex align-items-center" href="retailer-command-center.html">
+                    <h1 class="m-0">STARGEMS</h1>
+                </a>
+
+                <div class="collapse navbar-collapse justify-content-center" id="globalNavbar">
+                    <ul class="navbar-nav gap-4 align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-secondary fw-medium" href="#">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Dashboard
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Request Pricing</a></li>
+                                <li><a class="dropdown-item" href="#">Start an Order</a></li>
+                                <li><a class="dropdown-item" href="view-orders.html">All Orders</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Our Technology
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">StarMatch AI</a></li>
+                                <li><a class="dropdown-item" href="https://stargems.com/gemart-ai.aspx">GemArt AI</a>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/textmechat.aspx">TextMeChat</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-secondary fw-medium" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                Product Gallery
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="dropdown-submenu">
+                                    <a class="dropdown-item dropdown-toggle" href="#">Our Collection</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a class="dropdown-item" href="#">Fine Jewelry</a></li>
+                                        <li><a class="dropdown-item"
+                                                href="https://stargems.com/loose-diamonds.aspx">Loose
+                                                Diamonds</a></li>
+                                    </ul>
+                                </li>
+                                <li><a class="dropdown-item" href="https://stargems.com/cad-gallery.aspx">CAD
+                                        Gallery</a></li>
+                                <li><a class="dropdown-item" href="#">Archive</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center gap-3">
+                    <div class="dropdown">
+                        <button class="btn profile-btn d-flex align-items-center gap-2 dropdown-toggle text-white" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <div class="avatar-circle">AD</div>
+                            <span class="small fw-normal">Anish D.</span>
+                        </button>
+                    </div>
+                    <label for="sidebar-toggle" class="btn btn-outline-secondary mobile-menu-btn d-lg-none ms-2">
+                        <i class="fa-solid fa-bars"></i>
+                    </label>
+                </div>
+            </div>
+        </nav>
+
+        <main class="content-padding position-relative">
+
+            <!-- Page Title Section -->
+            <div class="mb-4">
+                <h2 class="mb-0">GemArt Discarded Designs</h2>
+                <p class="text-sub mb-0">Browse and view the full gallery of generated AI designs.</p>
+            </div>
+
+            <!-- Search Card -->
+            <div class="search-container-premium">
+                <div class="d-flex flex-column flex-lg-row align-items-center gap-3">
+
+                    <!-- Search Inputs -->
+                    <div class="d-flex align-items-center gap-2 flex-grow-1 w-100">
+                        <select class="form-select input-pill bg-white" style="width: 180px;">
+                            <option selected>Store Name</option>
+                            <option>Contact Person</option>
+                            <option>Email Id</option>
+                        </select>
+                        <input type="text" class="form-control input-pill bg-white w-100" placeholder="Search...">
+                    </div>
+
+                    <!-- Buttons -->
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-pill btn-pill-dark px-4 text-nowrap">SEARCH</button>
+                        <button class="btn btn-pill btn-pill-outline px-4 text-nowrap">CLEAR</button>
+                    </div>
+
+                    <!-- Sort -->
+                    <div class="d-flex align-items-center gap-2 ms-lg-2 text-nowrap">
+                        <label class="fw-bold text-muted small text-uppercase mb-0">SORT:</label>
+                        <select class="form-select input-pill bg-white py-1" style="width: auto; font-size: 0.9rem;">
+                            <option>Images Created (High - Low)</option>
+                            <option>Images Created (Low - High)</option>
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Table Card -->
+            <div class="table-premium-card">
+                <div class="table-responsive">
+                    <table class="table-custom text-nowrap w-100 mb-0">
+                        <thead>
+                            <tr>
+                                <th>Store Name</th>
+                                <th>Contact Person</th>
+                                <th>Email Id</th>
+                                <th>Total Images Created</th>
+                                <th class="text-center">Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">The Jeweler</td>
+                                <td>Gary Cadoura</td>
+                                <td class="text-primary">garycadoura@gmail.com</td>
+                                <td class="text-dark">1687</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">Prerak InfoTech</td>
+                                <td>Samir Gandhi</td>
+                                <td class="text-primary">webmaster@prerakinfotech.com</td>
+                                <td class="text-dark">802</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">Bridgewater Jewelers</td>
+                                <td>Mary Lenhoff</td>
+                                <td class="text-primary">mary@bridgewaterjewelers.com</td>
+                                <td class="text-dark">695</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">Star Gems: Inc.</td>
+                                <td>Anish Desai</td>
+                                <td class="text-primary">anish@stargems.com</td>
+                                <td class="text-dark">572</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">Skyline Gems</td>
+                                <td>Chris Retzlaff</td>
+                                <td class="text-primary">skylinegems@gmail.com</td>
+                                <td class="text-dark">478</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">Sami Fine Jewelry</td>
+                                <td>Stephenie Bjorkman</td>
+                                <td class="text-primary">
+                                    stephenie@samifinejewelry.com,<br>samiassistant@samifinejewelry.com</td>
+                                <td class="text-dark">477</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">Wrights Jewelry</td>
+                                <td>Jennifer Beatty</td>
+                                <td class="text-primary">contactus@wrightsjewelrystore.com</td>
+                                <td class="text-dark">417</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                            <tr>
+                                <td class="ps-4 py-3 fw-bold text-dark">Southern Diamond Jewelers</td>
+                                <td>Drew Hadley</td>
+                                <td class="text-primary">hadley922@gmail.com</td>
+                                <td class="text-dark">407</td>
+                                <td class="text-center"><a href="#" class="text-primary fs-5 hover-scale"><i
+                                            class="bi bi-eye-fill"></i></a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!-- Pagination (Inside Card Footer) -->
+                <div class="pagination-custom border-top flex-column flex-md-row gap-3 text-center text-md-start">
+                    <span class="text-sub small">Showing 1 to 20 of 414 entries</span>
+                    <div class="d-flex gap-2 justify-content-center">
+                        <a href="#" class="page-link-custom active">1</a>
+                        <a href="#" class="page-link-custom">2</a>
+                        <a href="#" class="page-link-custom">3</a>
+                        <a href="#" class="page-link-custom">4</a>
+                        <a href="#" class="page-link-custom">5</a>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="mt-4 text-end">
+        <a href="gemart-ai-details.html" class="btn-premium-back">
+            <i class="bi bi-arrow-left me-2"></i>Back
+        </a>
+    </div>
+
+    </main>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
