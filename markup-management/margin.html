@@ -1,332 +1,254 @@
 <!DOCTYPE html>
-
 <html class="light" lang="en">
-
 <head>
-  <meta charset="utf-8" />
-  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-  <title>Margin Rates | Lumina Vault</title>
-  <!-- Material Symbols -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <!-- Fonts -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap"
-    rel="stylesheet" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-    rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-  <script src="tailwind-config.js"></script>
-  <link rel="stylesheet" href="app.css" />
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Margin Rates | Lumina Vault</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+    <link href="app.css" rel="stylesheet"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <style>
+        .w-64 { width: 280px !important; }
+        .md-ml-64 { margin-left: 0; }
+        @media (min-width: 768px) { .md-ml-64 { margin-left: 280px !important; } }
+    </style>
 </head>
-
 <body class="bg-background text-on-background font-body">
-  <!-- TopNavBar -->
-  <nav class="flex justify-between items-center w-full px-8 h-16 bg-[#f9f9f9] dark:bg-slate-950 fixed top-0 z-50">
-    <div class="flex items-center gap-8">
-      <span class="text-2xl font-serif tracking-tighter text-blue-800 dark:text-blue-400">Lumina Vault</span>
-      <div class="hidden md:flex gap-6">
-        <a class="text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-label text-sm uppercase tracking-widest"
-          href="#">Collection</a>
-        <a class="text-blue-800 dark:text-blue-400 font-semibold font-label text-sm uppercase tracking-widest"
-          href="#">Margin Rates</a>
-        <a class="text-slate-500 dark:text-slate-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors duration-300 font-label text-sm uppercase tracking-widest"
-          href="#">Inventory</a>
-      </div>
-    </div>
-    <div class="flex items-center gap-4">
-      <div class="relative group">
-        <span
-          class="material-symbols-outlined text-on-surface-variant cursor-pointer p-2 rounded-full hover:bg-surface-container transition-colors">settings</span>
-      </div>
-      <img alt="User Profile Avatar" class="w-8 h-8 rounded-full border border-outline-variant/20"
-        data-alt="Close up portrait of a professional woman with soft lighting and minimalist background"
-        src="https://lh3.googleusercontent.com/aida-public/AB6AXuD1ZkiTgPyjBIcksHrAwQRvQ4FKkwMnLFFk24xnchHhHhvPs_mj8f_v-K0ZpUj5BDxFgzoYAuri7Q-5Kmv8h-PF0B9ieEg56-iYP3CluGP1qZC_Mzo77Kq7giqPPz0HAY6j9Ccd-GiFhhNadxMdKlO3OtiX4zx_-gI2HeENgXv_8WAF4H1c-LEjxKTf6L4xYlQRYgbnJxMXGcVZBuyrDAFmFjV-2hR44h-aW0CyPrwM6gCsphJUOML1ZZbBWerizEAXgQGl81d68KA" />
-    </div>
-  </nav>
-  <!-- SideNavBar -->
-  <aside
-    class="hidden md:flex flex-col py-8 px-4 border-r border-slate-200/15 dark:border-slate-800/15 h-screen w-64 left-0 top-0 fixed bg-[#f3f3f3] dark:bg-slate-900 mt-16">
-    <div class="mb-10 px-4">
-      <h2 class="font-serif text-lg text-blue-900 dark:text-blue-200">The Archive</h2>
-      <p class="text-xs text-slate-500 dark:text-slate-400 tracking-wide uppercase">Curated Management</p>
-    </div>
-    <nav class="space-y-2">
-      <a class="flex items-center gap-3 py-3 px-4 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-800 transition-all duration-200 group"
-        href="dashboard.html">
-        <span class="material-symbols-outlined group-hover:text-blue-700">dashboard</span>
-        <span class="font-sans text-sm tracking-wide">Dashboard</span>
-      </a>
-      <a class="flex items-center gap-3 py-3 px-4 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-800 transition-all duration-200 group"
-        href="metal.html">
-        <span class="material-symbols-outlined group-hover:text-blue-700">payments</span>
-        <span class="font-sans text-sm tracking-wide">Metal Rates</span>
-      </a>
-      <a class="flex items-center gap-3 py-3 px-4 rounded-lg text-blue-800 dark:text-blue-300 font-bold border-r-2 border-blue-800 dark:border-blue-400 bg-white/40 group"
-        href="margin.html">
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">percent</span>
-        <span class="font-sans text-sm tracking-wide">Margin Rates</span>
-      </a>
-      <a class="flex items-center gap-3 py-3 px-4 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-800 transition-all duration-200 group"
-        href="stone.html">
-        <span class="material-symbols-outlined group-hover:text-blue-700">diamond</span>
-        <span class="font-sans text-sm tracking-wide">Stone Prices</span>
-      </a>
-      <a class="flex items-center gap-3 py-3 px-4 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-white/50 dark:hover:bg-slate-800 transition-all duration-200 group"
-        href="#">
-        <span class="material-symbols-outlined group-hover:text-blue-700">history</span>
-        <span class="font-sans text-sm tracking-wide">Activity Log</span>
-      </a>
-    </nav>
-  </aside>
-  <!-- Main Content Canvas -->
-  <main class="md:ml-64 mt-16 p-8 min-h-screen">
-    <header class="mb-12">
-      <h1 class="serif-title text-4xl font-light text-on-surface mb-2">Margin &amp; Labour Configuration</h1>
-      <p class="text-on-surface-variant font-label text-sm tracking-widest uppercase">Global Multipliers &amp; Curated
-        Costs</p>
-    </header>
-    <!-- Bento Grid Layout for Rates -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-      <!-- CAD Labour Section -->
-      <section
-        class="lg:col-span-6 bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0 transition-transform duration-300 hover:shadow-md">
-        <div class="flex justify-between items-center mb-8">
-          <h3 class="serif-title text-2xl text-primary font-medium">CAD Labour</h3>
-          <button
-            class="flex items-center gap-2 text-primary hover:text-secondary transition-colors font-label text-xs uppercase tracking-tighter">
-            <span class="material-symbols-outlined text-sm">edit</span>
-            Edit Rates
-          </button>
-        </div>
-        <div class="space-y-4">
-          <div
-            class="grid grid-cols-3 text-on-surface-variant font-label text-[10px] uppercase tracking-widest mb-2 px-2">
-            <span>Min Weight (g)</span>
-            <span>Max Weight (g)</span>
-            <span class="text-right">Rate ($)</span>
-          </div>
-          <div class="flex flex-col gap-1">
-            <div
-              class="grid grid-cols-3 p-4 bg-surface rounded-lg items-center hover:bg-surface-container-low transition-colors group">
-              <span class="font-body text-sm font-medium">0</span>
-              <span class="font-body text-sm font-medium">5</span>
-              <span class="font-body text-sm font-bold text-primary text-right">35.00</span>
-            </div>
-            <div
-              class="grid grid-cols-3 p-4 bg-surface rounded-lg items-center hover:bg-surface-container-low transition-colors">
-              <span class="font-body text-sm font-medium">5</span>
-              <span class="font-body text-sm font-medium">10</span>
-              <span class="font-body text-sm font-bold text-primary text-right">45.00</span>
-            </div>
-            <div
-              class="grid grid-cols-3 p-4 bg-surface rounded-lg items-center hover:bg-surface-container-low transition-colors">
-              <span class="font-body text-sm font-medium">10</span>
-              <span class="font-body text-sm font-medium">1000</span>
-              <span class="font-body text-sm font-bold text-primary text-right">55.00</span>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Enamel & Engraving Section -->
-      <section
-        class="lg:col-span-6 bg-surface-container-lowest p-8 rounded-xl shadow-sm border-0 transition-transform duration-300 hover:shadow-md">
-        <div class="flex justify-between items-center mb-8">
-          <h3 class="serif-title text-2xl text-primary font-medium">Enamel &amp; Engraving</h3>
-          <button
-            class="flex items-center gap-2 text-primary hover:text-secondary transition-colors font-label text-xs uppercase tracking-tighter">
-            <span class="material-symbols-outlined text-sm">edit</span>
-            Adjust Fees
-          </button>
-        </div>
-        <div class="space-y-4">
-          <div class="grid grid-cols-2 gap-4">
-            <div class="p-4 bg-surface-container-low rounded-lg">
-              <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Standard Enamel
-              </p>
-              <p class="serif-title text-2xl font-light text-on-surface">$25.00 <span
-                  class="text-xs font-body font-normal text-slate-400">/ pc</span></p>
-            </div>
-            <div class="p-4 bg-surface-container-low rounded-lg">
-              <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-1">Laser Engraving
-              </p>
-              <p class="serif-title text-2xl font-light text-on-surface">$12.50 <span
-                  class="text-xs font-body font-normal text-slate-400">/ character</span></p>
-            </div>
-          </div>
-          <div class="mt-4 p-4 border border-dashed border-outline-variant/30 rounded-lg">
-            <p class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant mb-2">Detailed Range
-              Table</p>
-            <div class="space-y-2">
-              <div class="flex justify-between items-center py-2 border-b border-surface-container">
-                <span class="text-xs font-medium">Complex Engraving (Logo)</span>
-                <span class="text-xs font-bold text-primary">$45.00</span>
-              </div>
-              <div class="flex justify-between items-center py-2">
-                <span class="text-xs font-medium">Hand Enamel (Multicolor)</span>
-                <span class="text-xs font-bold text-primary">$60.00</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <!-- Margin List Section - Full Width Editorial -->
-      <section class="lg:col-span-12 bg-white p-10 rounded-xl shadow-sm overflow-hidden relative">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-        <div class="relative z-10">
-          <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-            <div>
-              <h3 class="serif-title text-3xl text-primary font-medium mb-1">Global Multipliers</h3>
-              <p class="text-on-surface-variant text-sm font-light max-w-md">Fine-tune the margins across different
-                product models and stone configurations to maintain consistent brand value.</p>
-            </div>
-            <button
-              class="bg-primary hover:bg-primary-container text-white px-8 py-3 rounded-full font-label text-xs uppercase tracking-widest transition-all transform hover:scale-105 shadow-lg flex items-center gap-2">
-              <span class="material-symbols-outlined text-sm">add_circle</span>
-              New Margin Rule
-            </button>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="w-full text-left border-collapse">
-              <thead>
-                <tr class="border-b border-surface-container-high">
-                  <th class="pb-6 font-label text-[11px] uppercase tracking-[0.2em] text-slate-400 font-medium">
-                    Multiplier ID</th>
-                  <th class="pb-6 font-label text-[11px] uppercase tracking-[0.2em] text-slate-400 font-medium">
-                    Description / Category</th>
-                  <th class="pb-6 font-label text-[11px] uppercase tracking-[0.2em] text-slate-400 font-medium">
-                    Condition</th>
-                  <th
-                    class="pb-6 font-label text-[11px] uppercase tracking-[0.2em] text-slate-400 font-medium text-right">
-                    Rate</th>
-                  <th
-                    class="pb-6 font-label text-[11px] uppercase tracking-[0.2em] text-slate-400 font-medium text-right">
-                    Actions</th>
-                </tr>
-              </thead>
-              <tbody class="divide-y divide-surface-container-low">
-                <tr class="group hover:bg-surface-container-low/50 transition-colors">
-                  <td class="py-6 font-body text-xs text-slate-500">M-001</td>
-                  <td class="py-6">
-                    <p class="font-body text-sm font-semibold text-on-surface">Duty Model Standard</p>
-                    <p class="text-[10px] text-slate-400 font-body uppercase tracking-tighter">Applied to base metal
-                      costs</p>
-                  </td>
-                  <td class="py-6">
-                    <span class="bg-blue-50 text-blue-800 text-[10px] px-2 py-1 rounded-full font-bold uppercase">All
-                      Products</span>
-                  </td>
-                  <td class="py-6 text-right font-serif text-lg font-medium text-primary">1.17x</td>
-                  <td class="py-6 text-right">
-                    <button class="text-outline hover:text-primary transition-colors"><span
-                        class="material-symbols-outlined">more_vert</span></button>
-                  </td>
-                </tr>
-                <tr class="group hover:bg-surface-container-low/50 transition-colors">
-                  <td class="py-6 font-body text-xs text-slate-500">M-002</td>
-                  <td class="py-6">
-                    <p class="font-body text-sm font-semibold text-on-surface">[1-500] with Stone</p>
-                    <p class="text-[10px] text-slate-400 font-body uppercase tracking-tighter">Small custom pieces with
-                      inclusions</p>
-                  </td>
-                  <td class="py-6">
-                    <span
-                      class="bg-surface-container-high text-on-surface-variant text-[10px] px-2 py-1 rounded-full font-bold uppercase">Wholesale
-                      Tier 1</span>
-                  </td>
-                  <td class="py-6 text-right font-serif text-lg font-medium text-primary">1.60x</td>
-                  <td class="py-6 text-right">
-                    <button class="text-outline hover:text-primary transition-colors"><span
-                        class="material-symbols-outlined">more_vert</span></button>
-                  </td>
-                </tr>
-                <tr class="group hover:bg-surface-container-low/50 transition-colors">
-                  <td class="py-6 font-body text-xs text-slate-500">M-003</td>
-                  <td class="py-6">
-                    <p class="font-body text-sm font-semibold text-on-surface">Luxury High-End Margin</p>
-                    <p class="text-[10px] text-slate-400 font-body uppercase tracking-tighter">Items valued above $5,000
-                    </p>
-                  </td>
-                  <td class="py-6">
-                    <span
-                      class="bg-primary/10 text-primary text-[10px] px-2 py-1 rounded-full font-bold uppercase">Premium
-                      Inventory</span>
-                  </td>
-                  <td class="py-6 text-right font-serif text-lg font-medium text-primary">2.10x</td>
-                  <td class="py-6 text-right">
-                    <button class="text-outline hover:text-primary transition-colors"><span
-                        class="material-symbols-outlined">more_vert</span></button>
-                  </td>
-                </tr>
-                <tr class="group hover:bg-surface-container-low/50 transition-colors">
-                  <td class="py-6 font-body text-xs text-slate-500">M-004</td>
-                  <td class="py-6">
-                    <p class="font-body text-sm font-semibold text-on-surface">Repair &amp; Restoration</p>
-                    <p class="text-[10px] text-slate-400 font-body uppercase tracking-tighter">Client-owned metal and
-                      stones</p>
-                  </td>
-                  <td class="py-6">
-                    <span
-                      class="bg-secondary-container text-on-secondary-container text-[10px] px-2 py-1 rounded-full font-bold uppercase">Service
-                      Only</span>
-                  </td>
-                  <td class="py-6 text-right font-serif text-lg font-medium text-primary">1.25x</td>
-                  <td class="py-6 text-right">
-                    <button class="text-outline hover:text-primary transition-colors"><span
-                        class="material-symbols-outlined">more_vert</span></button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-    </div>
-    <!-- Inline Floating Action -->
-    <div class="fixed bottom-8 right-8 flex flex-col gap-3">
-      <button
-        class="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-2xl hover:bg-primary-container transition-all scale-100 hover:scale-110 active:scale-95"
-        title="Quick Update">
-        <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">bolt</span>
-      </button>
-    </div>
-  </main>
-  <!-- Modal Background (Suppressed by default) -->
-  <div class="fixed inset-0 z-[100] bg-on-surface/20 backdrop-blur-sm flex items-center justify-center p-6 hidden">
-    <div class="glass-panel w-full max-w-lg rounded-2xl p-8 shadow-2xl border border-white/40">
-      <div class="flex justify-between items-center mb-6">
-        <h4 class="serif-title text-2xl text-primary">Update Rate</h4>
-        <button class="text-slate-400 hover:text-on-surface"><span
-            class="material-symbols-outlined">close</span></button>
-      </div>
-      <form action="/update-rate" class="space-y-6" method="POST">
-        <div>
-          <label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-2">Category
-            Label</label>
-          <input
-            class="w-full bg-surface-container-low border-none rounded-lg focus:ring-1 focus:ring-primary font-body text-sm py-3 px-4"
-            type="text" value="CAD Labour (0-5g)" />
-        </div>
-        <div>
-          <label class="font-label text-[10px] uppercase tracking-widest text-on-surface-variant block mb-2">Multiplier
-            / Rate Value</label>
-          <input
-            class="w-full bg-surface-container-low border-none rounded-lg focus:ring-1 focus:ring-primary font-body text-sm py-3 px-4"
-            step="0.01" type="number" value="35.00" />
-        </div>
-        <div class="pt-4 flex gap-4">
-          <button
-            class="flex-1 bg-primary text-white py-3 rounded-lg font-label text-xs uppercase tracking-widest hover:bg-primary-container transition-all"
-            type="submit">Save Changes</button>
-          <button
-            class="flex-1 bg-surface-container-high text-on-surface py-3 rounded-lg font-label text-xs uppercase tracking-widest hover:bg-surface-container-highest transition-all"
-            type="button">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </div>
-</body>
 
+    <!-- Premium Sidebar -->
+    <aside class="sidebar-premium d-none d-md-flex flex-column vh-100 w-64 start-0 top-0 position-fixed z-3">
+        <div class="mb-5 px-3">
+            <h1 class="fs-4 font-serif fw-bold tracking-tighter text-primary m-0">Lumina Vault</h1>
+            <p class="text-secondary small text-uppercase tracking-widest mt-1 opacity-50" style="font-size: 10px;">Security Core</p>
+        </div>
+
+        <nav class="flex-grow-1">
+            <a class="nav-link-premium mb-2" href="dashboard.html">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Dashboard</span>
+            </a>
+            <a class="nav-link-premium mb-2" href="metal.html">
+                <span class="material-symbols-outlined">payments</span>
+                <span>Metal Rates</span>
+            </a>
+            <a class="nav-link-premium active mb-2" href="margin.html">
+                <span class="material-symbols-outlined">percent</span>
+                <span>Margin Rates</span>
+            </a>
+            <a class="nav-link-premium mb-2" href="stone.html">
+                <span class="material-symbols-outlined">diamond</span>
+                <span>Stone Prices</span>
+            </a>
+            <div class="my-4 border-top opacity-10"></div>
+            <a class="nav-link-premium" href="#">
+                <span class="material-symbols-outlined">history</span>
+                <span>Activity Log</span>
+            </a>
+        </nav>
+
+    <div class="mt-auto pt-4 border-top opacity-100">
+      <div class="d-flex align-items-center gap-3 px-3 mb-3">
+        <div class="position-relative text-dark">
+          <img alt="User avatar" class="rounded-circle border border-2 border-white shadow-sm"
+            style="width: 44px; height: 44px; object-fit: cover;"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6Ric8vl62n_qzDXGYDDtojaUAmAsv3eGqRXAfDUNAOirk0ezFwFzEnw84A_ET83IL12Axk0Pt_XREX49_5hy43h5eU2Wqhltk3518R8P4gLpZmwnWKhWXuk1P1qwzeQWxqxmtR7HKUhUkOwdr4Uz_FcdJqMzcfUWQXUdWZcM3oG-SAfpqicsTbfRu8Lrx6QoUIK3i3az3utVSiFOfsEsqUH9GTSoN7Yym1vnz7dlo7ZDw12snfNoJzM5MLUi3CSO4eD8-zb7Ajc8" />
+          <div class="position-absolute bottom-0 end-0 bg-success border border-white border-2 rounded-circle"
+            style="width: 12px; height: 12px;"></div>
+        </div>
+        <div class="d-flex flex-column text-dark">
+          <span class="small fw-bold lh-1">Mahek Gopani</span>
+          <span class="text-secondary opacity-50 lh-1 mt-1" style="font-size: 11px;">Administrator</span>
+        </div>
+      </div>
+      <div class="vault-card shadow-sm mx-2 mb-3 text-dark">
+        <p class="text-uppercase tracking-widest mb-2" style="font-size: 10px; opacity: 0.8;">Status</p>
+        <div class="d-flex align-items-center gap-2">
+          <div class="w-2 h-2 rounded-circle bg-success shadow-sm"></div>
+          <span class="small fw-semibold">Secure Connection</span>
+        </div>
+      </div>
+    </div>
+    </aside>
+
+    <!-- Main Workspace -->
+    <main class="md-ml-64 min-vh-100">
+        <!-- Top Navigation Bar -->
+        <header class="premium-header d-flex justify-content-between align-items-center w-100 px-4 px-lg-5 h-16 top-0 z-2 sticky-top">
+            <div class="d-flex align-items-center gap-4">
+                <div class="search-container d-none d-lg-flex">
+                    <span class="material-symbols-outlined text-secondary fs-5 me-2">search</span>
+                    <input class="bg-transparent border-0 focus-ring-0 small w-48 font-body" style="outline: none;" placeholder="Search rules..." type="text"/>
+                </div>
+            </div>
+            <div class="d-flex align-items-center gap-4">
+                <button class="btn btn-outline-secondary border-0 rounded-circle p-2 d-flex align-items-center justify-content-center">
+                    <span class="material-symbols-outlined fs-5">notifications</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Page Content -->
+        <div class="container-fluid p-4 p-lg-5">
+            <div class="row mb-5 animate-fade-up">
+                <div class="col-lg-8">
+                    <h2 class="display-6 font-headline fw-bold tracking-tight text-on-surface mb-2">Margin Configuration</h2>
+                    <p class="text-secondary font-body lead fs-6 opacity-75">Global multipliers and specialized labor costs for accurate appraisal.</p>
+                </div>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <!-- CAD Labour -->
+                <div class="col-12 col-xl-6 animate-fade-up delay-1">
+                    <div class="glass-card p-4 p-lg-5 h-100 text-dark">
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <h3 class="fs-4 font-headline fw-bold m-0 text-primary">CAD Labour Rates</h3>
+                            <button class="btn btn-link text-primary p-0 d-flex align-items-center gap-2 fw-bold text-decoration-none small text-uppercase tracking-widest">
+                                <span class="material-symbols-outlined fs-5">edit</span> Edit
+                            </button>
+                        </div>
+                        
+                        <div class="table-responsive">
+                            <table class="table table-borderless align-middle">
+                                <thead>
+                                    <tr>
+                                        <th class="small text-uppercase tracking-widest text-secondary opacity-50 fw-bold pb-4">Weight Grade</th>
+                                        <th class="small text-uppercase tracking-widest text-secondary opacity-50 fw-bold pb-4 text-end">Base Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="search-container rounded-pill mb-2">
+                                        <td class="ps-4">
+                                            <p class="m-0 fw-semibold">0g - 5g <span class="text-secondary fw-normal small ms-2">(Lightweight)</span></p>
+                                        </td>
+                                        <td class="text-end pe-4 font-headline fw-bold fs-5 text-primary">$35.00</td>
+                                    </tr>
+                                    <tr class="mb-2"><td><div class="py-1"></div></td></tr>
+                                    <tr class="search-container rounded-pill">
+                                        <td class="ps-4">
+                                            <p class="m-0 fw-semibold">5g - 10g <span class="text-secondary fw-normal small ms-2">(Standard)</span></p>
+                                        </td>
+                                        <td class="text-end pe-4 font-headline fw-bold fs-5 text-primary">$45.00</td>
+                                    </tr>
+                                    <tr class="mb-2"><td><div class="py-1"></div></td></tr>
+                                    <tr class="search-container rounded-pill">
+                                        <td class="ps-4">
+                                            <p class="m-0 fw-semibold">10g+ <span class="text-secondary fw-normal small ms-2">(Heavy Casting)</span></p>
+                                        </td>
+                                        <td class="text-end pe-4 font-headline fw-bold fs-5 text-primary">$55.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Enamel & Engraving -->
+                <div class="col-12 col-xl-6 animate-fade-up delay-2">
+                    <div class="glass-card p-4 p-lg-5 h-100 text-dark">
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <h3 class="fs-4 font-headline fw-bold m-0 text-primary">Specialized Services</h3>
+                             <button class="btn btn-link text-primary p-0 d-flex align-items-center gap-2 fw-bold text-decoration-none small text-uppercase tracking-widest">
+                                <span class="material-symbols-outlined fs-5">settings</span> Adjust
+                            </button>
+                        </div>
+
+                        <div class="row g-4">
+                            <div class="col-6">
+                                <div class="search-container p-4 rounded-4 text-center">
+                                    <span class="material-symbols-outlined fs-1 text-primary mb-3">palette</span>
+                                    <p class="small text-uppercase tracking-widest text-secondary opacity-50 mb-1 fw-bold">Enamel</p>
+                                    <h4 class="font-headline fw-bold m-0">$25.00</h4>
+                                    <p class="small text-secondary m-0">per piece</p>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="search-container p-4 rounded-4 text-center">
+                                    <span class="material-symbols-outlined fs-1 text-primary mb-3">fingerprint</span>
+                                    <p class="small text-uppercase tracking-widest text-secondary opacity-50 mb-1 fw-bold">Engraving</p>
+                                    <h4 class="font-headline fw-bold m-0">$12.50</h4>
+                                    <p class="small text-secondary m-0">per char</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-4 rounded-4 border border-dashed text-dark">
+                            <div class="d-flex justify-content-between align-items-center py-2 border-bottom border-secondary border-opacity-10">
+                                <span class="small fw-semibold">Complex Logo Setup</span>
+                                <span class="fw-bold text-primary">$45.00</span>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center py-2">
+                                <span class="small fw-semibold">Multicolor Hand Enamel</span>
+                                <span class="fw-bold text-primary">$60.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Global Multipliers Table -->
+            <div class="row animate-fade-up delay-3">
+                <div class="col-12 text-dark">
+                    <div class="glass-card p-4 p-lg-5 overflow-hidden">
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <div>
+                                <h3 class="fs-3 font-headline fw-bold m-0">Global Multipliers</h3>
+                                <p class="text-secondary small mt-1">Fine-tune profit margins across product tiers.</p>
+                            </div>
+                            <button class="btn btn-primary px-4 py-2 rounded-pill small fw-bold text-uppercase tracking-widest d-flex align-items-center gap-2 shadow-sm">
+                                <span class="material-symbols-outlined fs-5">add_circle</span> New Rule
+                            </button>
+                        </div>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover align-middle">
+                                <thead>
+                                    <tr class="text-secondary opacity-50 small text-uppercase tracking-widest fw-bold">
+                                        <th class="ps-0 border-0 pb-4">ID</th>
+                                        <th class="border-0 pb-4">Category</th>
+                                        <th class="border-0 pb-4">Condition</th>
+                                        <th class="border-0 pb-4 text-end pe-0">Rate</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td class="ps-0 text-secondary fw-medium">M-001</td>
+                                        <td>
+                                            <p class="m-0 fw-bold">Standard Duty</p>
+                                            <p class="small text-secondary m-0">Applied to base metal costs</p>
+                                        </td>
+                                        <td><span class="badge bg-primary-subtile text-primary border border-primary-subtle px-3 py-1 rounded-pill">All Products</span></td>
+                                        <td class="text-end pe-0 font-headline fw-bold fs-4 text-primary">1.17x</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-0 text-secondary fw-medium">M-002</td>
+                                        <td>
+                                            <p class="m-0 fw-bold">Custom Inclusions</p>
+                                            <p class="small text-secondary m-0">Small custom pieces with stones</p>
+                                        </td>
+                                        <td><span class="badge bg-info-subtle text-info border border-info-subtle px-3 py-1 rounded-pill">Wholesale Tier 1</span></td>
+                                        <td class="text-end pe-0 font-headline fw-bold fs-4 text-primary">1.60x</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="ps-0 text-secondary fw-medium">M-003</td>
+                                        <td>
+                                            <p class="m-0 fw-bold">Premium Luxury</p>
+                                            <p class="small text-secondary m-0">High-value boutique inventory</p>
+                                        </td>
+                                        <td><span class="badge bg-warning-subtle text-warning border border-warning-subtle px-3 py-1 rounded-pill">Luxury Inventory</span></td>
+                                        <td class="text-end pe-0 font-headline fw-bold fs-4 text-primary">2.10x</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
