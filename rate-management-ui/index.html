@@ -71,12 +71,9 @@
                 <p class="text-secondary m-0 opacity-75">Real-time control over metals, stones, and multi-tier margins.
                 </p>
             </div>
-            <div class="d-flex gap-3">
+            <div class="d-flex">
                 <button class="btn btn-light shadow-sm" id="fetchRatesBtn">
                     <i class="fa-solid fa-rotate-right me-2 text-primary"></i> Sync Latest
-                </button>
-                <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#updateGlobalModal">
-                    <i class="fa-solid fa-circle-up me-2"></i> Update All Rules
                 </button>
             </div>
         </header>
@@ -150,41 +147,28 @@
                         </div>
                     </div>
                     <div class="card-body p-4 pt-2">
-                        <div class="glass-effect rounded-4 p-3 border mb-4 shadow-sm">
-                            <div class="row g-3 align-items-center">
-                                <div class="col-lg-4 col-md-6">
-                                    <div class="px-2">
-                                        <small class="text-uppercase fw-bold text-secondary mb-1 d-block"
-                                            style="font-size: 8px; letter-spacing: 1px;">Stone Variety</small>
-                                        <select id="stoneType"
-                                            class="form-select border-0 bg-transparent ps-0 pe-4 py-1 fs-6 fw-bold text-dark shadow-none text-truncate"
-                                            style="cursor: pointer;">
-                                            <!-- JS -->
-                                        </select>
-                                    </div>
+                        <div
+                            class="glass-effect rounded-pill p-2 border mb-4 shadow-sm d-flex flex-wrap flex-lg-nowrap align-items-center justify-content-between bg-white">
+                            <div class="d-flex align-items-center flex-grow-1 flex-wrap flex-md-nowrap">
+                                <div class="px-4 py-1 flex-grow-1" style="min-width: 180px;">
+                                    <small class="text-uppercase fw-bold text-secondary mb-1 d-block"
+                                        style="font-size: 9px; letter-spacing: 1px;">Stone Variety</small>
+                                    <select id="stoneType"
+                                        class="form-select border-0 bg-transparent p-0 fs-6 fw-bold text-dark shadow-none text-truncate"
+                                        style="cursor: pointer;" onchange="fetchAllStoneData()">
+                                        <!-- JS -->
+                                    </select>
                                 </div>
-                                <div class="col-lg-3 col-md-6 border-start">
-                                    <div class="px-2">
-                                        <small class="text-uppercase fw-bold text-secondary mb-1 d-block"
-                                            style="font-size: 8px; letter-spacing: 1px;">Quality Tier</small>
-                                        <select id="stoneSheet"
-                                            class="form-select border-0 bg-transparent ps-0 pe-4 py-1 fs-6 fw-bold text-dark shadow-none"
-                                            style="cursor: pointer;">
-                                            <!-- JS -->
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-lg-5 col-md-12 d-flex gap-2 ps-lg-4 border-start-lg mt-3 mt-lg-0">
-                                    <button
-                                        class="btn btn-light rounded-pill px-3 py-2 border shadow-sm fw-bold flex-grow-1 text-nowrap"
-                                        style="min-width: 0;" onclick="fetchAllStoneData()">
-                                        <i class="fa-solid fa-magnifying-glass me-1 text-primary"></i> Fetch
-                                    </button>
-                                    <button
-                                        class="btn btn-primary rounded-pill px-3 py-2 shadow-sm fw-bold flex-grow-1 text-nowrap"
-                                        style="min-width: 0;" data-bs-toggle="modal" data-bs-target="#stoneUpdateModal">
-                                        <i class="fa-solid fa-sliders me-1"></i> Update
-                                    </button>
+                                <div class="vr bg-secondary opacity-25 mx-2 d-none d-md-block"
+                                    style="min-height: 35px;"></div>
+                                <div class="px-4 py-1" style="min-width: 140px;">
+                                    <small class="text-uppercase fw-bold text-secondary mb-1 d-block"
+                                        style="font-size: 9px; letter-spacing: 1px;">Quality Tier</small>
+                                    <select id="stoneSheet"
+                                        class="form-select border-0 bg-transparent p-0 fs-6 fw-bold text-dark shadow-none"
+                                        style="cursor: pointer;" onchange="fetchAllStoneData()">
+                                        <!-- JS -->
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -202,10 +186,17 @@
                                 <tbody id="stonePriceBody">
                                     <tr>
                                         <td colspan="2" class="text-center p-5 text-secondary opacity-50">Select your
-                                            parameters and click "Fetch Price" to access live market logs.</td>
+                                            parameters to access live market logs.</td>
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="d-flex justify-content-end mt-4">
+                            <button
+                                class="btn btn-primary rounded-pill px-4 py-2 fw-bold text-nowrap d-flex align-items-center shadow-sm"
+                                data-bs-toggle="modal" data-bs-target="#stoneUpdateModal">
+                                <i class="fa-solid fa-sliders text-white me-2"></i> Update Pricing Logic
+                            </button>
                         </div>
                     </div>
                 </div>

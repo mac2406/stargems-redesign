@@ -134,6 +134,38 @@ function pickShape(btn, label) {
 
     const shapeLbl = document.getElementById('shapeLbl');
     if (shapeLbl) shapeLbl.textContent = label;
+
+    // Change main image based on shape
+    const mainImg = document.getElementById('productMainImg');
+    const ring3dImg = document.getElementById('ring3d');
+
+    if (mainImg) {
+        const shape = label.toLowerCase();
+        let newSrc = '';
+
+        if (shape === 'round') {
+            newSrc = 'assets/img/stone/32321-round.png';
+        } else if (shape === 'pear') {
+            newSrc = 'assets/img/stone/32321-pear.png';
+        } else if (shape === 'emerald') {
+            newSrc = 'assets/img/stone/3232-1-emerald.png';
+        }
+
+        if (newSrc) {
+            // Apply a quick fade transition for a premium feel
+            mainImg.style.transition = 'opacity 0.2s, filter 0.2s';
+            mainImg.style.opacity = '0.5';
+            mainImg.style.filter = 'blur(4px)';
+
+            setTimeout(() => {
+                mainImg.src = newSrc;
+                if (ring3dImg) ring3dImg.src = newSrc;
+
+                mainImg.style.opacity = '1';
+                mainImg.style.filter = 'blur(0)';
+            }, 200);
+        }
+    }
 }
 
 // Navbar scroll effect
@@ -192,7 +224,7 @@ function toggleRotate() {
     const btn = document.getElementById('btnRotate');
     if (!btn) return;
     const isActive = btn.classList.contains('active');
-    
+
     if (!isActive) {
         btn.classList.add('active');
         window.dispatchEvent(new CustomEvent('toggleThreeRotate', { detail: { active: true } }));
@@ -207,7 +239,7 @@ function toggleRotate() {
     let ringDragging = false, lastX = 0, lastY = 0, rotY = 0, rotX = 8;
 
     function getScene() { return document.getElementById('ringImgScene'); }
-    function getRing()  { return document.getElementById('ring3d'); }
+    function getRing() { return document.getElementById('ring3d'); }
 
     function onStart(clientX, clientY) {
         const scene = getScene();
@@ -242,7 +274,7 @@ function toggleRotate() {
         if (scene && scene.contains(e.target)) { onStart(e.clientX, e.clientY); e.preventDefault(); }
     });
     document.addEventListener('mousemove', function (e) { onMove(e.clientX, e.clientY); });
-    document.addEventListener('mouseup',   onEnd);
+    document.addEventListener('mouseup', onEnd);
 
     // Touch
     document.addEventListener('touchstart', function (e) {
@@ -274,7 +306,7 @@ function moveLens(e) {
     result.style.display = 'block';
 
     const rect = container.getBoundingClientRect();
-    
+
     // Calculate cursor position relative to container
     let x = e.clientX - rect.left;
     let y = e.clientY - rect.top;
@@ -288,34 +320,34 @@ function moveLens(e) {
     // Keep lens inside bounds
     const hw = lw / 2;
     const hh = lh / 2;
-    
+
     if (x < hw) x = hw;
     if (x > cw - hw) x = cw - hw;
     if (y < hh) y = hh;
     if (y > ch - hh) y = ch - hh;
 
     lens.style.left = (x - hw) + 'px';
-    lens.style.top  = (y - hh) + 'px';
+    lens.style.top = (y - hh) + 'px';
 
     // Calculate magnification ratios
-    const nw = img.naturalWidth  || img.width || 1200;
+    const nw = img.naturalWidth || img.width || 1200;
     const nh = img.naturalHeight || img.height || 1200;
-    
+
     // Result is 530x530 (from CSS)
     const rw = result.offsetWidth || 530;
     const rh = result.offsetHeight || 530;
-    
+
     const cx = rw / lw;
     const cy = rh / lh;
 
     // Apply Background
     result.style.backgroundImage = `url('${img.src}')`;
-    result.style.backgroundSize  = (nw * cx) + 'px ' + (nh * cy) + 'px';
-    
+    result.style.backgroundSize = (nw * cx) + 'px ' + (nh * cy) + 'px';
+
     // Background Position
     const posX = ((x - hw) / cw) * (nw * cx);
     const posY = ((y - hh) / ch) * (nh * cy);
-    
+
     result.style.backgroundPosition = `-${posX}px -${posY}px`;
 }
 
