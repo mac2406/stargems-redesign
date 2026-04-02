@@ -135,38 +135,85 @@ function pickShape(btn, label) {
     const shapeLbl = document.getElementById('shapeLbl');
     if (shapeLbl) shapeLbl.textContent = label;
 
-    // Change main image based on shape
+    // Change gallery images based on shape
     const mainImg = document.getElementById('productMainImg');
     const ring3dImg = document.getElementById('ring3d');
+    const detailImg1 = document.getElementById('detailImg1');
+    const detailImg2 = document.getElementById('detailImg2');
 
     if (mainImg) {
         const shape = label.toLowerCase();
-        let newSrc = '';
+        let mainPath = '';
+        let altPath = '';
 
-        if (shape === 'round') {
-            newSrc = 'assets/img/stone/32321-round.png';
-        } else if (shape === 'pear') {
-            newSrc = 'assets/img/stone/32321-pear.png';
-        } else if (shape === 'emerald') {
-            newSrc = 'assets/img/stone/3232-1-emerald.png';
+        const basePath = 'assets/img/stone/32321-';
+
+        switch (shape) {
+            case 'round':
+                mainPath = basePath + 'round.jpg';
+                altPath = basePath + 'round_1.jpg';
+                break;
+            case 'pear':
+                mainPath = basePath + 'pear.jpg';
+                altPath = basePath + 'pear_1.jpg';
+                break;
+            case 'emerald':
+                mainPath = basePath + 'emerald.jpg';
+                altPath = basePath + 'emerald_1.jpg';
+                break;
+            case 'cushion':
+                mainPath = basePath + 'cushion.jpg';
+                altPath = basePath + 'cushion_1.jpg';
+                break;
+            case 'radiant':
+                mainPath = basePath + 'radiant.jpg';
+                altPath = basePath + 'radiant_1.jpg';
+                break;
+            case 'marquise':
+                mainPath = 'assets/img/stone/32321-marquee.jpg';
+                altPath = 'assets/img/stone/32321-marquise_1.jpg';
+                break;
+            case 'oval':
+                // Note: 32321-oval.jpg is missing, using default ring for main but keeping detail view
+                mainPath = 'assets/img/ring.png';
+                altPath = 'assets/img/stone/32321-oval_1.jpg';
+                break;
+            default:
+                mainPath = 'assets/img/ring.png';
+                altPath = 'https://dummyimage.com/400x400/000/fff';
         }
 
-        if (newSrc) {
-            // Apply a quick fade transition for a premium feel
-            mainImg.style.transition = 'opacity 0.2s, filter 0.2s';
-            mainImg.style.opacity = '0.5';
-            mainImg.style.filter = 'blur(4px)';
+        if (mainPath) {
+            mainImg.src = mainPath;
+            if (ring3dImg) ring3dImg.src = mainPath;
 
-            setTimeout(() => {
-                mainImg.src = newSrc;
-                if (ring3dImg) ring3dImg.src = newSrc;
-
-                mainImg.style.opacity = '1';
-                mainImg.style.filter = 'blur(0)';
-            }, 200);
+            // Assign main view to the 2nd position in the gallery (detailImg1)
+            // and the 2nd view to the third position (detailImg2)
+            if (detailImg1) {
+                detailImg1.src = mainPath;
+                detailImg1.alt = label + ' View 1';
+            }
+            if (detailImg2) {
+                detailImg2.src = altPath;
+                detailImg2.alt = label + ' View 2';
+            }
         }
     }
 }
+
+// Auto-initialize shape selection on load
+document.addEventListener('DOMContentLoaded', () => {
+    const activeShape = document.querySelector('#shapeGrid .shape-box.active');
+    if (activeShape) {
+        // Get the label from the onclick attribute or pass it directly if we know it
+        // The HTML looks like: onclick="pickShape(this,'Oval')"
+        const onclickAttr = activeShape.getAttribute('onclick');
+        const match = onclickAttr && onclickAttr.match(/'([^']+)'/);
+        if (match && match[1]) {
+            pickShape(activeShape, match[1]);
+        }
+    }
+});
 
 // Navbar scroll effect
 window.addEventListener('scroll', () => {
