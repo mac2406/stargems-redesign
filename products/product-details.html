@@ -140,17 +140,42 @@
 
                         <div class="screen" id="mainImageContainer" onmousemove="moveLens(event)"
                             onmouseleave="hideLens()" style="height: 100%; width: 100%;">
-                            <img src="assets/img/ring.png" id="productMainImg" alt="Main View"
+                            <img src="assets/img/ring-img/32321-round-W.png" id="productMainImg" alt="Main View"
                                 style="max-height: 80vh;">
                             <div id="zoomLens" class="zoom-lens"></div>
 
-                            <!-- Advanced Three.js 3D Viewer -->
-                            <div id="ring3DViewer" class="ring-3d-viewer" style="display:none;">
-                                <canvas id="threeCanvas" style="width: 100%; height: 100%; cursor: grab;"></canvas>
-                                <div id="ringImgScene" style="display:none;">
-                                    <img src="assets/img/ring.png" id="ring3d" alt="Ring Reference">
-                                </div>
-                                <p class="ring-drag-hint">Drag to rotate &nbsp;·&nbsp; or use Rotate button</p>
+                            <!-- Advanced iJewel3D Viewer SDK -->
+                            <div id="ring3DViewer" class="ring-3d-viewer"
+                                style="display:none; width: 100%; height: 100%; overflow: hidden;">
+                                <div id="ijewelroot" style="width: 100%; height: 100%;"></div>
+                                <script
+                                    src='https://releases.ijewel3d.com/libs/mini-viewer/0.5.4/bundle.iife.js'></script>
+                                <script>
+                                    window.addEventListener('load', () => {
+                                        const baseName = "drive";
+                                        const modelId = "Z-c4kgPgR0mbuzD9qcjlDg";
+
+                                        if (typeof ijewelViewer !== 'undefined') {
+                                            ijewelViewer.loadModelById(
+                                                modelId,
+                                                baseName,
+                                                document.getElementById('ijewelroot'),
+                                                {
+                                                    showCard: false,
+                                                    showLogo: false,
+                                                    hideFullScreen: true,
+                                                    hideFitScene: true,
+                                                    showProfile: false,
+                                                    transparentBg: true,
+                                                    useIjewelLogo: false,
+                                                    tonemapGround: true,
+                                                    autoGroundTonemap: false,
+                                                    runRotateCamera: true
+                                                }
+                                            );
+                                        }
+                                    });
+                                </script>
                             </div>
 
                             <!-- Zoom Hint (appears on hover) -->
@@ -270,24 +295,24 @@
                         </button>
                         <div class="collapse show mt-3" id="shapeGrid">
                             <div class="shape-selector-grid-premium">
+                                <button class="shape-box active" onclick="pickShape(this,'Cushion')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Cushion.webp"
+                                        alt="Cushion"></button>
                                 <button class="shape-box" onclick="pickShape(this,'Emerald')"><img
                                         src="https://stargems.com/assets/img/diamond-shape/diamond/Emerald%20Cut.webp"
                                         alt="Emerald"></button>
-                                <button class="shape-box" onclick="pickShape(this,'Radiant')"><img
-                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Radiant.webp"
-                                        alt="Radiant"></button>
-                                <button class="shape-box" onclick="pickShape(this,'Cushion')"><img
-                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Cushion.webp"
-                                        alt="Cushion"></button>
-                                <button class="shape-box active" onclick="pickShape(this,'Oval')"><img
-                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Oval.webp"
-                                        alt="Oval"></button>
                                 <button class="shape-box" onclick="pickShape(this,'Marquise')"><img
                                         src="https://stargems.com/assets/img/diamond-shape/diamond/Marquise.webp"
                                         alt="Marquise"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Oval')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Oval.webp"
+                                        alt="Oval"></button>
                                 <button class="shape-box" onclick="pickShape(this,'Pear')"><img
                                         src="https://stargems.com/assets/img/diamond-shape/diamond/Pear.webp"
                                         alt="Pear"></button>
+                                <button class="shape-box" onclick="pickShape(this,'Radiant')"><img
+                                        src="https://stargems.com/assets/img/diamond-shape/diamond/Radiant.webp"
+                                        alt="Radiant"></button>
                                 <button class="shape-box" onclick="pickShape(this,'Round')"><img
                                         src="https://stargems.com/assets/img/diamond-shape/diamond/Round.webp"
                                         alt="Round"></button>
@@ -314,13 +339,13 @@
                     <div class="mb-4">
                         <label class="fw-bold mb-3 d-block"
                             style="font-size: 0.85rem; color: #222; text-transform: uppercase; letter-spacing: 0.05em;">METAL:
-                            <span class="fw-normal text-muted ms-1"
-                                style="text-transform: none; letter-spacing: normal;">18K Yellow Gold</span>
+                            <span class="fw-normal text-muted ms-1" id="metalLbl"
+                                style="text-transform: none; letter-spacing: normal;">18K White Gold</span>
                         </label>
                         <div class="d-flex gap-3">
-                            <div class="metal-circle sw-wg"></div>
-                            <div class="metal-circle sw-yg active"></div>
-                            <div class="metal-circle sw-rg"></div>
+                            <div class="metal-circle sw-wg active" onclick="pickMetal(this, '18k White Gold')"></div>
+                            <div class="metal-circle sw-yg" onclick="pickMetal(this, '18k Yellow Gold')"></div>
+                            <div class="metal-circle sw-rg" onclick="pickMetal(this, '14k Rose Gold')"></div>
                         </div>
                     </div>
 
@@ -696,17 +721,9 @@
     <script src="products.js"></script>
     <script src="script.js"></script>
 
-    <!-- Three.js 3D Viewer Bridge -->
-    <script type="module">
-        import { init3D } from './three-viewer.js';
-
-        window.addEventListener('initThreeViewer', () => {
-            const canvas = document.getElementById('threeCanvas');
-            const ringImg = document.getElementById('ring3d').src;
-            if (canvas) {
-                init3D(canvas, ringImg);
-            }
-        });
+    <!-- iJewel3D Viewer Bridge -->
+    <script>
+        // No extra initialization needed for the iframe
     </script>
 </body>
 

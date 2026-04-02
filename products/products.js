@@ -111,13 +111,85 @@ function setImg(thumb, src) {
     }
 }
 
-function pickMetal(btn, label, price) {
-    // Using on/off pattern from CSS
-    btn.closest('.d-flex').querySelectorAll('.metal-swatch').forEach(b => b.classList.remove('on'));
-    btn.classList.add('on');
+// Global state for product options
+let currentStoneShape = 'Oval';
+let currentStoneMetal = '18k White Gold';
 
+function updateProductGallery() {
+    const mainImg = document.getElementById('productMainImg');
+    const ring3dImg = document.getElementById('ring3d');
+    const detailImg1 = document.getElementById('detailImg1');
+    const detailImg2 = document.getElementById('detailImg2');
+
+    if (!mainImg) return;
+
+    let shape = currentStoneShape.toLowerCase();
+    if (shape === 'marquise') shape = 'marquee';
+
+
+    let mainPath = '';
+    let altPath = '';
+
+    // Metal Suffixes: -Y (Yellow), -R (Rose), -W (White)
+    let mSuffix = '-W';
+    if (currentStoneMetal.toLowerCase().includes('yellow')) mSuffix = '-Y';
+    else if (currentStoneMetal.toLowerCase().includes('rose')) mSuffix = '-R';
+
+    // Default to .png, except for oval-W.jpg
+    const bPath = 'assets/img/ring-img/32321-';
+    let extension = '.png';
+    if (shape === 'oval' && mSuffix === '-W') extension = '.jpg';
+
+    mainPath = `${bPath}${shape}${mSuffix}${extension}`;
+    altPath = mainPath; // Mirror main as alt views are missing in this folder
+
+
+    if (mainPath) {
+        mainImg.src = mainPath;
+        if (ring3dImg) ring3dImg.src = mainPath;
+
+        if (detailImg1) {
+            detailImg1.src = mainPath;
+            detailImg1.alt = currentStoneShape + ' - View 1';
+        }
+        if (detailImg2) {
+            detailImg2.src = altPath;
+            detailImg2.alt = currentStoneShape + ' - View 2';
+        }
+    }
+}
+
+function pickMetal(btn, label, price) {
+    // Synchronize All Metal Selection UI components
+    const allSwatches = document.querySelectorAll('.metal-swatch');
+    const allCircles = document.querySelectorAll('.metal-circle');
+
+    // Reset All
+    allSwatches.forEach(s => s.classList.remove('on'));
+    allCircles.forEach(c => c.classList.remove('active'));
+
+    // Handle Swatch Click
+    if (btn.classList.contains('metal-swatch')) {
+        btn.classList.add('on');
+        // Find corresponding circle if any
+        if (label.toLowerCase().includes('white')) allCircles[0]?.classList.add('active');
+        else if (label.toLowerCase().includes('yellow')) allCircles[1]?.classList.add('active');
+        else if (label.toLowerCase().includes('rose')) allCircles[2]?.classList.add('active');
+    }
+    // Handle Circle Click
+    else if (btn.classList.contains('metal-circle')) {
+        btn.classList.add('active');
+        // Find corresponding swatch if any
+        if (label.toLowerCase().includes('white')) allSwatches[0]?.classList.add('on');
+        else if (label.toLowerCase().includes('yellow')) allSwatches[1]?.classList.add('on');
+        else if (label.toLowerCase().includes('rose')) allSwatches[2]?.classList.add('on');
+    }
+
+    currentStoneMetal = label;
     const metalLbl = document.getElementById('metalLbl');
     if (metalLbl) metalLbl.textContent = label;
+
+    updateProductGallery();
 }
 
 function pickCarat(btn, label) {
@@ -129,76 +201,15 @@ function pickCarat(btn, label) {
 }
 
 function pickShape(btn, label) {
+    // Update UI state for shape
     document.querySelectorAll('#shapeGrid .shape-box').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
+    currentStoneShape = label;
     const shapeLbl = document.getElementById('shapeLbl');
     if (shapeLbl) shapeLbl.textContent = label;
 
-    // Change gallery images based on shape
-    const mainImg = document.getElementById('productMainImg');
-    const ring3dImg = document.getElementById('ring3d');
-    const detailImg1 = document.getElementById('detailImg1');
-    const detailImg2 = document.getElementById('detailImg2');
-
-    if (mainImg) {
-        const shape = label.toLowerCase();
-        let mainPath = '';
-        let altPath = '';
-
-        const basePath = 'assets/img/stone/32321-';
-
-        switch (shape) {
-            case 'round':
-                mainPath = basePath + 'round.jpg';
-                altPath = basePath + 'round_1.jpg';
-                break;
-            case 'pear':
-                mainPath = basePath + 'pear.jpg';
-                altPath = basePath + 'pear_1.jpg';
-                break;
-            case 'emerald':
-                mainPath = basePath + 'emerald.jpg';
-                altPath = basePath + 'emerald_1.jpg';
-                break;
-            case 'cushion':
-                mainPath = basePath + 'cushion.jpg';
-                altPath = basePath + 'cushion_1.jpg';
-                break;
-            case 'radiant':
-                mainPath = basePath + 'radiant.jpg';
-                altPath = basePath + 'radiant_1.jpg';
-                break;
-            case 'marquise':
-                mainPath = 'assets/img/stone/32321-marquee.jpg';
-                altPath = 'assets/img/stone/32321-marquise_1.jpg';
-                break;
-            case 'oval':
-                // Note: 32321-oval.jpg is missing, using default ring for main but keeping detail view
-                mainPath = 'assets/img/ring.png';
-                altPath = 'assets/img/stone/32321-oval_1.jpg';
-                break;
-            default:
-                mainPath = 'assets/img/ring.png';
-                altPath = 'https://dummyimage.com/400x400/000/fff';
-        }
-
-        if (mainPath) {
-            mainImg.src = mainPath;
-            if (ring3dImg) ring3dImg.src = mainPath;
-
-            // Assign main view to the 2nd position in the gallery (detailImg1)
-            // and the 2nd view to the third position (detailImg2)
-            if (detailImg1) {
-                detailImg1.src = mainPath;
-                detailImg1.alt = label + ' View 1';
-            }
-            if (detailImg2) {
-                detailImg2.src = altPath;
-                detailImg2.alt = label + ' View 2';
-            }
-        }
-    }
+    updateProductGallery();
 }
 
 // Auto-initialize shape selection on load
@@ -222,11 +233,38 @@ window.addEventListener('scroll', () => {
     else nav.classList.remove('nav-scrolled');
 });
 
-// Gallery Interactivity
-document.querySelectorAll('.gallery-item img').forEach(img => {
+// Gallery Interactivity: Swap clicked gallery item with the Hero image
+document.querySelectorAll('.gallery-story-item img').forEach(img => {
+    // Ignore the main product image and internal reference images
+    if (img.id === 'productMainImg' || img.id === 'ring3d') return;
+
     img.style.cursor = 'pointer';
+    img.style.transition = 'opacity 0.2s';
+
     img.addEventListener('click', function () {
-        document.getElementById('productMainImg').src = this.src;
+        const mainImg = document.getElementById('productMainImg');
+        const ring3dImg = document.getElementById('ring3d');
+
+        if (!mainImg) return;
+
+        // Perform the swap
+        const clickedSrc = this.src;
+        const mainSrc = mainImg.src;
+
+        // Quick visual transition
+        mainImg.style.opacity = '0.5';
+        this.style.opacity = '0.5';
+
+        setTimeout(() => {
+            mainImg.src = clickedSrc;
+            this.src = mainSrc;
+
+            // Sync 3D viewer reference
+            if (ring3dImg) ring3dImg.src = clickedSrc;
+
+            mainImg.style.opacity = '1';
+            this.style.opacity = '1';
+        }, 150);
     });
 });
 
@@ -240,25 +278,23 @@ function toggle3D() {
     const is3DOpen = viewer && viewer.style.display !== 'none';
 
     if (!is3DOpen) {
-        // Show 3D ring
+        // Show 3D ring iframe
         if (img) img.style.display = 'none';
-        if (viewer) viewer.style.display = 'flex';
+        if (viewer) viewer.style.display = 'block';
         if (zoomLens) zoomLens.style.display = 'none';
         if (btn) {
             btn.classList.add('active');
             btn.querySelector('span').textContent = 'Exit 3D';
         }
-        if (rotateBtn) rotateBtn.style.display = 'flex';
-
-        // Trigger Three.js Init/Resume
-        window.dispatchEvent(new CustomEvent('initThreeViewer'));
+        // External rotate button is not needed for iJewel3D
+        if (rotateBtn) rotateBtn.style.display = 'none';
     } else {
-        // Back to image
+        // Back to main image
         if (img) img.style.display = 'block';
         if (viewer) viewer.style.display = 'none';
         if (btn) {
             btn.classList.remove('active');
-            btn.querySelector('span').textContent = 'View in 3D';
+            btn.querySelector('span').textContent = '3D View';
         }
         if (rotateBtn) {
             rotateBtn.style.display = 'none';
