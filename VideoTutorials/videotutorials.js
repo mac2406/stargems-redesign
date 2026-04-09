@@ -5,116 +5,96 @@ const VIDEO_DB = {
         {
             id: '1',
             category: 'GemArt',
-            title: 'Getting Started: Creating Designs with GemArt AI',
+            title: 'How to Create a Jewelry Design From a Prompt in GemArt AI',
             desc: 'GemArt AI',
-            summary: 'Watch a step-by-step walkthrough of GemArt, showing you how to access the query bar and create unique jewelry designs with ease. See the process in action and explore the software\'s creative capabilities firsthand.',
-            duration: '0:23',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/3OsZZOGj4ek?autoplay=1'
+            summary: 'Turn a simple text idea into a complete jewelry design. Generate and refine concepts in minutes.',
+            duration: '',
+            thumbnail: '',
+            videoSrc: 'TUT1_Prompt.webm'
         },
         {
             id: '2',
             category: 'GemArt',
-            title: 'How to Get Accurate Pricing with GemArt AI',
+            title: 'How to Upload and Transform Jewelry Designs in GemArt AI',
             desc: 'GemArt AI',
-            summary: 'Learn how to obtain accurate pricing in GemArt by adjusting design specifications. This tutorial demonstrates how to modify your creations to generate precise cost estimates quickly and efficiently.',
-            duration: '0:26',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/QJj8uMBC7ng?autoplay=1'
+            summary: 'Upload a photo, sketch, or CAD file and create new design variations instantly.',
+            duration: '',
+            thumbnail: '',
+            videoSrc: 'TUT2_Upload.webm'
         },
         {
             id: '3',
             category: 'GemArt',
-            title: 'Tag, Sort, and Simplify Threads in GemArt AI',
+            title: 'How to Price Jewelry Designs in GemArt AI',
             desc: 'GemArt AI',
-            summary: 'Discover how to efficiently organize your designs in GemArt. This tutorial covers tagging, sorting, and simplifying threads to streamline your workflow and keep your creations easy to manage.',
-            duration: '0:30',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/6fSrn9C4-IE?autoplay=1'
+            summary: 'Learn how pricing is calculated using metals, stones, and design specs.',
+            duration: '',
+            thumbnail: '',
+            videoSrc: 'TUT3_Pricing.webm'
         },
         {
             id: '4',
             category: 'GemArt',
-            title: 'How to Revisit Your Favorite Jewelry Designs',
+            title: 'How to Create Jewelry Renders in GemArt AI',
             desc: 'GemArt AI',
-            summary: 'Learn how GemArt lets you instantly update pricing for existing designs, sort your favorites, and review the original prompts used for each creation. This tutorial helps you manage your collection efficiently and effortlessly.',
-            duration: '0:26',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/YAhVHqTJUlQ?autoplay=1'
+            summary: 'Generate photorealistic renders for presentations, websites, and social media.',
+            duration: '',
+            thumbnail: '',
+            videoSrc: 'TUT4_Renders.webm'
         },
         {
             id: '5',
             category: 'GemArt',
-            title: 'Elevate Designs Using Our CAD Library',
+            title: 'How to Adjust Markups and Pricing in GemArt AI',
             desc: 'GemArt AI',
-            summary: 'Learn how to integrate designs from the free CAD library directly into GemArt AI. Using existing CADs saves time by eliminating the need to start designs from scratch, while resulting in cleaner, more accurate designs.',
-            duration: '0:39',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/wmIrJr1Oa1s?autoplay=1'
+            summary: 'Update pricing with markups and margins to keep quotes accurate and consistent.',
+            duration: '',
+            thumbnail: '',
+            videoSrc: 'TUT5_Markup.webm'
         },
         {
             id: '6',
             category: 'GemArt',
-            title: 'Set Single Markup Prices for Consumers',
+            title: 'How to Customize 25,000+ CAD Designs in GemArt AI',
             desc: 'GemArt AI',
-            summary: 'In this tutorial, you will learn how to set margins in GemArt AI, enabling you to confidently use the software in customer-facing situations. Discover how to apply consistent markups across different price ranges, ensuring transparency, accuracy, and streamlined sales conversations.',
-            duration: '0:59',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/66JcETL_bR8?autoplay=1'
+            summary: 'Edit and refine designs from Star Gems\' CAD library to create new variations quickly.',
+            duration: '',
+            thumbnail: '',
+            videoSrc: 'TUT6_CADS.webm'
         },
         {
             id: '7',
             category: 'GemArt',
-            title: 'Set Separate Markup Prices for Consumers',
+            title: 'How to Use the Gallery in GemArt AI',
             desc: 'GemArt AI',
-            summary: 'In this tutorial, you will learn how to set different pricing markups in GemArt AI for mountings, natural diamonds, and lab-grown diamonds. This lets you tailor your pricing strategy for each category, giving you full control over every aspect of your margins.',
-            duration: '0:58',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/KoKmKuJB3uI?autoplay=1'
-        },
-        {
-            id: '8',
-            category: 'GemArt',
-            title: 'Want Better Results? Start a New Thread',
-            desc: 'GemArt AI',
-            summary: 'Muddled outputs and confusion can arise from long, continuous conversations with GemArt AI. Learn how starting new threads in GemArt AI keeps design prompts clear, saves time and credits, and delivers cleaner, sharper designs.',
-            duration: '0:37',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/kgeZtlv_JVk?autoplay=1'
-        },
-        {
-            id: '9',
-            category: 'GemArt',
-            title: 'How to Tag Threads in GemArt AI',
-            desc: 'GemArt AI',
-            summary: 'Learn how to keep your important design threads organized in GemArt AI. By categorizing projects, you can keep relevant threads and discussions together, ensuring every design is easily accessible.',
-            duration: '0:48',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'https://www.youtube.com/embed/SavT_uF0QTg?autoplay=1'
+            summary: 'View, organize, and manage your designs and generated assets in one place.',
+            duration: '',
+            thumbnail: '',
+            videoSrc: 'TUT7_Gallery.webm'
         },
 
         // TextMeChat
         {
-            id: '10',
+            id: '8',
             category: 'TextMeChat',
             title: 'Messaging Basics',
             desc: 'TextMeChat',
-            summary: `In this quick tutorial, we’ll cover how to send messages using built-in tools that help you connect with customers faster and smarter.<br><br>
-                You’ll learn how to:<br>
+            summary: `In this quick tutorial, we'll cover how to send messages using built-in tools that help you connect with customers faster and smarter.<br><br>
+                You'll learn how to:<br>
                 • Use message templates for quick, consistent replies<br>
-                • Change the staff name so messages show who they’re coming from<br>
+                • Change the staff name so messages show who they're coming from<br>
                 • Attach reviews, Facebook events, and appointment links directly to your texts`,
             duration: '0:56',
             thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
             videoSrc: 'assets/TMC videos/1. TMC Messaging Basic Voiceover.mp4'
         },
         {
-            id: '11',
+            id: '9',
             category: 'TextMeChat',
             title: 'Broadcast Settings',
             desc: 'TextMeChat',
-            summary: `In this tutorial, we’ll show you how to create and send broadcast messages to contact groups you’ve made, helping you communicate with multiple customers at once — without missing a beat.<br><br>
-                You’ll learn how to:<br>
+            summary: `In this tutorial, we'll show you how to create and send broadcast messages to contact groups you've made, helping you communicate with multiple customers at once — without missing a beat.<br><br>
+                You'll learn how to:<br>
                 • Set up broadcast events for mass messaging<br>
                 • Select contact groups you want to message<br>
                 • Personalize messages for better engagement<br>
@@ -124,12 +104,12 @@ const VIDEO_DB = {
             videoSrc: 'assets/TMC videos/2. TMC Broadcast Basic Voiceover.mp4'
         },
         {
-            id: '12',
+            id: '10',
             category: 'TextMeChat',
             title: 'Customer View',
             desc: 'TextMeChat',
-            summary: `This tutorial shows retailers how their TextMeChat messages look from the customer’s perspective. Make sure every message is professional, clear, and includes all the important links.<br><br>
-                You’ll learn how to:<br>
+            summary: `This tutorial shows retailers how their TextMeChat messages look from the customer's perspective. Make sure every message is professional, clear, and includes all the important links.<br><br>
+                You'll learn how to:<br>
                 • View messages exactly as your customers see them<br>
                 • Confirm review links, catalog links, and appointment links are working properly<br>
                 • Ensure your messages are polished and engaging before sending`,
@@ -138,12 +118,12 @@ const VIDEO_DB = {
             videoSrc: 'assets/TMC videos/3. TMC Visual_1.mp4'
         },
         {
-            id: '13',
+            id: '11',
             category: 'TextMeChat',
             title: 'Inbox Management',
             desc: 'TextMeChat',
             summary: `This tutorial walks you through the tools that help you organize, search, and filter messages so you can respond quickly and never miss important interactions.<br><br>
-                You’ll learn how to:<br>
+                You'll learn how to:<br>
                 • Search conversations using date ranges and keywords<br>
                 • Navigate other conversation groups in the Conversation Hub<br>
                 • Apply conversation filters to find exactly what you need`,
@@ -152,12 +132,12 @@ const VIDEO_DB = {
             videoSrc: 'assets/TMC videos/4. TMC Inbox Management.mp4'
         },
         {
-            id: '14',
+            id: '12',
             category: 'TextMeChat',
             title: 'Catalog Creation',
             desc: 'TextMeChat',
-            summary: `This tutorial teaches retailers how to create product catalogs from items they’ve uploaded, send them via TextMeChat, and see exactly what customers experience when they click the link.<br><br>
-                You’ll learn how to:<br>
+            summary: `This tutorial teaches retailers how to create product catalogs from items they've uploaded, send them via TextMeChat, and see exactly what customers experience when they click the link.<br><br>
+                You'll learn how to:<br>
                 • Build a product catalog from uploaded items<br>
                 • Send catalogs directly to customers through TextMeChat<br>
                 • View how the catalog appears to customers for a seamless shopping experience`,
@@ -166,12 +146,12 @@ const VIDEO_DB = {
             videoSrc: 'assets/TMC videos/5. TMC Catalog Voiceover.mp4'
         },
         {
-            id: '15',
+            id: '13',
             category: 'TextMeChat',
             title: 'Sending Coupons',
             desc: 'TextMeChat',
             summary: `In this tutorial, we show retailers how to create digital coupons in TextMeChat, send them to customers, and let them redeem the offers directly through your product catalogs.<br><br>
-                You’ll learn how to:<br>
+                You'll learn how to:<br>
                 • Create unique digital coupons for your products or services<br>
                 • Send coupons easily to individual customers or groups<br>
                 • Redeem coupons directly through catalogs for a seamless customer experience`,
@@ -180,12 +160,12 @@ const VIDEO_DB = {
             videoSrc: 'assets/TMC videos/6. TMC Coupons Voiceover.mp4'
         },
         {
-            id: '16',
+            id: '14',
             category: 'TextMeChat',
             title: 'Contact Groups',
             desc: 'TextMeChat',
             summary: `This tutorial shows retailers how to create contact groups in TextMeChat and send messages to everyone in the group at once — perfect for promotions, updates, or announcements.<br><br>
-                You’ll learn how to:<br>
+                You'll learn how to:<br>
                 • Create and manage contact groups for better organization<br>
                 • Send messages to all members of a group in just a few clicks<br>
                 • Ensure your messages reach the right audience quickly and efficiently`,
@@ -194,32 +174,64 @@ const VIDEO_DB = {
             videoSrc: 'assets/TMC videos/7. TMC Contact Groups Voiceover.mp4'
         },
         {
-            id: '17',
+            id: '15',
             category: 'TextMeChat',
             title: 'PayByText Invoices',
             desc: 'TextMeChat',
             summary: `This tutorial shows retailers how to create invoices in TextMeChat and send them directly to customers for a seamless, professional payment experience.<br><br>
-                You’ll learn how to:<br>
+                You'll learn how to:<br>
                 • Create invoices with all the necessary details for your products or services<br>
                 • Send invoices directly to customers via TextMeChat<br>
-                • Ensure customers receive a clear, professional invoice that’s easy to review and pay`,
+                • Ensure customers receive a clear, professional invoice that's easy to review and pay`,
             duration: '1:01',
             thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
             videoSrc: 'assets/TMC videos/8. TMC PBT Voiceover.mp4'
         },
         {
-            id: '18',
+            id: '16',
             category: 'TextMeChat',
             title: 'Message Logs',
             desc: 'TextMeChat',
             summary: `This tutorial shows retailers how to access their message logs in TextMeChat to see exactly when messages were sent and confirm they were delivered correctly.<br><br>
-                You’ll learn how to:<br>
+                You'll learn how to:<br>
                 • View message history for all your conversations<br>
                 • Check delivery status to ensure messages reached the intended recipients<br>
                 • Troubleshoot issues and keep your customer communications accurate and reliable`,
             duration: '0:50',
             thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
             videoSrc: 'assets/TMC videos/9. TMC Message Logs.mp4'
+        },
+
+        // Custom
+        {
+            id: '17',
+            category: 'Custom',
+            title: 'Introduction to Catalog Feature',
+            desc: 'Custom',
+            summary: 'This video demonstrates how to manage CAD designs in a catalog. The user first uses the modal window to add a selected design into a catalog. Then, on the manage-items page, they review and update the catalog contents.',
+            duration: '00:26',
+            thumbnail: 'https://stargems.com/HelpVideos/helpImages/catalog.webp',
+            videoSrc: 'https://www.youtube.com/embed/M_CtdBVucEU?autoplay=1'
+        },
+        {
+            id: '18',
+            category: 'Custom',
+            title: 'Instantly Price Our 20,000+ Free CADs',
+            desc: 'Custom',
+            summary: 'This video demonstrates how to remove CAD designs from a catalog. The user opens the catalog, locates the design, and selects the remove option. The CAD grid updates, showing that the design has been successfully removed from the catalog.',
+            duration: '00:34',
+            thumbnail: 'https://stargems.com/HelpVideos/helpImages/instant%20price.webp',
+            videoSrc: 'https://www.youtube.com/embed/oObNLHYQgok?autoplay=1'
+        },
+        {
+            id: '19',
+            category: 'Custom',
+            title: 'Sorting Through Our 20,000+ Free CADs',
+            desc: 'Custom',
+            summary: 'This video demonstrates sorting in the CAD library. Users can filter designs by selecting a category such as Band, Bracelet, or Earring. The grid updates to display only the CAD designs matching the chosen category.',
+            duration: '00:25',
+            thumbnail: 'https://stargems.com/HelpVideos/helpImages/sorting.webp',
+            videoSrc: 'https://www.youtube.com/embed/ABcFYcQyM4U?autoplay=1'
         }
     ]
 };

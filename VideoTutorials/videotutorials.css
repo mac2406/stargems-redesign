@@ -78,6 +78,8 @@ h6 {
     font-weight: 700;
     margin-bottom: 20px;
     font-family: var(--bs-heading-font-family);
+    color: #fff;
+    text-align: left;
 }
 
 .latest-tag {
@@ -115,6 +117,7 @@ h6 {
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 /* Filter Section */
@@ -577,6 +580,38 @@ footer a:hover {
 }
 
 /* Skeleton Loading State */
+.coming-soon-container {
+    padding: 80px 40px;
+    background: #f8f9fa;
+    border-radius: 20px;
+    border: 2px dashed #dee2e6;
+    transition: all 0.3s ease;
+}
+
+.coming-soon-container:hover {
+    background: #f1f3f5;
+    border-color: var(--primary);
+}
+
+.coming-soon-title {
+    font-family: var(--bs-heading-font-family);
+    font-weight: 700;
+    color: var(--primary-dark);
+    font-size: 2rem;
+}
+
+.coming-soon-icon {
+    display: block;
+    margin: 0 auto;
+    opacity: 0.8;
+}
+
+.coming-soon-text {
+    font-size: 1.1rem;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
 @keyframes shimmer {
     0% {
         background-position: -200% 0;
