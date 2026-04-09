@@ -131,20 +131,24 @@
     <main class="container mb-5">
 
         <div class="row g-5">
-            <!-- Left: Gallery (Story Version) -->
+            <!-- IMAGES ON THE LEFT SIDE -->
             <div class="col-lg-7 position-relative">
                 <div class="gallery-story">
-                    <!-- Layer 1: The Hero (Interactive) -->
+
+                    <!-- Main Top Image -->
                     <div class="gallery-story-item gallery-story-hero reveal-on-scroll" id="storyHero">
                         <div class="story-badge">Signature Selection</div>
 
                         <div class="screen" id="mainImageContainer" onmousemove="moveLens(event)"
                             onmouseleave="hideLens()" style="height: 100%; width: 100%;">
-                            <img src="assets/img/ring-img/32321-round-W.png" id="productMainImg" alt="Main View"
+
+                            <!-- MAIN RING IMAGE -->
+                            <img src="assets/img/round/32321-round-R.png" id="productMainImg" alt="Main View"
                                 style="max-height: 80vh;">
+
                             <div id="zoomLens" class="zoom-lens"></div>
 
-                            <!-- Advanced iJewel3D Viewer SDK -->
+                            <!-- 3D Viewer Container -->
                             <div id="ring3DViewer" class="ring-3d-viewer"
                                 style="display:none; width: 100%; height: 100%; overflow: hidden;">
                                 <div id="ijewelroot" style="width: 100%; height: 100%;"></div>
@@ -154,96 +158,68 @@
                                     window.addEventListener('load', () => {
                                         const baseName = "drive";
                                         const modelId = "Z-c4kgPgR0mbuzD9qcjlDg";
-
                                         if (typeof ijewelViewer !== 'undefined') {
-                                            ijewelViewer.loadModelById(
-                                                modelId,
-                                                baseName,
-                                                document.getElementById('ijewelroot'),
-                                                {
-                                                    showCard: false,
-                                                    showLogo: false,
-                                                    hideFullScreen: true,
-                                                    hideFitScene: true,
-                                                    showProfile: false,
-                                                    transparentBg: true,
-                                                    useIjewelLogo: false,
-                                                    tonemapGround: true,
-                                                    autoGroundTonemap: false,
-                                                    runRotateCamera: true
-                                                }
-                                            );
+                                            ijewelViewer.loadModelById(modelId, baseName, document.getElementById('ijewelroot'), {
+                                                showCard: false, showLogo: false, hideFullScreen: true,
+                                                hideFitScene: true, showProfile: false, transparentBg: true,
+                                                useIjewelLogo: false, tonemapGround: true, autoGroundTonemap: false,
+                                                runRotateCamera: true
+                                            });
                                         }
                                     });
                                 </script>
                             </div>
 
-                            <!-- Zoom Hint (appears on hover) -->
                             <div class="story-zoom-hint">Roll over to Explore</div>
                         </div>
 
-                        <!-- 3D / Rotate Toggle -->
+                        <!-- 3D / Rotate Buttons -->
                         <div
                             class="gallery-controls-overlay position-absolute top-0 end-0 m-3 d-flex flex-column gap-2">
-                            <button class="gallery-action-btn view-3d-btn" onclick="toggle3D()" id="btn3d">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z" />
-                                    <path d="M3.27 6.96L12 12.01l8.73-5.05" />
-                                    <path d="M12 22.08V12" />
-                                </svg>
-                                <span class="ms-2">3D View</span>
-                            </button>
+                            <button class="gallery-action-btn view-3d-btn" onclick="toggle3D()" id="btn3d">View
+                                3D</button>
                             <button class="gallery-action-btn rotate-ring-btn" onclick="toggleRotate()" id="btnRotate"
-                                style="display:none;">
-                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
-                                    viewBox="0 0 24 24">
-                                    <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                                    <path d="M3 3v5h5" />
-                                </svg>
-                                <span class="ms-2">Rotate</span>
-                            </button>
+                                style="display:none;">Rotate</button>
                         </div>
                     </div>
 
-                    <!-- Layer 2: Dual Details -->
+                    <!-- Row of 2 Small Images (Angles) -->
                     <div class="gallery-dual-feed">
                         <div class="gallery-story-item reveal-on-scroll">
-                            <img src="https://dummyimage.com/400x400/000/fff" id="detailImg1" alt="Angle 1">
+                            <img src="assets/img/round/32321-round-R-1.jpg" id="detailImg1" alt="Angle 1">
                         </div>
                         <div class="gallery-story-item reveal-on-scroll">
-                            <img src="https://dummyimage.com/400x400/000/fff" id="detailImg2" alt="Angle 2">
+                            <img src="assets/img/round/32321-round-R-V2.jpg" id="detailImg2" alt="Angle 2">
                         </div>
                     </div>
 
-                    <!-- Layer 3: Dual Details -->
+                    <!-- Another Row of 2 Small Images (Angles) -->
                     <div class="gallery-dual-feed">
                         <div class="gallery-story-item reveal-on-scroll">
-                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 1">
+                            <img src="assets/img/round/32321-round-R-V3.jpg" id="detailImg3" alt="Angle 3">
                         </div>
                         <div class="gallery-story-item reveal-on-scroll">
-                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 2">
+                            <img src="assets/img/round/32321-round-R-V4.jpg" id="detailImg4" alt="Angle 4">
                         </div>
                     </div>
 
-                    <!-- Layer 4: Dual Details -->
+                    <!-- Row for Model/Hand Shots -->
                     <div class="gallery-dual-feed">
                         <div class="gallery-story-item reveal-on-scroll">
-                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 1">
+                            <img src="assets/img/round/32321-round-R-M.jpg" id="detailImg5" alt="Model 1">
                         </div>
                         <div class="gallery-story-item reveal-on-scroll">
-                            <img src="https://dummyimage.com/400x400/000/fff" alt="Angle 2">
+                            <img src="assets/img/round/32321-round-R-M1.jpg" id="detailImg6" alt="Model 2">
                         </div>
                     </div>
                 </div>
-
-                <!-- Zoom Result Container (Floating result) -->
+                <!-- Zoom Result Container (floating) -->
                 <div id="zoomResult" class="zoom-result-container"></div>
             </div>
 
-
-            <!-- Right: Product Info -->
+            <!-- ============================================================== 
+                 RIGHT COLUMN: PRODUCT DETAILS & PURCHASING
+                 ============================================================== -->
             <div class="col-lg-5">
                 <div class="sticky-top" style="top: 100px;">
                     <div class="product-header-be mb-4">
@@ -326,10 +302,10 @@
                             <div class="metal-swatch" onclick="pickMetal(this, '18k Yellow Gold')">
                                 <div class="swatch-inner sw-yg"></div>
                             </div>
-                            <div class="metal-swatch on" onclick="pickMetal(this, '18k White Gold')">
+                            <div class="metal-swatch" onclick="pickMetal(this, '18k White Gold')">
                                 <div class="swatch-inner sw-wg"></div>
                             </div>
-                            <div class="metal-swatch" onclick="pickMetal(this, '14k Rose Gold')">
+                            <div class="metal-swatch on" onclick="pickMetal(this, '14k Rose Gold')">
                                 <div class="swatch-inner sw-rg"></div>
                             </div>
                         </div>
@@ -340,12 +316,12 @@
                         <label class="fw-bold mb-3 d-block"
                             style="font-size: 0.85rem; color: #222; text-transform: uppercase; letter-spacing: 0.05em;">METAL:
                             <span class="fw-normal text-muted ms-1" id="metalLbl"
-                                style="text-transform: none; letter-spacing: normal;">18K White Gold</span>
+                                style="text-transform: none; letter-spacing: normal;">14K Rose Gold</span>
                         </label>
                         <div class="d-flex gap-3">
-                            <div class="metal-circle sw-wg active" onclick="pickMetal(this, '18k White Gold')"></div>
+                            <div class="metal-circle sw-wg" onclick="pickMetal(this, '18k White Gold')"></div>
                             <div class="metal-circle sw-yg" onclick="pickMetal(this, '18k Yellow Gold')"></div>
-                            <div class="metal-circle sw-rg" onclick="pickMetal(this, '14k Rose Gold')"></div>
+                            <div class="metal-circle sw-rg active" onclick="pickMetal(this, '14k Rose Gold')"></div>
                         </div>
                     </div>
 
@@ -376,8 +352,8 @@
                         </div>
                     </div>
 
-                    <div class="d-grid gap-3">
-                        <button class="btn-primary w-100 py-3 fw-bold text-uppercase tracking-widest shadow-lg"
+                    <div class="d-grid gap-3 mb-3">
+                        <button class="btn-primary w-100 py-3 fw-bold text-uppercase tracking-widest shadow-sm"
                             style="height: auto; background-color: var(--primary) !important;">Choose this
                             Setting</button>
                         <div class="row g-2 action-buttons-row">
@@ -392,8 +368,8 @@
                                             d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z" />
                                     </svg> Wishlist</button></div>
                         </div>
-                        <button class="btn-primary w-100 py-3 fw-bold text-uppercase tracking-widest shadow-lg"
-                            data-bs-toggle="modal" data-bs-target="#tryOnModal" onclick="startVirtualTry()"
+                        <button class="btn-primary w-100 py-3 fw-bold text-uppercase tracking-widest shadow-sm
+                            data-bs-toggle=" modal" data-bs-target="#tryOnModal" onclick="startVirtualTry()"
                             style="height: auto; background-color: var(--primary) !important;">Virtual Try On</button>
                     </div>
 

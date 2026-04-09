@@ -112,51 +112,58 @@ function setImg(thumb, src) {
 }
 
 // Global state for product options
-let currentStoneShape = 'Oval';
-let currentStoneMetal = '18k White Gold';
+let currentStoneShape = 'Round';
+let currentStoneMetal = '14k Rose Gold';
 
 function updateProductGallery() {
     const mainImg = document.getElementById('productMainImg');
     const ring3dImg = document.getElementById('ring3d');
-    const detailImg1 = document.getElementById('detailImg1');
-    const detailImg2 = document.getElementById('detailImg2');
-
     if (!mainImg) return;
 
     let shape = currentStoneShape.toLowerCase();
+
+    // Pick Metal Code: W (White), Y (Yellow), R (Rose)
+    let mCode = 'W';
+    if (currentStoneMetal.toLowerCase().includes('yellow')) mCode = 'Y';
+    else if (currentStoneMetal.toLowerCase().includes('rose')) mCode = 'R';
+
+    // --- CASE 1: ROUND (Uses special folder with many views) ---
+    if (shape === 'round') {
+        const folder = `assets/img/round/32321-round-${mCode}`;
+
+        mainImg.src = folder + ".png";
+        if (ring3dImg) ring3dImg.src = mainImg.src;
+
+        document.getElementById('detailImg1').src = folder + "-1.jpg";
+        document.getElementById('detailImg2').src = folder + "-V2.jpg";
+        document.getElementById('detailImg3').src = folder + "-V3.jpg";
+        document.getElementById('detailImg4').src = folder + "-V4.jpg";
+
+        // Model Shots (Rose Gold same for all)
+        document.getElementById('detailImg5').src = "assets/img/round/32321-round-R-M.jpg";
+        document.getElementById('detailImg6').src = "assets/img/round/32321-round-R-M1.jpg";
+        return;
+    }
+
+    // --- CASE 2: ALL OTHER SHAPES ---
     if (shape === 'marquise') shape = 'marquee';
 
-
-    let mainPath = '';
-    let altPath = '';
-
-    // Metal Suffixes: -Y (Yellow), -R (Rose), -W (White)
-    let mSuffix = '-W';
-    if (currentStoneMetal.toLowerCase().includes('yellow')) mSuffix = '-Y';
-    else if (currentStoneMetal.toLowerCase().includes('rose')) mSuffix = '-R';
-
-    // Default to .png, except for oval-W.jpg
-    const bPath = 'assets/img/ring-img/32321-';
     let extension = '.png';
-    if (shape === 'oval' && mSuffix === '-W') extension = '.jpg';
+    if (shape === 'oval' && mCode === 'W') extension = '.jpg';
 
-    mainPath = `${bPath}${shape}${mSuffix}${extension}`;
-    altPath = mainPath; // Mirror main as alt views are missing in this folder
+    const path = `assets/img/ring-img/32321-${shape}-${mCode}${extension}`;
 
+    mainImg.src = path;
+    if (ring3dImg) ring3dImg.src = path;
 
-    if (mainPath) {
-        mainImg.src = mainPath;
-        if (ring3dImg) ring3dImg.src = mainPath;
+    document.getElementById('detailImg1').src = path;
+    document.getElementById('detailImg2').src = path;
+    document.getElementById('detailImg3').src = path;
+    document.getElementById('detailImg4').src = path;
 
-        if (detailImg1) {
-            detailImg1.src = mainPath;
-            detailImg1.alt = currentStoneShape + ' - View 1';
-        }
-        if (detailImg2) {
-            detailImg2.src = altPath;
-            detailImg2.alt = currentStoneShape + ' - View 2';
-        }
-    }
+    // Lifestyle Model Shots
+    document.getElementById('detailImg5').src = "assets/img/round/32321-round-R-M.jpg";
+    document.getElementById('detailImg6').src = "assets/img/round/32321-round-R-M1.jpg";
 }
 
 function pickMetal(btn, label, price) {
@@ -384,54 +391,55 @@ function moveLens(e) {
     const viewer = document.getElementById('ring3DViewer');
     if (viewer && viewer.style.display && viewer.style.display !== 'none') return;
 
-    // Show them first so they have dimensions
+    // Ensure they ARE visible before calculating anything
     lens.style.display = 'block';
     result.style.display = 'block';
 
     const rect = container.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
 
-    // Calculate cursor position relative to container
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
-
-    // We know these from CSS but let's read them to be safe
+    // Get current dimensions for accurate math
     const lw = lens.offsetWidth || 160;
     const lh = lens.offsetHeight || 160;
-    const cw = container.offsetWidth || 500;
-    const ch = container.offsetHeight || 500;
+    const cw = container.offsetWidth;
+    const ch = container.offsetHeight;
 
-    // Keep lens inside bounds
+    // Lens Half Sizing
     const hw = lw / 2;
     const hh = lh / 2;
 
-    if (x < hw) x = hw;
-    if (x > cw - hw) x = cw - hw;
-    if (y < hh) y = hh;
-    if (y > ch - hh) y = ch - hh;
+    // Calculate left/top of lens with bounds checking
+    let posX = x - hw;
+    let posY = y - hh;
 
-    lens.style.left = (x - hw) + 'px';
-    lens.style.top = (y - hh) + 'px';
+    if (posX < 0) posX = 0;
+    if (posX > cw - lw) posX = cw - lw;
+    if (posY < 0) posY = 0;
+    if (posY > ch - lh) posY = ch - lh;
 
-    // Calculate magnification ratios
-    const nw = img.naturalWidth || img.width || 1200;
-    const nh = img.naturalHeight || img.height || 1200;
+    lens.style.left = posX + 'px';
+    lens.style.top = posY + 'px';
 
-    // Result is 530x530 (from CSS)
-    const rw = result.offsetWidth || 530;
-    const rh = result.offsetHeight || 530;
+    // Magnification (Ratio of result window to lens window)
+    const cx = result.offsetWidth / lw;
+    const cy = result.offsetHeight / lh;
 
-    const cx = rw / lw;
-    const cy = rh / lh;
-
-    // Apply Background
+    // Update magnified background
     result.style.backgroundImage = `url('${img.src}')`;
+
+    // Natural dimensions for the large BG
+    const nw = img.naturalWidth || img.width;
+    const nh = img.naturalHeight || img.height;
+
     result.style.backgroundSize = (nw * cx) + 'px ' + (nh * cy) + 'px';
 
-    // Background Position
-    const posX = ((x - hw) / cw) * (nw * cx);
-    const posY = ((y - hh) / ch) * (nh * cy);
+    // Map lens position to background position
+    // Since lens sits on container, we map (posX / cw) to (nw * cx)
+    const backgroundPosX = (posX / cw) * (nw * cx);
+    const backgroundPosY = (posY / ch) * (nh * cy);
 
-    result.style.backgroundPosition = `-${posX}px -${posY}px`;
+    result.style.backgroundPosition = `-${backgroundPosX}px -${backgroundPosY}px`;
 }
 
 function hideLens() {

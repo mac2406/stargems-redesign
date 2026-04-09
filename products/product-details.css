@@ -767,8 +767,8 @@ a {
 /* Image Zoom Feature — Amazon Style */
 .zoom-lens {
     position: absolute;
-    width: 160px;
-    height: 160px;
+    width: 250px;
+    height: 250px;
     background: rgba(173, 216, 230, 0.4);
     /* Amazon blue tint */
     border: 1px solid rgba(0, 113, 133, 0.5);
@@ -800,7 +800,6 @@ a {
     left: calc(100% + 15px);
     top: 0;
     width: 530px;
-    /* Larger for more detail */
     height: 530px;
     background-color: #fff;
     border: 1px solid #ddd;
