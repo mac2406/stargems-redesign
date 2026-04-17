@@ -158,6 +158,25 @@ function updateProductGallery() {
 
     // 1. Update Hero Image
     mainImg.src = folderPath + '.webp';
+    mainImg.onerror = function () {
+        if (this.src.endsWith(".webp") && !this.src.includes("-V1")) {
+            // Try .jpg next
+            this.src = folderPath + ".jpg";
+            this.onerror = function() {
+                // If .jpg fails, check if we need capitalized shape name (e.g. Pear-Y.webp)
+                let cShape = shape.charAt(0).toUpperCase() + shape.slice(1);
+                let cPath = `assets/img/${currentSKU}/${shape}/${currentSKU}-${cShape}-${mCode}`;
+                this.src = cPath + ".webp";
+
+                this.onerror = function() {
+                    // Finally fallback to -V1
+                    this.src = folderPath + "-V1.webp";
+                    this.onerror = null;
+                };
+            };
+        }
+    };
+
     if (ring3dImg) ring3dImg.src = mainImg.src;
 
     // 2. Update Gallery Thumbnails with automatic JPG fallback
@@ -187,17 +206,41 @@ function updateProductGallery() {
             'emerald': 'W',
             'marquise': 'W'
         },
-        '21923': {
+        '15798': {
             'round': 'Y',
+            'oval': 'R',
+            'pear': 'R',
             'radiant': 'W',
+            'cushion': 'R',
             'emerald': 'W',
             'marquise': 'Y'
         },
         '26082': {
             'round': 'W',
-            'cushion': 'Y',
+            'oval': 'R',
             'pear': 'Y',
-            'marquise': 'W'
+            'marquise': 'W',
+            'radiant': 'R',
+            'cushion': 'Y',
+            'emerald': 'R'
+        },
+        '25727': {
+            'round': 'Y',
+            'oval': 'W',
+            'pear': 'Y',
+            'marquise': 'W',
+            'radiant': 'Y',
+            'cushion': 'Y',
+            'emerald': 'R'
+        },
+        '32753': {
+            'round': 'Y',
+            'cushion': 'Y',
+            'emerald': 'R',
+            'marquise': 'W',
+            'oval': 'R',
+            'pear': 'Y',
+            'radiant': 'W'
         }
     };
 
@@ -226,6 +269,7 @@ function pickShape(btn, label) {
     const labelEl = document.getElementById('shapeLbl');
     if (labelEl) labelEl.textContent = label;
     updateProductGallery();
+    scrollToMain();
 }
 
 function pickMetal(btn, label) {
@@ -249,6 +293,7 @@ function pickMetal(btn, label) {
     const labelEl = document.getElementById('metalLbl');
     if (labelEl) labelEl.textContent = label;
     updateProductGallery();
+    scrollToMain();
 }
 
 function pickWeight(btn, price, label) {
@@ -289,9 +334,29 @@ function setupGallerySwapping() {
                 // Sync 3D viewer if present
                 const ring3d = document.getElementById('ring3d');
                 if (ring3d) ring3d.src = clickedSrc;
+                scrollToMain();
             }, 150);
         });
     });
+}
+
+/**
+ * Automatically scrolls the page back to the main product hero image
+ */
+function scrollToMain() {
+    const mainImg = document.getElementById('productMainImg');
+    if (mainImg) {
+        // We use scrollIntoView with 'start' and a slight delay to ensure content is settled
+        const container = document.getElementById('storyHero') || mainImg;
+        const rect = container.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetY = rect.top + scrollTop - 100; // 100px offset for the sticky header
+
+        window.scrollTo({
+            top: targetY,
+            behavior: 'smooth'
+        });
+    }
 }
 
 /**
