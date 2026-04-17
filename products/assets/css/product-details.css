@@ -1337,7 +1337,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 15px;
-    margin: 2rem 0;
+    margin-top: 2rem;
 }
 
 .trust-item {
@@ -1456,8 +1456,8 @@ a {
 
 /* Hero Item with Zoom/3D */
 .gallery-story-hero {
-    height: 600px;
-    /* Fixed height for hero stability */
+    aspect-ratio: 1 / 1;
+    /* Square ratio for product photography */
     display: flex;
     align-items: center;
     justify-content: center;
