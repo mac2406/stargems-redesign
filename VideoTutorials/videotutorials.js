@@ -8,9 +8,9 @@ const VIDEO_DB = {
             title: 'How to Create a Jewelry Design From a Prompt in GemArt AI',
             desc: 'GemArt AI',
             summary: 'Turn a simple text idea into a complete jewelry design. Generate and refine concepts in minutes.',
-            duration: '',
-            thumbnail: '',
-            videoSrc: 'TUT1_Prompt.webm'
+            duration: '1:02',
+            thumbnail: 'assets/img/videotutorials/thumbnails/how-to-create-a-jewelry-design-from-a-prompt-in-gemart-ai.webp',
+            videoSrc: 'assets/img/videotutorials/gemart-videos/how-to-create-a-jewelry-design-from-a-prompt-in-gemart-ai.webm'
         },
         {
             id: '2',
@@ -18,9 +18,9 @@ const VIDEO_DB = {
             title: 'How to Upload and Transform Jewelry Designs in GemArt AI',
             desc: 'GemArt AI',
             summary: 'Upload a photo, sketch, or CAD file and create new design variations instantly.',
-            duration: '',
-            thumbnail: '',
-            videoSrc: 'TUT2_Upload.webm'
+            duration: '0:45',
+            thumbnail: 'assets/img/videotutorials/thumbnails/how-to-upload-and-transform-jewelry-designs-in-gemart-ai.webp',
+            videoSrc: 'assets/img/videotutorials/gemart-videos/how-to-upload-and-transform-jewelry-designs-in-gemart-ai.webm'
         },
         {
             id: '3',
@@ -28,9 +28,9 @@ const VIDEO_DB = {
             title: 'How to Price Jewelry Designs in GemArt AI',
             desc: 'GemArt AI',
             summary: 'Learn how pricing is calculated using metals, stones, and design specs.',
-            duration: '',
-            thumbnail: '',
-            videoSrc: 'TUT3_Pricing.webm'
+            duration: '0:50',
+            thumbnail: 'assets/img/videotutorials/thumbnails/how-to-price-jewelry-designs-in-gemart-ai.webp',
+            videoSrc: 'assets/img/videotutorials/gemart-videos/how-to-price-jewelry-designs-in-gemart-ai.webm'
         },
         {
             id: '4',
@@ -38,9 +38,9 @@ const VIDEO_DB = {
             title: 'How to Create Jewelry Renders in GemArt AI',
             desc: 'GemArt AI',
             summary: 'Generate photorealistic renders for presentations, websites, and social media.',
-            duration: '',
-            thumbnail: '',
-            videoSrc: 'TUT4_Renders.webm'
+            duration: '1:04',
+            thumbnail: 'assets/img/videotutorials/thumbnails/how-to-create-jewelry-renders-in-gemart-ai.webp',
+            videoSrc: 'assets/img/videotutorials/gemart-videos/how-to-create-jewelry-renders-in-gemart-ai.webm'
         },
         {
             id: '5',
@@ -48,9 +48,9 @@ const VIDEO_DB = {
             title: 'How to Adjust Markups and Pricing in GemArt AI',
             desc: 'GemArt AI',
             summary: 'Update pricing with markups and margins to keep quotes accurate and consistent.',
-            duration: '',
-            thumbnail: '',
-            videoSrc: 'TUT5_Markup.webm'
+            duration: '0:42',
+            thumbnail: 'assets/img/videotutorials/thumbnails/how-to-adjust-markups-and-pricing-in-gemart-ai.webp',
+            videoSrc: 'assets/img/videotutorials/gemart-videos/how-to-adjust-markups-and-pricing-in-gemart-ai.webm'
         },
         {
             id: '6',
@@ -58,9 +58,9 @@ const VIDEO_DB = {
             title: 'How to Customize 25,000+ CAD Designs in GemArt AI',
             desc: 'GemArt AI',
             summary: 'Edit and refine designs from Star Gems\' CAD library to create new variations quickly.',
-            duration: '',
-            thumbnail: '',
-            videoSrc: 'TUT6_CADS.webm'
+            duration: '0:53',
+            thumbnail: 'assets/img/videotutorials/thumbnails/how-to-customize-twenty-five-thousand-cad-designs-in-gemart-ai.webp',
+            videoSrc: 'assets/img/videotutorials/gemart-videos/how-to-customize-twenty-five-thousand-cad-designs-in-gemart-ai.webm'
         },
         {
             id: '7',
@@ -68,9 +68,9 @@ const VIDEO_DB = {
             title: 'How to Use the Gallery in GemArt AI',
             desc: 'GemArt AI',
             summary: 'View, organize, and manage your designs and generated assets in one place.',
-            duration: '',
-            thumbnail: '',
-            videoSrc: 'TUT7_Gallery.webm'
+            duration: '0:36',
+            thumbnail: 'assets/img/videotutorials/thumbnails/how-to-use-the-gallery-in-gemart-ai.webp',
+            videoSrc: 'assets/img/videotutorials/gemart-videos/how-to-use-the-gallery-in-gemart-ai.webm'
         },
 
         // TextMeChat
@@ -85,8 +85,8 @@ const VIDEO_DB = {
                 • Change the staff name so messages show who they're coming from<br>
                 • Attach reviews, Facebook events, and appointment links directly to your texts`,
             duration: '0:56',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/1. TMC Messaging Basic Voiceover.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/gemart-ai-messaging-guide-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/1. TMC Messaging Basic Voiceover.mp4'
         },
         {
             id: '9',
@@ -100,8 +100,8 @@ const VIDEO_DB = {
                 • Personalize messages for better engagement<br>
                 • Schedule or send broadcasts instantly`,
             duration: '1:24',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/2. TMC Broadcast Basic Voiceover.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/broadcast-messaging-settings-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/2. TMC Broadcast Basic Voiceover.mp4'
         },
         {
             id: '10',
@@ -114,8 +114,8 @@ const VIDEO_DB = {
                 • Confirm review links, catalog links, and appointment links are working properly<br>
                 • Ensure your messages are polished and engaging before sending`,
             duration: '1:21',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/3. TMC Visual_1.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/customer-view-experience-in-gemart-ai-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/3. TMC Visual_1.mp4'
         },
         {
             id: '11',
@@ -128,8 +128,8 @@ const VIDEO_DB = {
                 • Navigate other conversation groups in the Conversation Hub<br>
                 • Apply conversation filters to find exactly what you need`,
             duration: '1:11',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/4. TMC Inbox Management.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/inbox-management-in-gemart-ai-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/4. TMC Inbox Management.mp4'
         },
         {
             id: '12',
@@ -142,8 +142,8 @@ const VIDEO_DB = {
                 • Send catalogs directly to customers through TextMeChat<br>
                 • View how the catalog appears to customers for a seamless shopping experience`,
             duration: '1:14',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/5. TMC Catalog Voiceover.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/create-and-manage-product-catalogs-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/5. TMC Catalog Voiceover.mp4'
         },
         {
             id: '13',
@@ -156,8 +156,8 @@ const VIDEO_DB = {
                 • Send coupons easily to individual customers or groups<br>
                 • Redeem coupons directly through catalogs for a seamless customer experience`,
             duration: '1:13',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/6. TMC Coupons Voiceover.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/discounts-and-coupons-to-customers-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/6. TMC Coupons Voiceover.mp4'
         },
         {
             id: '14',
@@ -170,8 +170,8 @@ const VIDEO_DB = {
                 • Send messages to all members of a group in just a few clicks<br>
                 • Ensure your messages reach the right audience quickly and efficiently`,
             duration: '1:09',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/7. TMC Contact Groups Voiceover.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/organize-customers-using-contact-groups-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/7. TMC Contact Groups Voiceover.mp4'
         },
         {
             id: '15',
@@ -184,8 +184,8 @@ const VIDEO_DB = {
                 • Send invoices directly to customers via TextMeChat<br>
                 • Ensure customers receive a clear, professional invoice that's easy to review and pay`,
             duration: '1:01',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/8. TMC PBT Voiceover.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/send-and-track-paybytext-invoices-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/8. TMC PBT Voiceover.mp4'
         },
         {
             id: '16',
@@ -198,10 +198,9 @@ const VIDEO_DB = {
                 • Check delivery status to ensure messages reached the intended recipients<br>
                 • Troubleshoot issues and keep your customer communications accurate and reliable`,
             duration: '0:50',
-            thumbnail: 'https://dummyimage.com/600x400/000/fff.jpg',
-            videoSrc: 'assets/TMC videos/9. TMC Message Logs.mp4'
+            thumbnail: 'assets/img/videotutorials/thumbnails/view-and-analyze-message-logs-in-text-me-chat-app.webp',
+            videoSrc: 'assets/img/videotutorials/TMC videos/9. TMC Message Logs.mp4'
         },
-
         // Custom
         {
             id: '17',
@@ -355,8 +354,19 @@ document.addEventListener('DOMContentLoaded', () => {
             col.setAttribute('data-category', item.category); // Keep for reference
 
             // Determine tag and display category
-            const primaryTag = item.category === 'TextMeChat' ? 'text me chat' : 'gemart ai';
-            const displayCategory = item.category === 'TextMeChat' ? 'TextMeChat' : 'GemArt AI';
+            let primaryTag = 'gemart ai';
+            let displayCategory = 'GemArt AI';
+
+            if (item.category === 'TextMeChat') {
+                primaryTag = 'text me chat';
+                displayCategory = 'TextMeChat';
+            } else if (item.category === 'Custom') {
+                primaryTag = 'custom';
+                displayCategory = 'Custom';
+            } else if (item.category === 'StarMatch') {
+                primaryTag = 'starmatch';
+                displayCategory = 'StarMatch';
+            }
 
             col.innerHTML = `
                 <div class="video-card" onclick="openVideo('${item.videoSrc}', '${item.title}')" style="cursor: pointer;">
@@ -381,7 +391,6 @@ document.addEventListener('DOMContentLoaded', () => {
                                 Duration: ${item.duration}
                             </div>
                             <a href="javascript:void(0)" onclick="openVideo('${item.videoSrc}', '${item.title}')" class="watch-link">
-                                <i data-feather="play-circle" style="width: 20px; height: 20px;"></i> Watch Demo
                             </a>
                         </div>
                     </div>
@@ -396,8 +405,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div class="details-meta">
                             <div class="meta-tags">
                                 <span class="badge rounded-pill bg-secondary">${primaryTag}</span>
-                                <span class="badge rounded-pill bg-secondary">analytics</span>
-                                <span class="badge rounded-pill bg-secondary">business</span>
+                                <!-- <span class="badge rounded-pill bg-secondary">analytics</span>
+                                <span class="badge rounded-pill bg-secondary">business</span> -->
                             </div>
                         </div>
                     </div>
@@ -532,7 +541,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 5. Video Detail View Logic
     const detailView = document.getElementById('video-detail-view');
     const mainContentGrid = document.getElementById('main-content-grid'); // Ensure this ID exists in HTML
-    const heroPlayBtn = document.getElementById('hero-play-btn');
+    const heroImageContainer = document.querySelector('.hero-image-container');
     const backToVideosBtn = document.getElementById('back-to-videos');
 
     // Elements to populate
@@ -542,8 +551,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const detailTags = document.getElementById('detail-tags');
     const sidebarAccordion = document.getElementById('sidebarAccordion');
 
-    if (heroPlayBtn) {
-        heroPlayBtn.addEventListener('click', () => {
+    if (heroImageContainer) {
+        heroImageContainer.addEventListener('click', () => {
             const heroVideoId = '2';
             const item = GENERATED_ITEMS.find(i => i.id === heroVideoId);
 
@@ -617,8 +626,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Add placeholders only if we are NOT searching (to avoid cluttering search results)
         if (!searchTerm) {
-            if (!grouped['StarMatch AI']) grouped['StarMatch AI'] = [];
-            if (!grouped['Custom Process']) grouped['Custom Process'] = [];
+            if (!grouped['StarMatch']) grouped['StarMatch'] = [];
+            if (!grouped['Custom']) grouped['Custom'] = [];
         }
 
         let accordionHTML = '';

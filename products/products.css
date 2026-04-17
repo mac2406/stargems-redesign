@@ -453,15 +453,16 @@ a {
 
 /* Ring Image Switching */
 .main-ring-img {
-    transition: opacity 0.3s ease, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
+    transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) !important;
 }
 
 .hover-img {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: opacity 0.4s ease, transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
     z-index: 1;
+    mix-blend-mode: normal !important;
 }
 
 .product-card:hover .hover-img {
@@ -470,6 +471,8 @@ a {
 
 .product-card:hover .main-ring-img {
     opacity: 0;
+    transition-delay: 0.1s;
+    /* Tiny delay to prevent white flash */
 }
 
 /* Swatches */
